@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6FBD266C20CFF0EF00DB107B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */; };
+		6FBD266E20CFF0EF00DB107B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD266D20CFF0EF00DB107B /* ViewController.swift */; };
+		6FBD267120CFF0EF00DB107B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD266F20CFF0EF00DB107B /* Main.storyboard */; };
+		6FBD267320CFF0EF00DB107B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD267220CFF0EF00DB107B /* Assets.xcassets */; };
+		6FBD267620CFF0EF00DB107B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD267420CFF0EF00DB107B /* LaunchScreen.storyboard */; };
+		6FBD268220D0092400DB107B /* AddingScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */; };
+		6FBD268420D009F200DB107B /* ScheduleInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD268320D009F200DB107B /* ScheduleInfoObject.swift */; };
+		6FBD268820D00D2D00DB107B /* ScheduleInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD268720D00D2D00DB107B /* ScheduleInfoModel.swift */; };
+		6FBD268C20D01E5200DB107B /* DayInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD268B20D01E5200DB107B /* DayInfoObject.swift */; };
+		6FBD269C20EF02CE00DB107B /* ScheduleTimeDayChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD269B20EF02CE00DB107B /* ScheduleTimeDayChange.swift */; };
+		6FBD269E20EF38A400DB107B /* StartingTimeInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD269D20EF38A400DB107B /* StartingTimeInfoObject.swift */; };
+		6FBD26A020EF394700DB107B /* FinishingTimeInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD269F20EF394700DB107B /* FinishingTimeInfoObject.swift */; };
+		6FBD26A220EF4A5B00DB107B /* ScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6FBD266820CFF0EF00DB107B /* RemainingFreeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemainingFreeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6FBD266D20CFF0EF00DB107B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6FBD267020CFF0EF00DB107B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6FBD267220CFF0EF00DB107B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6FBD267520CFF0EF00DB107B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6FBD267720CFF0EF00DB107B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingScheduleViewController.swift; sourceTree = "<group>"; };
+		6FBD268320D009F200DB107B /* ScheduleInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInfoObject.swift; sourceTree = "<group>"; };
+		6FBD268720D00D2D00DB107B /* ScheduleInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInfoModel.swift; sourceTree = "<group>"; };
+		6FBD268B20D01E5200DB107B /* DayInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInfoObject.swift; sourceTree = "<group>"; };
+		6FBD269B20EF02CE00DB107B /* ScheduleTimeDayChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTimeDayChange.swift; sourceTree = "<group>"; };
+		6FBD269D20EF38A400DB107B /* StartingTimeInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingTimeInfoObject.swift; sourceTree = "<group>"; };
+		6FBD269F20EF394700DB107B /* FinishingTimeInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishingTimeInfoObject.swift; sourceTree = "<group>"; };
+		6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6FBD266520CFF0EF00DB107B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6FBD265F20CFF0EF00DB107B = {
+			isa = PBXGroup;
+			children = (
+				6FBD266A20CFF0EF00DB107B /* RemainingFreeTime */,
+				6FBD266920CFF0EF00DB107B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6FBD266920CFF0EF00DB107B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FBD266820CFF0EF00DB107B /* RemainingFreeTime.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6FBD266A20CFF0EF00DB107B /* RemainingFreeTime */ = {
+			isa = PBXGroup;
+			children = (
+				6FBD268520D00A8000DB107B /* ValuableObject */,
+				6FBD268620D00CFE00DB107B /* Model */,
+				6FBD269B20EF02CE00DB107B /* ScheduleTimeDayChange.swift */,
+				6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */,
+				6FBD266D20CFF0EF00DB107B /* ViewController.swift */,
+				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
+				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
+				6FBD266F20CFF0EF00DB107B /* Main.storyboard */,
+				6FBD267220CFF0EF00DB107B /* Assets.xcassets */,
+				6FBD267420CFF0EF00DB107B /* LaunchScreen.storyboard */,
+				6FBD267720CFF0EF00DB107B /* Info.plist */,
+			);
+			path = RemainingFreeTime;
+			sourceTree = "<group>";
+		};
+		6FBD268520D00A8000DB107B /* ValuableObject */ = {
+			isa = PBXGroup;
+			children = (
+				6FBD268320D009F200DB107B /* ScheduleInfoObject.swift */,
+				6FBD268B20D01E5200DB107B /* DayInfoObject.swift */,
+				6FBD269D20EF38A400DB107B /* StartingTimeInfoObject.swift */,
+				6FBD269F20EF394700DB107B /* FinishingTimeInfoObject.swift */,
+			);
+			path = ValuableObject;
+			sourceTree = "<group>";
+		};
+		6FBD268620D00CFE00DB107B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6FBD268720D00D2D00DB107B /* ScheduleInfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6FBD266720CFF0EF00DB107B /* RemainingFreeTime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FBD267A20CFF0EF00DB107B /* Build configuration list for PBXNativeTarget "RemainingFreeTime" */;
+			buildPhases = (
+				6FBD266420CFF0EF00DB107B /* Sources */,
+				6FBD266520CFF0EF00DB107B /* Frameworks */,
+				6FBD266620CFF0EF00DB107B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RemainingFreeTime;
+			productName = RemainingFreeTime;
+			productReference = 6FBD266820CFF0EF00DB107B /* RemainingFreeTime.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6FBD266020CFF0EF00DB107B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = victory;
+				TargetAttributes = {
+					6FBD266720CFF0EF00DB107B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6FBD266320CFF0EF00DB107B /* Build configuration list for PBXProject "RemainingFreeTime" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6FBD265F20CFF0EF00DB107B;
+			productRefGroup = 6FBD266920CFF0EF00DB107B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6FBD266720CFF0EF00DB107B /* RemainingFreeTime */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6FBD266620CFF0EF00DB107B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FBD267620CFF0EF00DB107B /* LaunchScreen.storyboard in Resources */,
+				6FBD267320CFF0EF00DB107B /* Assets.xcassets in Resources */,
+				6FBD267120CFF0EF00DB107B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6FBD266420CFF0EF00DB107B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FBD269E20EF38A400DB107B /* StartingTimeInfoObject.swift in Sources */,
+				6FBD268820D00D2D00DB107B /* ScheduleInfoModel.swift in Sources */,
+				6FBD268C20D01E5200DB107B /* DayInfoObject.swift in Sources */,
+				6FBD26A220EF4A5B00DB107B /* ScheduleCollectionViewController.swift in Sources */,
+				6FBD268220D0092400DB107B /* AddingScheduleViewController.swift in Sources */,
+				6FBD266E20CFF0EF00DB107B /* ViewController.swift in Sources */,
+				6FBD26A020EF394700DB107B /* FinishingTimeInfoObject.swift in Sources */,
+				6FBD266C20CFF0EF00DB107B /* AppDelegate.swift in Sources */,
+				6FBD268420D009F200DB107B /* ScheduleInfoObject.swift in Sources */,
+				6FBD269C20EF02CE00DB107B /* ScheduleTimeDayChange.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6FBD266F20CFF0EF00DB107B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FBD267020CFF0EF00DB107B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6FBD267420CFF0EF00DB107B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FBD267520CFF0EF00DB107B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6FBD267820CFF0EF00DB107B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6FBD267920CFF0EF00DB107B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6FBD267B20CFF0EF00DB107B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NN8H35Y5SU;
+				INFOPLIST_FILE = RemainingFreeTime/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.victory.RemainingFreeTime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6FBD267C20CFF0EF00DB107B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NN8H35Y5SU;
+				INFOPLIST_FILE = RemainingFreeTime/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.victory.RemainingFreeTime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6FBD266320CFF0EF00DB107B /* Build configuration list for PBXProject "RemainingFreeTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FBD267820CFF0EF00DB107B /* Debug */,
+				6FBD267920CFF0EF00DB107B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FBD267A20CFF0EF00DB107B /* Build configuration list for PBXNativeTarget "RemainingFreeTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FBD267B20CFF0EF00DB107B /* Debug */,
+				6FBD267C20CFF0EF00DB107B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6FBD266020CFF0EF00DB107B /* Project object */;
+}
