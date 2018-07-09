@@ -21,6 +21,7 @@ class AddingScheduleViewController: UIViewController {
     @IBOutlet weak var startingTimeMinute: UITextField!
     @IBOutlet weak var finishingTimeHour: UITextField!
     @IBOutlet weak var finishingTimeMinute: UITextField!
+    @IBOutlet weak var warningLabel: UILabel!
     let dayInfo : DayInfoObject = DayInfoObject()
     let userScheduleInfo : ScheduleInfoObject = ScheduleInfoObject()
     let scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
@@ -33,8 +34,8 @@ class AddingScheduleViewController: UIViewController {
         scheduleTimeFriBtn.backgroundColor = UIColor.clear
         scheduleTimeSatBtn.backgroundColor = UIColor.clear
         scheduleTimeSunBtn.backgroundColor = UIColor.clear
+        warningLabel.textColor = UIColor.clear
     }
-    
     @IBAction func scheduleTimeMonBtn(_ sender: Any) {
         if scheduleTimeMonBtn.backgroundColor == UIColor.clear{
             scheduleTimeMonBtn.backgroundColor = UIColor.yellow
@@ -99,23 +100,20 @@ class AddingScheduleViewController: UIViewController {
         }
     }
     @IBAction func addingScheduleIsDone(_ sender: Any) {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        userScheduleInfo.scheduleName = scheduleNameTextField.text!
-        userScheduleInfo.scheduleDay = dayInfo
-        userScheduleInfo.startingTime.startingTimeHour = Int(startingTimeHour.text!)!
-        userScheduleInfo.startingTime.startingTimeMinute = Int(startingTimeMinute.text!)!
-        userScheduleInfo.finishingTime.finishingTimeHour = Int(finishingTimeHour.text!)!
-        userScheduleInfo.finishingTime.finishingTimeMinute = Int(finishingTimeMinute.text!)!
-        scheduleInfoModel.scheduleInfoArray.append(userScheduleInfo)
-        self.navigationController?.popViewController(animated: true)
+        if scheduleNameTextField.text == "" || startingTimeHour.text == "" || startingTimeMinute.text == "" || finishingTimeHour.text == "" || finishingTimeMinute.text == ""{
+            warningLabel.textColor = UIColor.red
+        }else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
+            warningLabel.textColor = UIColor.red
+        }else{
+            userScheduleInfo.scheduleName = scheduleNameTextField.text!
+            userScheduleInfo.scheduleDay = dayInfo
+            userScheduleInfo.startingTime.startingTimeHour = Int(startingTimeHour.text!)!
+            userScheduleInfo.startingTime.startingTimeMinute = Int(startingTimeMinute.text!)!
+            userScheduleInfo.finishingTime.finishingTimeHour = Int(finishingTimeHour.text!)!
+            userScheduleInfo.finishingTime.finishingTimeMinute = Int(finishingTimeMinute.text!)!
+            scheduleInfoModel.scheduleInfoArray.append(userScheduleInfo)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
 }
