@@ -19,6 +19,7 @@
 		6FBD269E20EF38A400DB107B /* StartingTimeInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD269D20EF38A400DB107B /* StartingTimeInfoObject.swift */; };
 		6FBD26A020EF394700DB107B /* FinishingTimeInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD269F20EF394700DB107B /* FinishingTimeInfoObject.swift */; };
 		6FBD26A220EF4A5B00DB107B /* ScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */; };
+		AD25239520F47BCC003902AE /* ACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25239420F47BCC003902AE /* ACollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		6FBD269D20EF38A400DB107B /* StartingTimeInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingTimeInfoObject.swift; sourceTree = "<group>"; };
 		6FBD269F20EF394700DB107B /* FinishingTimeInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishingTimeInfoObject.swift; sourceTree = "<group>"; };
 		6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewController.swift; sourceTree = "<group>"; };
+		AD25239420F47BCC003902AE /* ACollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,16 +70,15 @@
 		6FBD266A20CFF0EF00DB107B /* RemainingFreeTime */ = {
 			isa = PBXGroup;
 			children = (
+				6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */,
 				6FBD268520D00A8000DB107B /* ValuableObject */,
 				6FBD268620D00CFE00DB107B /* Model */,
-				6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */,
-				6FBD266D20CFF0EF00DB107B /* ViewController.swift */,
-				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
-				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
+				AD25239320F311F9003902AE /* VC */,
 				6FBD266F20CFF0EF00DB107B /* Main.storyboard */,
 				6FBD267220CFF0EF00DB107B /* Assets.xcassets */,
 				6FBD267420CFF0EF00DB107B /* LaunchScreen.storyboard */,
 				6FBD267720CFF0EF00DB107B /* Info.plist */,
+				AD25239420F47BCC003902AE /* ACollectionViewCell.swift */,
 			);
 			path = RemainingFreeTime;
 			sourceTree = "<group>";
@@ -99,6 +100,16 @@
 				6FBD268720D00D2D00DB107B /* ScheduleInfoModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AD25239320F311F9003902AE /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				6FBD266D20CFF0EF00DB107B /* ViewController.swift */,
+				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
+				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD25239520F47BCC003902AE /* ACollectionViewCell.swift in Sources */,
 				6FBD269E20EF38A400DB107B /* StartingTimeInfoObject.swift in Sources */,
 				6FBD268820D00D2D00DB107B /* ScheduleInfoModel.swift in Sources */,
 				6FBD268C20D01E5200DB107B /* DayInfoObject.swift in Sources */,
