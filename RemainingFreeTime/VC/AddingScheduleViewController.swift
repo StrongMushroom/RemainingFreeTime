@@ -35,10 +35,18 @@ class AddingScheduleViewController: UIViewController {
         scheduleTimeSatBtn.backgroundColor = UIColor.clear
         scheduleTimeSunBtn.backgroundColor = UIColor.clear
         warningLabel.textColor = UIColor.clear
+        //view로 꺼내야 하는 것 같은데 어떻게 하는건지 잘 모르겠다
+        scheduleTimeMonBtn.layer.cornerRadius = 0.5 * scheduleTimeMonBtn.bounds.size.width
+        scheduleTimeTueBtn.layer.cornerRadius = 0.5 * scheduleTimeTueBtn.bounds.size.width
+        scheduleTimeWedBtn.layer.cornerRadius = 0.5 * scheduleTimeWedBtn.bounds.size.width
+        scheduleTimeThuBtn.layer.cornerRadius = 0.5 * scheduleTimeThuBtn.bounds.size.width
+        scheduleTimeFriBtn.layer.cornerRadius = 0.5 * scheduleTimeFriBtn.bounds.size.width
+        scheduleTimeSatBtn.layer.cornerRadius = 0.5 * scheduleTimeSatBtn.bounds.size.width
+        scheduleTimeSunBtn.layer.cornerRadius = 0.5 * scheduleTimeSunBtn.bounds.size.width
     }
     @IBAction func scheduleTimeMonBtn(_ sender: Any) {
         if scheduleTimeMonBtn.backgroundColor == UIColor.clear{
-            scheduleTimeMonBtn.backgroundColor = UIColor.yellow
+            scheduleTimeMonBtn.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
             dayInfo.todayIsMon = true
         }else{
             scheduleTimeMonBtn.backgroundColor = UIColor.clear
@@ -47,7 +55,7 @@ class AddingScheduleViewController: UIViewController {
     }
     @IBAction func scheduleTimeTueBtn(_ sender: Any) {
         if scheduleTimeTueBtn.backgroundColor == UIColor.clear{
-            scheduleTimeTueBtn.backgroundColor = UIColor.yellow
+            scheduleTimeTueBtn.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
             dayInfo.todayIsTue = true
         }else{
             scheduleTimeTueBtn.backgroundColor = UIColor.clear
@@ -56,7 +64,7 @@ class AddingScheduleViewController: UIViewController {
     }
     @IBAction func scheduleTimeWedBtn(_ sender: Any) {
         if scheduleTimeWedBtn.backgroundColor == UIColor.clear{
-            scheduleTimeWedBtn.backgroundColor = UIColor.yellow
+            scheduleTimeWedBtn.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
             dayInfo.todayIsWed = true
         }else{
             scheduleTimeWedBtn.backgroundColor = UIColor.clear
@@ -65,7 +73,7 @@ class AddingScheduleViewController: UIViewController {
     }
     @IBAction func scheduleTimeThuBtn(_ sender: Any) {
         if scheduleTimeThuBtn.backgroundColor == UIColor.clear{
-            scheduleTimeThuBtn.backgroundColor = UIColor.yellow
+            scheduleTimeThuBtn.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
             dayInfo.todayIsThu = true
         }else{
             scheduleTimeThuBtn.backgroundColor = UIColor.clear
@@ -74,7 +82,7 @@ class AddingScheduleViewController: UIViewController {
     }
     @IBAction func scheduleTimeFriBtn(_ sender: Any) {
         if scheduleTimeFriBtn.backgroundColor == UIColor.clear{
-            scheduleTimeFriBtn.backgroundColor = UIColor.yellow
+            scheduleTimeFriBtn.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
             dayInfo.todayIsFri = true
         }else{
             scheduleTimeFriBtn.backgroundColor = UIColor.clear
@@ -83,7 +91,7 @@ class AddingScheduleViewController: UIViewController {
     }
     @IBAction func scheduleTimeSatBtn(_ sender: Any) {
         if scheduleTimeSatBtn.backgroundColor == UIColor.clear{
-            scheduleTimeSatBtn.backgroundColor = UIColor.yellow
+            scheduleTimeSatBtn.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
             dayInfo.todayIsSat = true
         }else{
             scheduleTimeSatBtn.backgroundColor = UIColor.clear
@@ -92,7 +100,7 @@ class AddingScheduleViewController: UIViewController {
     }
     @IBAction func scheduleTimeSunBtn(_ sender: Any) {
         if scheduleTimeSunBtn.backgroundColor == UIColor.clear{
-            scheduleTimeSunBtn.backgroundColor = UIColor.yellow
+            scheduleTimeSunBtn.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
             dayInfo.todayIsSun = true
         }else{
             scheduleTimeSunBtn.backgroundColor = UIColor.clear

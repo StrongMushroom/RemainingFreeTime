@@ -9,7 +9,6 @@
 import UIKit
 
 class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
-    
     @IBOutlet weak var scheduleCollectonView: UICollectionView!
     let scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
     let aCollectionViewCell : ACollectionViewCell = ACollectionViewCell()
@@ -18,9 +17,8 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         scheduleCollectonView.dataSource = self
         scheduleCollectonView.delegate = self
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool){
     }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return scheduleInfoModel.scheduleInfoArray.count
     }
