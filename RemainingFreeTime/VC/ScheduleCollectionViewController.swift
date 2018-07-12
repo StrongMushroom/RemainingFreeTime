@@ -34,5 +34,8 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         aCollectionViewCell.scheduleTimeLabel.text = aCollectionViewCell.scheduleTime
         return firstCell
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
     
 }
