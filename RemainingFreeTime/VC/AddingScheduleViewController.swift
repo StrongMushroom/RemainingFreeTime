@@ -22,10 +22,11 @@ class AddingScheduleViewController: UIViewController {
     @IBOutlet weak var finishingTimeHour: UITextField!
     @IBOutlet weak var finishingTimeMinute: UITextField!
     @IBOutlet weak var warningLabel: UILabel!
+    @IBOutlet weak var warningWrongEnterLabel: UILabel!
     let dayInfo : DayInfoObject = DayInfoObject()
     //왜 두 번 초기화 하는 것 같냐
     var scheduleModel = ScheduleInfoModel()
-    var scheduleInfoArray = ScheduleInfoModel.init().scheduleInfoArray
+    var scheduleInfoArray : Array<[String:String]> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         scheduleTimeMonBtn.backgroundColor = UIColor.clear
@@ -35,7 +36,7 @@ class AddingScheduleViewController: UIViewController {
         scheduleTimeFriBtn.backgroundColor = UIColor.clear
         scheduleTimeSatBtn.backgroundColor = UIColor.clear
         scheduleTimeSunBtn.backgroundColor = UIColor.clear
-        warningLabel.textColor = UIColor.clear
+        clearLabelColor()
         //view로 꺼내야 하는 것 같은데 어떻게 하는건지 잘 모르겠다
         scheduleTimeMonBtn.layer.cornerRadius = 0.5 * scheduleTimeMonBtn.bounds.size.width
         scheduleTimeTueBtn.layer.cornerRadius = 0.5 * scheduleTimeTueBtn.bounds.size.width
@@ -108,13 +109,26 @@ class AddingScheduleViewController: UIViewController {
             dayInfo.todayIsSun = false
         }
     }
-    //숫자입력칸에 문자넣었을 때. 일정 시간이 겹칠 때
+    // 일정 시간이 겹칠 때, 시간을 0~23사이로 입력받기, 분을 0~59사이로 입력받기
     @IBAction func addingScheduleIsDone(_ sender: Any) {
+        //스케쥴 이름이나 시간의 텍스트를 입력받지 않았을 때
+        clearLabelColor()
         if scheduleNameTextField.text == "" || startingTimeHour.text == "" || startingTimeMinute.text == "" || finishingTimeHour.text == "" || finishingTimeMinute.text == ""{
             warningLabel.textColor = UIColor.red
-        }else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
+        }
+        //요일 선택을 하나도 하지 않았을 때
+        else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
             warningLabel.textColor = UIColor.red
-        }else{
+        }
+        //시간 입력에 문자를 넣었을 때
+        else if Int(startingTimeHour.text!) == nil || Int(startingTimeMinute.text!) == nil || Int(finishingTimeHour.text!) == nil || Int(finishingTimeMinute.text!) == nil{
+            warningWrongEnterLabel.textColor = UIColor.red
+        }
+        /*시간을 24이상으로 입력하거나 분을 60이상으로 입력했을 때
+        else if Int(startingTimeHour.text!)!>=24 || Int(startingTimeHour.text!)!<=0 {
+            
+        }*/
+        else{
             var scheduleDic = ["":""]
             scheduleDic["name"] = scheduleNameTextField.text!
             scheduleDic["monday"] = String(dayInfo.todayIsMon)
@@ -130,7 +144,15 @@ class AddingScheduleViewController: UIViewController {
             scheduleDic["finishMinute"] = finishingTimeMinute.text!
             scheduleInfoArray.append(scheduleDic)
             scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
+            let collectionViewScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "ScheduleCollectionViewController")
             self.navigationController?.popViewController(animated: true)
+            self.navigationController?.pushViewController(collectionViewScheduleVC!, animated: true)
+
         }
     }
+    func clearLabelColor(){
+        warningLabel.textColor = UIColor.clear
+        warningWrongEnterLabel.textColor = UIColor.clear
+    }
 }
+

@@ -11,19 +11,17 @@ import UIKit
 class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     @IBOutlet weak var scheduleCollectonView: UICollectionView!
     var scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
-    var scheduleArray = ScheduleInfoModel.init().scheduleInfoArray
-    var aCollectionViewCell : ACollectionViewCell = ACollectionViewCell()
+    var scheduleArray : Array<[String:String]> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         scheduleCollectonView.dataSource = self
         scheduleCollectonView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool){
-        scheduleInfoModel.setScheduleDatafromUserDefaults()
-        scheduleArray = scheduleInfoModel.scheduleInfoArray
+        scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return scheduleInfoModel.scheduleInfoArray.count
+        return scheduleArray.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let scheduleCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
@@ -31,5 +29,10 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         scheduleCell.scheduleTimeLabel.text = scheduleArray[indexPath.row]["startHour"]! + ":" + scheduleArray[indexPath.row]["startMinute"]! + "~" + scheduleArray[indexPath.row]["finishHour"]! + ":" + scheduleArray[indexPath.row]["finishMinute"]!
         return scheduleCell
     }
-
+    @IBAction func showingAddingScheduleVC(_ sender: Any) {
+        let AddingScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "AddingScheduleViewController")
+        //애니메이티드는 실행되냐 아니냐를 말하는건가 애니메이션 효과인줄 알았는데 뭐징
+        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.pushViewController(AddingScheduleVC!, animated: true)
+    }
 }
