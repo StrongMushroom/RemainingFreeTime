@@ -11,7 +11,4 @@ import UIKit
 class ACollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var scheduleNameLabel: UILabel!
     @IBOutlet weak var scheduleTimeLabel: UILabel!
-    var scheduleName : String = ""
-    var scheduleTime : String = ""
-    
 }

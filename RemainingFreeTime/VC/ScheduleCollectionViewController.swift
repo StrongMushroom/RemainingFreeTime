@@ -11,6 +11,7 @@ import UIKit
 class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     @IBOutlet weak var scheduleCollectonView: UICollectionView!
     var scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
+    var scheduleArray = ScheduleInfoModel.init().scheduleInfoArray
     var aCollectionViewCell : ACollectionViewCell = ACollectionViewCell()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,22 +19,17 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         scheduleCollectonView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool){
-            scheduleYeah()
+        scheduleInfoModel.setScheduleDatafromUserDefaults()
+        scheduleArray = scheduleInfoModel.scheduleInfoArray
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return scheduleInfoModel.scheduleInfoArray.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let firstCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
-        firstCell.scheduleName = scheduleInfoModel.scheduleInfoArray[indexPath.row].scheduleName
-        firstCell.scheduleTime = String(scheduleInfoModel.scheduleInfoArray[indexPath.row].startingTime.startingTimeHour) + ":" +  String(scheduleInfoModel.scheduleInfoArray[indexPath.row].startingTime.startingTimeMinute)
-            + "~" + String(scheduleInfoModel.scheduleInfoArray[indexPath.row].finishingTime.finishingTimeHour)
-            + ":" + String(scheduleInfoModel.scheduleInfoArray[indexPath.row].finishingTime.finishingTimeMinute)
-        aCollectionViewCell.scheduleNameLabel.text = aCollectionViewCell.scheduleName
-        aCollectionViewCell.scheduleTimeLabel.text = aCollectionViewCell.scheduleTime
-        return firstCell
+        let scheduleCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
+        scheduleCell.scheduleNameLabel.text = scheduleArray[indexPath.row]["name"]
+        scheduleCell.scheduleTimeLabel.text = scheduleArray[indexPath.row]["startHour"]! + ":" + scheduleArray[indexPath.row]["startMinute"]! + "~" + scheduleArray[indexPath.row]["finishHour"]! + ":" + scheduleArray[indexPath.row]["finishMinute"]!
+        return scheduleCell
     }
-    func scheduleYeah(){
-        scheduleInfoModel.scheduleInfoArray = UserDefaults.standard.value(forKey: "userScheduleInfo") as! Array<ScheduleInfoObject>
-    }
+
 }

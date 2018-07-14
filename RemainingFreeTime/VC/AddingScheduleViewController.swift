@@ -23,9 +23,8 @@ class AddingScheduleViewController: UIViewController {
     @IBOutlet weak var finishingTimeMinute: UITextField!
     @IBOutlet weak var warningLabel: UILabel!
     let dayInfo : DayInfoObject = DayInfoObject()
-    let userScheduleInfo : ScheduleInfoObject = ScheduleInfoObject()
-    let scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
     //왜 두 번 초기화 하는 것 같냐
+    var scheduleModel = ScheduleInfoModel()
     var scheduleInfoArray = ScheduleInfoModel.init().scheduleInfoArray
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,41 +115,22 @@ class AddingScheduleViewController: UIViewController {
         }else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
             warningLabel.textColor = UIColor.red
         }else{
-            userScheduleInfo.scheduleName = scheduleNameTextField.text!
-            userScheduleInfo.scheduleDay = dayInfo
-            userScheduleInfo.startingTime.startingTimeHour = Int(startingTimeHour.text!)!
-            userScheduleInfo.startingTime.startingTimeMinute = Int(startingTimeMinute.text!)!
-            userScheduleInfo.finishingTime.finishingTimeHour = Int(finishingTimeHour.text!)!
-            userScheduleInfo.finishingTime.finishingTimeMinute = Int(finishingTimeMinute.text!)!
-            scheduleInfoModel.scheduleInfoArray.append(userScheduleInfo)
-            UserDefaults.standard.set(scheduleInfoArray, forKey: "userScheduleInfo")
+            var scheduleDic = ["":""]
+            scheduleDic["name"] = scheduleNameTextField.text!
+            scheduleDic["monday"] = String(dayInfo.todayIsMon)
+            scheduleDic["tuesday"] = String(dayInfo.todayIsTue)
+            scheduleDic["wednesday"] = String(dayInfo.todayIsWed)
+            scheduleDic["thursday"] = String(dayInfo.todayIsThu)
+            scheduleDic["friday"] = String(dayInfo.todayIsFri)
+            scheduleDic["saturday"] = String(dayInfo.todayIsSat)
+            scheduleDic["sunday"] = String(dayInfo.todayIsSun)
+            scheduleDic["startHour"] = startingTimeHour.text!
+            scheduleDic["startMinute"] = startingTimeMinute.text!
+            scheduleDic["finishHour"] = finishingTimeHour.text!
+            scheduleDic["finishMinute"] = finishingTimeMinute.text!
+            scheduleInfoArray.append(scheduleDic)
+            scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
             self.navigationController?.popViewController(animated: true)
         }
     }
 }
-/*
- UserDefaults.standard.set(userScheduleInfo.scheduleName, forKey: "scheduleName")
- UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsMon, forKey: "todayIsMon")
- UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsTue, forKey: "todayIsTue")
- UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsWed, forKey: "todayIsWed")
- UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsThu, forKey: "todayIsThu")
- UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsFri, forKey: "todayIsFri")
- UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsSat, forKey: "todayIsSat")
- UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsSun, forKey: "todayIsSun")
- UserDefaults.standard.set(userScheduleInfo.startingTime.startingTimeHour, forKey: "startingTimeHour")
- UserDefaults.standard.set(userScheduleInfo.startingTime.startingTimeMinute, forKey: "startingTimeMinute")
- UserDefaults.standard.set(userScheduleInfo.finishingTime.finishingTimeHour, forKey: "finishingTimeHour")
- UserDefaults.standard.set(userScheduleInfo.finishingTime.finishingTimeMinute, forKey: "finishingTimeMinute")
- scheduleInfoObject.scheduleName = userDefaults.value(forKey: "scheduleName") as! String
- scheduleInfoObject.scheduleDay.todayIsMon = userDefaults.value(forKey: "todayIsMon") as! Bool
- scheduleInfoObject.scheduleDay.todayIsTue = userDefaults.value(forKey: "todayIsTue") as! Bool
- scheduleInfoObject.scheduleDay.todayIsWed = userDefaults.value(forKey: "todayIsWed") as! Bool
- scheduleInfoObject.scheduleDay.todayIsThu = userDefaults.value(forKey: "todayIsThu") as! Bool
- scheduleInfoObject.scheduleDay.todayIsFri = userDefaults.value(forKey: "todayIsFri") as! Bool
- scheduleInfoObject.scheduleDay.todayIsSat = userDefaults.value(forKey: "todayIsSat") as! Bool
- scheduleInfoObject.scheduleDay.todayIsSun = userDefaults.value(forKey: "todayIsSun") as! Bool
- scheduleInfoObject.startingTime.startingTimeHour = userDefaults.value(forKey: "startingTimeHour") as! Int
- scheduleInfoObject.startingTime.startingTimeMinute = userDefaults.value(forKey: "startingTimeMinute") as! Int
- scheduleInfoObject.finishingTime.finishingTimeHour = userDefaults.value(forKey: "finishingTimeHour") as! Int
- scheduleInfoObject.finishingTime.finishingTimeMinute = userDefaults.value(forKey: "finishingTimeMinute") as! Int
- */

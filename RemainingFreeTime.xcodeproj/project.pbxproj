@@ -109,8 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				6FBD266D20CFF0EF00DB107B /* ViewController.swift */,
-				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
 				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
+				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
