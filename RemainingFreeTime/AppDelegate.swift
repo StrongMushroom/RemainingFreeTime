@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreSpotlight
+import MobileCoreServices
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,6 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+   
+    private func application(_ application: UIApplication, continue: NSUserActivity, restorationHandler: @escaping ([AnyObject]?) -> Void) -> Bool{
+        if userActivity?.activityType != CSSearchableItemActionType { return true }
+        guard (userActivity?.userInfo?[CSSearchableItemActivityIdentifier] as? String) != nil else { return true }
+        return true
     }
 
 
