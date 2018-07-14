@@ -10,14 +10,15 @@ import UIKit
 
 class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     @IBOutlet weak var scheduleCollectonView: UICollectionView!
-    let scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
-    let aCollectionViewCell : ACollectionViewCell = ACollectionViewCell()
+    var scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
+    var aCollectionViewCell : ACollectionViewCell = ACollectionViewCell()
     override func viewDidLoad() {
         super.viewDidLoad()
         scheduleCollectonView.dataSource = self
         scheduleCollectonView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool){
+            scheduleYeah()
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return scheduleInfoModel.scheduleInfoArray.count
@@ -32,5 +33,7 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         aCollectionViewCell.scheduleTimeLabel.text = aCollectionViewCell.scheduleTime
         return firstCell
     }
-    
+    func scheduleYeah(){
+        scheduleInfoModel.scheduleInfoArray = UserDefaults.standard.value(forKey: "userScheduleInfo") as! Array<ScheduleInfoObject>
+    }
 }

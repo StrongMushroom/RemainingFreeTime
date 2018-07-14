@@ -25,6 +25,8 @@ class AddingScheduleViewController: UIViewController {
     let dayInfo : DayInfoObject = DayInfoObject()
     let userScheduleInfo : ScheduleInfoObject = ScheduleInfoObject()
     let scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
+    //왜 두 번 초기화 하는 것 같냐
+    var scheduleInfoArray = ScheduleInfoModel.init().scheduleInfoArray
     override func viewDidLoad() {
         super.viewDidLoad()
         scheduleTimeMonBtn.backgroundColor = UIColor.clear
@@ -107,6 +109,7 @@ class AddingScheduleViewController: UIViewController {
             dayInfo.todayIsSun = false
         }
     }
+    //숫자입력칸에 문자넣었을 때. 일정 시간이 겹칠 때
     @IBAction func addingScheduleIsDone(_ sender: Any) {
         if scheduleNameTextField.text == "" || startingTimeHour.text == "" || startingTimeMinute.text == "" || finishingTimeHour.text == "" || finishingTimeMinute.text == ""{
             warningLabel.textColor = UIColor.red
@@ -120,8 +123,34 @@ class AddingScheduleViewController: UIViewController {
             userScheduleInfo.finishingTime.finishingTimeHour = Int(finishingTimeHour.text!)!
             userScheduleInfo.finishingTime.finishingTimeMinute = Int(finishingTimeMinute.text!)!
             scheduleInfoModel.scheduleInfoArray.append(userScheduleInfo)
+            UserDefaults.standard.set(scheduleInfoArray, forKey: "userScheduleInfo")
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
 }
+/*
+ UserDefaults.standard.set(userScheduleInfo.scheduleName, forKey: "scheduleName")
+ UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsMon, forKey: "todayIsMon")
+ UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsTue, forKey: "todayIsTue")
+ UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsWed, forKey: "todayIsWed")
+ UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsThu, forKey: "todayIsThu")
+ UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsFri, forKey: "todayIsFri")
+ UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsSat, forKey: "todayIsSat")
+ UserDefaults.standard.set(userScheduleInfo.scheduleDay.todayIsSun, forKey: "todayIsSun")
+ UserDefaults.standard.set(userScheduleInfo.startingTime.startingTimeHour, forKey: "startingTimeHour")
+ UserDefaults.standard.set(userScheduleInfo.startingTime.startingTimeMinute, forKey: "startingTimeMinute")
+ UserDefaults.standard.set(userScheduleInfo.finishingTime.finishingTimeHour, forKey: "finishingTimeHour")
+ UserDefaults.standard.set(userScheduleInfo.finishingTime.finishingTimeMinute, forKey: "finishingTimeMinute")
+ scheduleInfoObject.scheduleName = userDefaults.value(forKey: "scheduleName") as! String
+ scheduleInfoObject.scheduleDay.todayIsMon = userDefaults.value(forKey: "todayIsMon") as! Bool
+ scheduleInfoObject.scheduleDay.todayIsTue = userDefaults.value(forKey: "todayIsTue") as! Bool
+ scheduleInfoObject.scheduleDay.todayIsWed = userDefaults.value(forKey: "todayIsWed") as! Bool
+ scheduleInfoObject.scheduleDay.todayIsThu = userDefaults.value(forKey: "todayIsThu") as! Bool
+ scheduleInfoObject.scheduleDay.todayIsFri = userDefaults.value(forKey: "todayIsFri") as! Bool
+ scheduleInfoObject.scheduleDay.todayIsSat = userDefaults.value(forKey: "todayIsSat") as! Bool
+ scheduleInfoObject.scheduleDay.todayIsSun = userDefaults.value(forKey: "todayIsSun") as! Bool
+ scheduleInfoObject.startingTime.startingTimeHour = userDefaults.value(forKey: "startingTimeHour") as! Int
+ scheduleInfoObject.startingTime.startingTimeMinute = userDefaults.value(forKey: "startingTimeMinute") as! Int
+ scheduleInfoObject.finishingTime.finishingTimeHour = userDefaults.value(forKey: "finishingTimeHour") as! Int
+ scheduleInfoObject.finishingTime.finishingTimeMinute = userDefaults.value(forKey: "finishingTimeMinute") as! Int
+ */
