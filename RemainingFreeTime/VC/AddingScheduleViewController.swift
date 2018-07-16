@@ -144,9 +144,9 @@ class AddingScheduleViewController: UIViewController {
             scheduleInfoArray = scheduleModel.setScheduleDatafromUserDefaults()
             scheduleInfoArray.append(scheduleDic)
             scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
-            let collectionViewScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "ScheduleCollectionViewController")
             self.navigationController?.popViewController(animated: true)
-            self.navigationController?.pushViewController(collectionViewScheduleVC!, animated: true)
+
+            
         }
     }
     func clearLabelColor(){

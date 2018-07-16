@@ -50,10 +50,13 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         }
         return scheduleCell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        scheduleArray.remove(at: indexPath.row)
+        scheduleInfoModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleArray)
+        collectionView.reloadData()
+    }
     @IBAction func showingAddingScheduleVC(_ sender: Any) {
         let AddingScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "AddingScheduleViewController")
-        //애니메이티드는 실행되냐 아니냐를 말하는건가 애니메이션 효과인줄 알았는데 뭐징
-        self.navigationController?.popViewController(animated: true)
         self.navigationController?.pushViewController(AddingScheduleVC!, animated: true)
     }
 }
