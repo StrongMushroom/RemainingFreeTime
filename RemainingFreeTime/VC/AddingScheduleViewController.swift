@@ -22,9 +22,7 @@ class AddingScheduleViewController: UIViewController {
     @IBOutlet weak var finishingTimeHour: UITextField!
     @IBOutlet weak var finishingTimeMinute: UITextField!
     @IBOutlet weak var warningLabel: UILabel!
-    @IBOutlet weak var warningWrongEnterLabel: UILabel!
     let dayInfo : DayInfoObject = DayInfoObject()
-    //왜 두 번 초기화 하는 것 같냐
     var scheduleModel = ScheduleInfoModel()
     var scheduleInfoArray : Array<[String:String]> = []
     override func viewDidLoad() {
@@ -109,7 +107,7 @@ class AddingScheduleViewController: UIViewController {
             dayInfo.todayIsSun = false
         }
     }
-    // 일정 시간이 겹칠 때, 시간을 0~23사이로 입력받기, 분을 0~59사이로 입력받기
+    //조건에 맞게 동시에 실행될 수 있는 코드는 없을까? 
     @IBAction func addingScheduleIsDone(_ sender: Any) {
         //스케쥴 이름이나 시간의 텍스트를 입력받지 않았을 때
         clearLabelColor()
@@ -122,12 +120,13 @@ class AddingScheduleViewController: UIViewController {
         }
         //시간 입력에 문자를 넣었을 때
         else if Int(startingTimeHour.text!) == nil || Int(startingTimeMinute.text!) == nil || Int(finishingTimeHour.text!) == nil || Int(finishingTimeMinute.text!) == nil{
-            warningWrongEnterLabel.textColor = UIColor.red
+            warningLabel.textColor = UIColor.red
         }
-        /*시간을 24이상으로 입력하거나 분을 60이상으로 입력했을 때
-        else if Int(startingTimeHour.text!)!>=24 || Int(startingTimeHour.text!)!<=0 {
-            
-        }*/
+        //시간을 24이상으로 입력하거나 분을 60이상으로 입력했을 때 + 숫자 마이너스로 입력했을 때(그러는 사람이 있을까...)
+        else if Int(startingTimeHour.text!)!>=24 || Int(startingTimeHour.text!)!<0 || Int(finishingTimeHour.text!)!>=60 || Int(finishingTimeMinute.text!)!<0 {
+            warningLabel.textColor = UIColor.red
+        }
+        // 일정 시간이 겹칠 때(아직 안함)
         else{
             var scheduleDic = ["":""]
             scheduleDic["name"] = scheduleNameTextField.text!
@@ -152,7 +151,6 @@ class AddingScheduleViewController: UIViewController {
     }
     func clearLabelColor(){
         warningLabel.textColor = UIColor.clear
-        warningWrongEnterLabel.textColor = UIColor.clear
     }
 }
 
