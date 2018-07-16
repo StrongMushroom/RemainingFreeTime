@@ -57,3 +57,4 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         self.navigationController?.pushViewController(AddingScheduleVC!, animated: true)
     }
 }
+
