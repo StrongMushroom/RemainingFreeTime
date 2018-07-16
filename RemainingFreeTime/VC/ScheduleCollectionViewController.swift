@@ -27,6 +27,27 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         let scheduleCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
         scheduleCell.scheduleNameLabel.text = scheduleArray[indexPath.row]["name"]
         scheduleCell.scheduleTimeLabel.text = scheduleArray[indexPath.row]["startHour"]! + ":" + scheduleArray[indexPath.row]["startMinute"]! + "~" + scheduleArray[indexPath.row]["finishHour"]! + ":" + scheduleArray[indexPath.row]["finishMinute"]!
+        if Bool(scheduleArray[indexPath.row]["monday"]!)! == true {
+            scheduleCell.mondayLabel.textColor = UIColor.black
+        }
+        if Bool(scheduleArray[indexPath.row]["tuesday"]!)! == true {
+            scheduleCell.tuesdayLabel.textColor = UIColor.black
+        }
+        if Bool(scheduleArray[indexPath.row]["wednesday"]!)! == true {
+            scheduleCell.wednesdayLabel.textColor = UIColor.black
+        }
+        if Bool(scheduleArray[indexPath.row]["thursday"]!)! == true {
+            scheduleCell.thursdayLabel.textColor = UIColor.black
+        }
+        if Bool(scheduleArray[indexPath.row]["friday"]!)! == true {
+            scheduleCell.fridayLabel.textColor = UIColor.black
+        }
+        if Bool(scheduleArray[indexPath.row]["saturday"]!)! == true {
+            scheduleCell.saturdayLabel.textColor = UIColor.black
+        }
+        if Bool(scheduleArray[indexPath.row]["sunday"]!)! == true {
+            scheduleCell.sundayLabel.textColor = UIColor.black
+        }
         return scheduleCell
     }
     @IBAction func showingAddingScheduleVC(_ sender: Any) {
