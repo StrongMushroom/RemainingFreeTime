@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import Foundation
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class ViewController: UIViewController
+{
+    @IBOutlet weak var timerHourLable: UILabel!
+    @IBOutlet weak var timerMinuteLable: UILabel!
+    @IBOutlet weak var timerSecondLable: UILabel!
+    
+    var nowHour = ()
+    
+    @IBAction func timerStart(_ sender: UIButton) {
     }
     
+    
+    @objc func counter()
+    {
+        
+    }
+    
+
 }
 
