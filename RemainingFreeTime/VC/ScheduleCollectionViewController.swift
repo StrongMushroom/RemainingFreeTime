@@ -26,7 +26,7 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let scheduleCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
         scheduleCell.scheduleNameLabel.text = scheduleArray[indexPath.row]["name"]
-        scheduleCell.scheduleTimeLabel.text = scheduleArray[indexPath.row]["startHour"]! + ":" + scheduleArray[indexPath.row]["startMinute"]! + "~" + scheduleArray[indexPath.row]["finishHour"]! + ":" + scheduleArray[indexPath.row]["finishMinute"]!
+        scheduleCell.scheduleTimeLabel.text = scheduleArray[indexPath.row]["startTime"]! + "~" + scheduleArray[indexPath.row]["finishTime"]! 
         if Bool(scheduleArray[indexPath.row]["monday"]!)! == true {
             scheduleCell.mondayLabel.textColor = UIColor.black
         }

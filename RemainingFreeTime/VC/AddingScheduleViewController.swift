@@ -17,16 +17,27 @@ class AddingScheduleViewController: UIViewController {
     @IBOutlet weak var scheduleTimeFriBtn: UIButton!
     @IBOutlet weak var scheduleTimeSatBtn: UIButton!
     @IBOutlet weak var scheduleTimeSunBtn: UIButton!
-    @IBOutlet weak var startingTimeHour: UITextField!
-    @IBOutlet weak var startingTimeMinute: UITextField!
-    @IBOutlet weak var finishingTimeHour: UITextField!
-    @IBOutlet weak var finishingTimeMinute: UITextField!
+    @IBOutlet weak var startingTimeLabel: UITextField!
+    @IBOutlet weak var finishingTimeLabel: UITextField!
     @IBOutlet weak var warningLabel: UILabel!
     let dayInfo : DayInfoObject = DayInfoObject()
     var scheduleModel = ScheduleInfoModel()
     var scheduleInfoArray : Array<[String:String]> = []
+    let dateFormatter = DateFormatter()
+    var startingDatePicker : UIDatePicker?
+    var finishingDatePicker : UIDatePicker?
     override func viewDidLoad() {
         super.viewDidLoad()
+        startingDatePicker = UIDatePicker()
+        finishingDatePicker = UIDatePicker()
+        startingDatePicker?.datePickerMode = .time
+        finishingDatePicker?.datePickerMode = .time
+        startingDatePicker?.addTarget(self, action: #selector(AddingScheduleViewController.startDateChanged(datePicker:)), for: .valueChanged)
+        finishingDatePicker?.addTarget(self, action: #selector(AddingScheduleViewController.finishDateChanged(datePicker:)), for: .valueChanged)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddingScheduleViewController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        startingTimeLabel.inputView = startingDatePicker
+        finishingTimeLabel.inputView = finishingDatePicker
         scheduleTimeMonBtn.backgroundColor = UIColor.clear
         scheduleTimeTueBtn.backgroundColor = UIColor.clear
         scheduleTimeWedBtn.backgroundColor = UIColor.clear
@@ -111,23 +122,22 @@ class AddingScheduleViewController: UIViewController {
     @IBAction func addingScheduleIsDone(_ sender: Any) {
         //스케쥴 이름이나 시간의 텍스트를 입력받지 않았을 때
         clearLabelColor()
-        if scheduleNameTextField.text == "" || startingTimeHour.text == "" || startingTimeMinute.text == "" || finishingTimeHour.text == "" || finishingTimeMinute.text == ""{
+        if scheduleNameTextField.text == ""{
             warningLabel.textColor = UIColor.red
         }
         //요일 선택을 하나도 하지 않았을 때
         else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
             warningLabel.textColor = UIColor.red
         }
-        //시간 입력에 문자를 넣었을 때
-        else if Int(startingTimeHour.text!) == nil || Int(startingTimeMinute.text!) == nil || Int(finishingTimeHour.text!) == nil || Int(finishingTimeMinute.text!) == nil{
-            warningLabel.textColor = UIColor.red
-        }
-        //시간을 24이상으로 입력하거나 분을 60이상으로 입력했을 때 + 숫자 마이너스로 입력했을 때(그러는 사람이 있을까...)
-        else if Int(startingTimeHour.text!)!>=24 || Int(startingTimeHour.text!)!<0 || Int(finishingTimeHour.text!)!>=60 || Int(finishingTimeMinute.text!)!<0 {
-            warningLabel.textColor = UIColor.red
-        }
         // 일정 시간이 겹칠 때(아직 안함)
         else{
+            dateFormatter.dateFormat = "HH:mm a"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            let startDate = dateFormatter.string(from: (startingDatePicker?.date)! )
+            let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)! )
+            /*String을 Date로 바꾸기
+            let startTimeDate : Date = dateFormatter.date(from: startDate)!
+            let finishTimeDate : Date = dateFormatter.date(from: finishDate)!*/
             var scheduleDic = ["":""]
             scheduleDic["name"] = scheduleNameTextField.text!
             scheduleDic["monday"] = String(dayInfo.todayIsMon)
@@ -137,17 +147,24 @@ class AddingScheduleViewController: UIViewController {
             scheduleDic["friday"] = String(dayInfo.todayIsFri)
             scheduleDic["saturday"] = String(dayInfo.todayIsSat)
             scheduleDic["sunday"] = String(dayInfo.todayIsSun)
-            scheduleDic["startHour"] = startingTimeHour.text!
-            scheduleDic["startMinute"] = startingTimeMinute.text!
-            scheduleDic["finishHour"] = finishingTimeHour.text!
-            scheduleDic["finishMinute"] = finishingTimeMinute.text!
+            scheduleDic["startTime"] = startDate
+            scheduleDic["finishTime"] = finishDate
             scheduleInfoArray = scheduleModel.setScheduleDatafromUserDefaults()
             scheduleInfoArray.append(scheduleDic)
             scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
             self.navigationController?.popViewController(animated: true)
-
-            
         }
+    }
+    @objc func startDateChanged(datePicker : UIDatePicker){
+        dateFormatter.dateFormat = "HH:mm a"
+        startingTimeLabel.text = dateFormatter.string(from: datePicker.date )
+    }
+    @objc func finishDateChanged(datePicker : UIDatePicker){
+        dateFormatter.dateFormat = "HH:mm a"
+        finishingTimeLabel.text = dateFormatter.string(from: datePicker.date )
+    }
+    @objc func viewTapped(gestureRecognizer : UITapGestureRecognizer){
+        view.endEditing(true)
     }
     func clearLabelColor(){
         warningLabel.textColor = UIColor.clear
