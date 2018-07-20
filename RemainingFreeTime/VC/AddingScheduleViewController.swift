@@ -26,6 +26,7 @@ class AddingScheduleViewController: UIViewController {
     let dateFormatter = DateFormatter()
     var startingDatePicker : UIDatePicker?
     var finishingDatePicker : UIDatePicker?
+    var btnArray : Array<UIButton> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         startingDatePicker = UIDatePicker()
@@ -38,22 +39,21 @@ class AddingScheduleViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         startingTimeLabel.inputView = startingDatePicker
         finishingTimeLabel.inputView = finishingDatePicker
-        scheduleTimeMonBtn.backgroundColor = UIColor.clear
-        scheduleTimeTueBtn.backgroundColor = UIColor.clear
-        scheduleTimeWedBtn.backgroundColor = UIColor.clear
-        scheduleTimeThuBtn.backgroundColor = UIColor.clear
-        scheduleTimeFriBtn.backgroundColor = UIColor.clear
-        scheduleTimeSatBtn.backgroundColor = UIColor.clear
-        scheduleTimeSunBtn.backgroundColor = UIColor.clear
+        btnArray.append(scheduleTimeMonBtn)
+        btnArray.append(scheduleTimeTueBtn)
+        btnArray.append(scheduleTimeWedBtn)
+        btnArray.append(scheduleTimeThuBtn)
+        btnArray.append(scheduleTimeFriBtn)
+        btnArray.append(scheduleTimeSatBtn)
+        btnArray.append(scheduleTimeSunBtn)
+        for btn in btnArray {
+            btn.backgroundColor = UIColor.clear
+        }
         clearLabelColor()
         //view로 꺼내야 하는 것 같은데 어떻게 하는건지 잘 모르겠다
-        scheduleTimeMonBtn.layer.cornerRadius = 0.5 * scheduleTimeMonBtn.bounds.size.width
-        scheduleTimeTueBtn.layer.cornerRadius = 0.5 * scheduleTimeTueBtn.bounds.size.width
-        scheduleTimeWedBtn.layer.cornerRadius = 0.5 * scheduleTimeWedBtn.bounds.size.width
-        scheduleTimeThuBtn.layer.cornerRadius = 0.5 * scheduleTimeThuBtn.bounds.size.width
-        scheduleTimeFriBtn.layer.cornerRadius = 0.5 * scheduleTimeFriBtn.bounds.size.width
-        scheduleTimeSatBtn.layer.cornerRadius = 0.5 * scheduleTimeSatBtn.bounds.size.width
-        scheduleTimeSunBtn.layer.cornerRadius = 0.5 * scheduleTimeSunBtn.bounds.size.width
+        for btn in btnArray {
+            btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
+        }
     }
     @IBAction func scheduleTimeMonBtn(_ sender: Any) {
         if scheduleTimeMonBtn.backgroundColor == UIColor.clear{
@@ -118,11 +118,11 @@ class AddingScheduleViewController: UIViewController {
             dayInfo.todayIsSun = false
         }
     }
-    //조건에 맞게 동시에 실행될 수 있는 코드는 없을까? 
+    //조건에 맞게 동시에 실행될 수 있는 코드는 없을까?
     @IBAction func addingScheduleIsDone(_ sender: Any) {
         //스케쥴 이름이나 시간의 텍스트를 입력받지 않았을 때
         clearLabelColor()
-        if scheduleNameTextField.text == ""{
+        if scheduleNameTextField.text == "" || startingTimeLabel.text == "" || startingTimeLabel.text == ""{
             warningLabel.textColor = UIColor.red
         }
         //요일 선택을 하나도 하지 않았을 때
@@ -132,9 +132,8 @@ class AddingScheduleViewController: UIViewController {
         // 일정 시간이 겹칠 때(아직 안함)
         else{
             dateFormatter.dateFormat = "HH:mm a"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            let startDate = dateFormatter.string(from: (startingDatePicker?.date)! )
-            let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)! )
+            let startDate = dateFormatter.string(from: (startingDatePicker?.date)!)
+            let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)!)
             /*String을 Date로 바꾸기
             let startTimeDate : Date = dateFormatter.date(from: startDate)!
             let finishTimeDate : Date = dateFormatter.date(from: finishDate)!*/
@@ -157,11 +156,11 @@ class AddingScheduleViewController: UIViewController {
     }
     @objc func startDateChanged(datePicker : UIDatePicker){
         dateFormatter.dateFormat = "HH:mm a"
-        startingTimeLabel.text = dateFormatter.string(from: datePicker.date )
+        startingTimeLabel.text = dateFormatter.string(from: datePicker.date)
     }
     @objc func finishDateChanged(datePicker : UIDatePicker){
         dateFormatter.dateFormat = "HH:mm a"
-        finishingTimeLabel.text = dateFormatter.string(from: datePicker.date )
+        finishingTimeLabel.text = dateFormatter.string(from: datePicker.date)
     }
     @objc func viewTapped(gestureRecognizer : UITapGestureRecognizer){
         view.endEditing(true)
