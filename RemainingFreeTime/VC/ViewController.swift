@@ -13,10 +13,10 @@ class ViewController: UIViewController
 {
     var oneDaySecond = 86400
     var myRemainingSecond = 0
-    @IBOutlet weak var timerHourLable: UILabel!
-    @IBOutlet weak var timerMinuteLable: UILabel!
+    @IBOutlet weak var timerHourLabel: UILabel!
+    @IBOutlet weak var timerMinuteLabel: UILabel!
     @IBOutlet weak var timerSecondLabel: UILabel!
-    var isRuning = true
+    var isRunning = true
     var date = Date()
     var timer = Timer()
     var calendar = Calendar.current
@@ -33,14 +33,14 @@ class ViewController: UIViewController
         myRemainingSecond = oneDaySecond-nowSecond
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.counter), userInfo: nil, repeats: true)
-        isRuning = true
+        isRunning = true
         
     }
     
     override func viewWillDisappear(_ animated: Bool)
     {
         timer.invalidate()
-        isRuning = false
+        isRunning = false
     }
     
    
@@ -53,10 +53,12 @@ class ViewController: UIViewController
         let timerMinute :Int = dayMinute % 60
         let timerHour : Int = dayMinute / 60
         
-        timerHourLable.text = String(timerHour)
-        timerMinuteLable.text = String(timerMinute)
+        timerHourLabel.text = String(timerHour)
+        timerMinuteLabel.text = String(timerMinute)
         timerSecondLabel.text = String(timerSecond)
     }
 
+    
+    
 }
 

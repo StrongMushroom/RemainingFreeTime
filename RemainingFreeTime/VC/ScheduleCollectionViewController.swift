@@ -36,20 +36,20 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         // 탐색 할 때 탐색 막대를 숨겨야 하는지 여부를 나타내는 불 값
         self.searchController.hidesNavigationBarDuringPresentation = false
         // 검색 중에 기본 컨텐츠가 흐리게 표시되는지 여부를 나타내는 불 값
-        self.searchController.dimsBackgroundDuringPresentation = true
+        self.searchController.dimsBackgroundDuringPresentation = false
         // 검색 중에 기본 내용이 가려져 있는지 여부를 나타내는 불 값
         self.searchController.obscuresBackgroundDuringPresentation = false
         // 인터페이스에 설치할 검색 창(수신기 뷰를 크기 조정하고 이동하여 서브 뷰를 둘러 쌉니다.)
         searchController.searchBar.sizeToFit()
         // 인터페이스에 설치할 검색 창(uikit에게 이 객체를 윈도우의 첫 번째 응답자로 만들도록 요청합니다.)
         searchController.searchBar.becomeFirstResponder()
+        // 리시버가 최상위 항목 일 때 탐색 모음의 가운데에 표시되는 사용자 정의보기 (? 무슨 소리람 이게)
         self.navigationItem.titleView = searchController.searchBar
     }
     override func viewWillAppear(_ animated: Bool){
         scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
         for a in scheduleArray {
             scheduleNameArray.append(a["name"]!)
-
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -60,6 +60,15 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
             scheduleCell.scheduleNameLabel.text = scheduleArray[indexPath.row]["name"]
         }
         scheduleCell.scheduleTimeLabel.text = scheduleArray[indexPath.row]["startTime"]! + "~" + scheduleArray[indexPath.row]["finishTime"]!
+        /*
+         scheduleCell.mondayLabel.text = filtered[indexPath.row]
+        scheduleCell.tuesdayLabel.text = filtered[indexPath.row]
+        scheduleCell.wednesdayLabel.text = filtered[indexPath.row]
+        scheduleCell.thursdayLabel.text = filtered[indexPath.row]
+        scheduleCell.fridayLabel.text = filtered[indexPath.row]
+        scheduleCell.saturdayLabel.text = filtered[indexPath.row]
+        scheduleCell.sundayLabel.text = filtered[indexPath.row]
+         */
         
         let cellTextColor = UIColor.black
         if Bool(scheduleArray[indexPath.row]["monday"]!)! == true {
@@ -128,20 +137,7 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         searchActive = true
         scheduleCollectonView.reloadData()
     }
-    
-    /*func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false
-        scheduleCollectonView.reloadData()
-    }
-     */
-    
-    /*func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        if !searchActive {
-            searchActive = true
-            scheduleCollectonView.reloadData()
-        }
-        searchController.searchBar.resignFirstResponder()
-    }*/
+
     
     @IBAction func showingAddingScheduleVC(_ sender: Any) {
         let AddingScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "AddingScheduleViewController")
