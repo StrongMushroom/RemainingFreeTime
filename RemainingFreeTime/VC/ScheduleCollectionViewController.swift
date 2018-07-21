@@ -57,7 +57,8 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         scheduleArray.remove(at: itemIndex)
         self.scheduleCollectonView.reloadData()
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         scheduleArray.remove(at: indexPath.row)
         scheduleInfoModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleArray)
         collectionView.reloadData()

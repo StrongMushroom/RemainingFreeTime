@@ -155,11 +155,11 @@ class AddingScheduleViewController: UIViewController {
         }
     }
     @objc func startDateChanged(datePicker : UIDatePicker){
-        dateFormatter.dateFormat = "HH:mm a"
+        dateFormatter.dateFormat = "HH:mm"
         startingTimeLabel.text = dateFormatter.string(from: datePicker.date)
     }
     @objc func finishDateChanged(datePicker : UIDatePicker){
-        dateFormatter.dateFormat = "HH:mm a"
+        dateFormatter.dateFormat = "HH:mm"
         finishingTimeLabel.text = dateFormatter.string(from: datePicker.date)
     }
     @objc func viewTapped(gestureRecognizer : UITapGestureRecognizer){
