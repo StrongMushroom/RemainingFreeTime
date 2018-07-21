@@ -54,7 +54,6 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let scheduleCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
-        
         if searchActive {
             scheduleCell.scheduleNameLabel.text = filtered[indexPath.row]
         }else{
@@ -62,30 +61,38 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         }
         scheduleCell.scheduleTimeLabel.text = scheduleArray[indexPath.row]["startTime"]! + "~" + scheduleArray[indexPath.row]["finishTime"]!
         
+        let cellTextColor = UIColor.black
         if Bool(scheduleArray[indexPath.row]["monday"]!)! == true {
-            scheduleCell.mondayLabel.textColor = UIColor.black
+            scheduleCell.mondayLabel.textColor = cellTextColor
         }
         if Bool(scheduleArray[indexPath.row]["tuesday"]!)! == true {
-            scheduleCell.tuesdayLabel.textColor = UIColor.black
+            scheduleCell.tuesdayLabel.textColor = cellTextColor
         }
         if Bool(scheduleArray[indexPath.row]["wednesday"]!)! == true {
-            scheduleCell.wednesdayLabel.textColor = UIColor.black
+            scheduleCell.wednesdayLabel.textColor = cellTextColor
         }
         if Bool(scheduleArray[indexPath.row]["thursday"]!)! == true {
-            scheduleCell.thursdayLabel.textColor = UIColor.black
+            scheduleCell.thursdayLabel.textColor = cellTextColor
         }
         if Bool(scheduleArray[indexPath.row]["friday"]!)! == true {
-            scheduleCell.fridayLabel.textColor = UIColor.black
+            scheduleCell.fridayLabel.textColor = cellTextColor
         }
         if Bool(scheduleArray[indexPath.row]["saturday"]!)! == true {
-            scheduleCell.saturdayLabel.textColor = UIColor.black
+            scheduleCell.saturdayLabel.textColor = cellTextColor
         }
         if Bool(scheduleArray[indexPath.row]["sunday"]!)! == true {
-            scheduleCell.sundayLabel.textColor = UIColor.black
+            scheduleCell.sundayLabel.textColor = cellTextColor
         }
         return scheduleCell
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func someMethod(sender: UISwipeGestureRecognizer) {
+        let cell = sender.view as! UICollectionViewCell
+        let itemIndex = self.scheduleCollectonView.indexPath(for: cell)!.item
+        scheduleArray.remove(at: itemIndex)
+        self.scheduleCollectonView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         scheduleArray.remove(at: indexPath.row)
         scheduleNameArray.remove(at: indexPath.row)
         scheduleInfoModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleArray)
@@ -141,4 +148,3 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         self.navigationController?.pushViewController(AddingScheduleVC!, animated: true)
     }
 }
-
