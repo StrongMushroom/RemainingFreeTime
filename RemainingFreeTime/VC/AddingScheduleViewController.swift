@@ -138,6 +138,7 @@ class AddingScheduleViewController: UIViewController {
             /*String을 Date로 바꾸기
             let startTimeDate : Date = dateFormatter.date(from: startDate)!
             let finishTimeDate : Date = dateFormatter.date(from: finishDate)!*/
+            var scheduleNameArray : [String] = []
             var scheduleDic = ["":""]
             scheduleDic["name"] = scheduleNameTextField.text!
             scheduleDic["monday"] = String(dayInfo.todayIsMon)
@@ -151,6 +152,7 @@ class AddingScheduleViewController: UIViewController {
             scheduleDic["finishTime"] = finishDate
             scheduleInfoArray = scheduleModel.setScheduleDatafromUserDefaults()
             scheduleInfoArray.append(scheduleDic)
+            scheduleNameArray.append(scheduleNameTextField.text!)
             scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
             self.navigationController?.popViewController(animated: true)
         }
