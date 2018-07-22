@@ -22,12 +22,10 @@ class ACollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate{
     var deleteLabel : UILabel!
     var deleteBtn : UIButton!
     var pan : UIPanGestureRecognizer!
-    //뭐지
     override init(frame: CGRect) {
         super.init(frame: frame)
         gestureInit()
     }
-    //뭐지
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         gestureInit()
@@ -50,7 +48,7 @@ class ACollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate{
         self.insertSubview(deleteBtn, belowSubview: self.contentView)
         deleteLabel = UILabel()
         //텍스트 가운데 오게.이렇게 말고
-        deleteLabel.text = "   delete"
+        deleteLabel.text = " delete"
         deleteLabel.textColor = UIColor.white
         deleteLabel.backgroundColor = UIColor.red
         self.insertSubview(deleteLabel, belowSubview: self.deleteBtn)
@@ -66,41 +64,40 @@ class ACollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate{
             let width = self.contentView.frame.width
             let height = self.contentView.frame.height
             self.contentView.frame = CGRect(x: p.x,y: 0, width: width, height: height)
-            self.deleteBtn.frame = CGRect(x: width - width*0.2, y: 0, width: width*0.2, height: height)
-            self.deleteLabel.frame = CGRect(x: width - width*0.2, y: 0, width: width*0.2, height: height)
+            self.deleteBtn.frame = CGRect(x: width - width*0.15, y: 0, width: width*0.15, height: height)
+            self.deleteLabel.frame = CGRect(x: width - width*0.15, y: 0, width: width*0.15, height: height)
         }
     }
     @objc func onPan(pan: UIPanGestureRecognizer) {
         let p: CGPoint = pan.translation(in: self)
         let width = self.contentView.frame.width
         let height = self.contentView.frame.height
+        deleteBtn.addTarget(self, action: #selector(btnTouched(sender:)), for: UIControlEvents.touchUpInside)
         if pan.state == UIGestureRecognizerState.began{
         }else if pan.state == UIGestureRecognizerState.changed{
             //이해안감 반대로 해야 되는게 정상아닌가
-            if p.x > -width*0.2{
+            if p.x > -width*0.15{
                 self.setNeedsLayout()
             }else{
-                self.contentView.frame = CGRect(x: -width*0.2,y: 0, width: width, height: height)
+                self.contentView.frame = CGRect(x: -width*0.15,y: 0, width: width, height: height)
             }
         }else{
-            if p.x < -width*0.2{
-            }else{//버튼 누르면 바뀌게
-                if deleteBtn.isSelected == true{
-                    let collectionView: UICollectionView = self.superview as! UICollectionView
-                    let indexPath = collectionView.indexPathForItem(at: self.center)!
-                    collectionView.delegate?.collectionView!(collectionView, performAction: #selector(onPan(pan:)), forItemAt: indexPath, withSender: nil)
-                }//지속시간
-                UIView.animate(withDuration: 1, animations: {
+            if p.x > -width*0.15{
+                UIView.animate(withDuration: 0.2, animations: {
                     self.setNeedsLayout()
                     self.layoutIfNeeded()
                 })
             }
         }
     }
+    @objc func btnTouched(sender: Any){
+        let collectionView: UICollectionView = self.superview as! UICollectionView
+        let indexPath = collectionView.indexPathForItem(at: self.center)!
+        collectionView.delegate?.collectionView!(collectionView, performAction: #selector(onPan(pan:)), forItemAt: indexPath, withSender: nil)
+    }
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-    //??
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return abs((pan.velocity(in: pan.view)).x) > abs((pan.velocity(in: pan.view)).y)
     }
