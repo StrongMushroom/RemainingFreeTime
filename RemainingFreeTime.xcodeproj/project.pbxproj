@@ -17,7 +17,6 @@
 		6FBD268C20D01E5200DB107B /* DayInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD268B20D01E5200DB107B /* DayInfoObject.swift */; };
 		6FBD26A220EF4A5B00DB107B /* ScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */; };
 		AD25239520F47BCC003902AE /* ACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25239420F47BCC003902AE /* ACollectionViewCell.swift */; };
-		AD25239920F5FC69003902AE /* SearchSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25239820F5FC69003902AE /* SearchSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		6FBD268B20D01E5200DB107B /* DayInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInfoObject.swift; sourceTree = "<group>"; };
 		6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewController.swift; sourceTree = "<group>"; };
 		AD25239420F47BCC003902AE /* ACollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACollectionViewCell.swift; sourceTree = "<group>"; };
-		AD25239820F5FC69003902AE /* SearchSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +99,6 @@
 				6FBD266D20CFF0EF00DB107B /* ViewController.swift */,
 				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
 				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
-				AD25239820F5FC69003902AE /* SearchSettingViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -183,7 +180,6 @@
 				6FBD268C20D01E5200DB107B /* DayInfoObject.swift in Sources */,
 				6FBD26A220EF4A5B00DB107B /* ScheduleCollectionViewController.swift in Sources */,
 				6FBD268220D0092400DB107B /* AddingScheduleViewController.swift in Sources */,
-				AD25239920F5FC69003902AE /* SearchSettingViewController.swift in Sources */,
 				6FBD266E20CFF0EF00DB107B /* ViewController.swift in Sources */,
 				6FBD266C20CFF0EF00DB107B /* AppDelegate.swift in Sources */,
 			);

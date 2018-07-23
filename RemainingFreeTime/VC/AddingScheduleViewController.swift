@@ -155,19 +155,6 @@ class AddingScheduleViewController: UIViewController {
             scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
             
             self.navigationController?.popViewController(animated: true)
-            
-            // '저장함' 버튼 누르면 저장, '저장하지 않음' 버튼 누르면 취소될 수 있도록 만들고 싶다. 일단 보류!
-            /*
-             let alertMessage = UIAlertController(title: "알림", message: "일정을 저장하시겠습니까?", preferredStyle: UIAlertControllerStyle.alert)
-             // 메시지 창 컨트롤러에 들어갈 버튼 액션 객체를 생성한다.
-             let cancelButton = UIAlertAction(title: "저장하지 않음", style: UIAlertActionStyle.destructive, handler: nil)
-             let okButton = UIAlertAction(title: "저장함", style: UIAlertActionStyle.default)
-             // 메시지 창 컨트롤러에 버튼 액션을 추가한다. (버튼을 컨트롤러에 등록)
-             alertMessage.addAction(cancelButton)
-             alertMessage.addAction(okButton)
-             // 메시지 창 컨트롤러를 표시한다. (메시지 창 실행)
-             self.present(alertMessage, animated: true)
-             */
         }
     }
     @objc func startDateChanged(datePicker : UIDatePicker){
@@ -187,27 +174,6 @@ class AddingScheduleViewController: UIViewController {
     func changeButtonBackgroundColor(button : UIButton){
         button.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
     }
-    
-    // 보류해둔 버튼에 대한 연습 내용들.
-    /*
-     @IBOutlet weak var result: UILabel!
-     @IBAction func alert(_ sender: Any) {
-     // 메시지창 컨트롤러 인스턴스를 생성한다. (메시지창 객체 생성)
-     let alertMessage = UIAlertController(title: "알림", message: "UIAlertController 샘플 알림창입니다.", preferredStyle: UIAlertControllerStyle.alert)
-     // 메시지 창 컨트롤러에 들어갈 버튼 액션 객체를 생성한다. (취소 버튼 + 확인 버튼 + 실행 버튼 + 중지 버튼)
-     let cancel = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel) {(_)in self.result.text = "취소 버튼을 클릭했습니다."}
-     let ok = UIAlertAction(title: "확인", style: UIAlertActionStyle.default) {(_)in self.result.text = "확인 버튼을 클릭했습니다."}
-     let exec = UIAlertAction(title: "실행", style: UIAlertActionStyle.destructive) {(_)in self.result.text = "실행 버튼을 클릭했습니다."}
-     let stop = UIAlertAction(title: "중지", style: UIAlertActionStyle.default) {(_)in self.result.text = "중지 버튼을 클릭했습니다."}
-     // 메시지 창 컨트롤러에 버튼 액션을 추가한다. (버튼을 컨트롤러에 등록)
-     alertMessage.addAction(cancel)
-     alertMessage.addAction(ok)
-     alertMessage.addAction(exec)
-     alertMessage.addAction(stop)
-     // 메시지 창 컨트롤러를 표시한다. (메시지 창 실행)
-     self.present(alertMessage, animated: false)
-     }
-     */
     
 }
 

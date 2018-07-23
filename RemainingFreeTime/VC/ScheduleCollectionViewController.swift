@@ -137,7 +137,7 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         searchActive = true
         scheduleCollectonView.reloadData()
     }
-
+    
     
     @IBAction func showingAddingScheduleVC(_ sender: Any) {
         let AddingScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "AddingScheduleViewController")
