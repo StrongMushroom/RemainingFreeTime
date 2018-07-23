@@ -70,6 +70,7 @@ class ACollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate{
     }
     @objc func onPan(pan: UIPanGestureRecognizer) {
         let p: CGPoint = pan.translation(in: self)
+        NSLog("움직임을 봅시다 : \(p)")
         let width = self.contentView.frame.width
         let height = self.contentView.frame.height
         deleteBtn.addTarget(self, action: #selector(btnTouched(sender:)), for: UIControlEvents.touchUpInside)
@@ -77,8 +78,10 @@ class ACollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate{
         }else if pan.state == UIGestureRecognizerState.changed{
             //이해안감 반대로 해야 되는게 정상아닌가
             if p.x > -width*0.15{
+                NSLog("이 안으로 들어오나요?")
                 self.setNeedsLayout()
             }else{
+                print("여기여기여깅!!!!!!!!")
                 self.contentView.frame = CGRect(x: -width*0.15,y: 0, width: width, height: height)
             }
         }else{
