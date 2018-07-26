@@ -42,18 +42,13 @@ class ViewController: UIViewController
         
     
     //뷰가 보일때 실행해 줄 함수
-     //일정중인지 일정밖인지 파악해서 남은시간을 계산해준다.(for문 돌릴때 for i in Array.count하기(startArray와 finishArray의 수가 같으니까 하나만 구해줘도 됨))
+    
      //일정중이면 정지된 타이머를 내보내고 일정밖이면 돌아가는 타이머를 내보내준다.
     override func viewWillAppear(_ animated: Bool)
     {
-//        wednesday"] = String(dayInfo.todayIsWed)
-//        scheduleDic["thursday"] = String(dayInfo.todayIsThu)
-//        scheduleDic["friday"] = String(dayInfo.todayIsFri)
-//        scheduleDic["saturday"] = String(dayInfo.todayIsSat)
-//        scheduleDic["sunday"] = String(dayInfo.todayIsSun)
-//        scheduleDic["startTime"] = startDate
-//        scheduleDic["finishTime"
+        //오늘의 날짜를 구해줘야 하기 때문에 Date를 객체화 해준다. (여기서 date를 초기화 해주는 이유는 뷰가 어피어 될 시점의 시간을 구해야 하기 때문이다.(맨 위에다가 놓으면 자꾸 똑같은 시간으로 돌아가서 나옴.))
         let date = Date()
+        //오늘의 요일을 파악해주기 위해 요일을 구한다.
         var weekDay = calendar.component(.weekdayOrdinal, from: date)
         scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
         
@@ -123,11 +118,7 @@ class ViewController: UIViewController
             }
         }
         
-       
-        
-        
-        //오늘의 날짜를 구해줘야 하기 때문에 Date를 객체화 해준다. (여기서 date를 초기화 해주는 이유는 뷰가 어피어 될 시점의 시간을 구해야 하기 때문이다.(맨 위에다가 놓으면 자꾸 똑같은 시간으로 돌아가서 나옴.))
-        //let date = Date()
+    
         //현재(뷰가 나타날 때)의 시.분.초
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
@@ -136,19 +127,55 @@ class ViewController: UIViewController
         let nowSecond = hour*3600 + minute*60 + second
         //일정밖일 때 하루에서 현재를 빼준다.
         
+        //일정중인지 일정밖인지 파악해서 남은시간을 계산해준다.(for문 돌릴때 for i in Array.count하기(startArray와 finishArray의 수가 같으니까 하나만 구해줘도 됨))
         //현재시간과 어레이 속 시간을 비교해서 구하겠다!
-        for i in 0...startArray.count
+        var scheduleTimeInterval = 0
+        let last = startArray.count
+        if nowSecond<startArray[0]
         {
+            for a in 0...last
+            {
+               scheduleTimeInterval += finishArray[a]-startArray[a]
+            }
+            myRemainingSecond = oneDaySecond-nowSecond-scheduleTimeInterval
+        }
+        for x in 0...last
+        {
+            if startArray[x]<nowSecond
+            {
+                if nowSecond<finishArray[x]
+                {
+                    for a in x...last
+                    {
+                        scheduleTimeInterval += finishArray[a+1]-startArray[a+1]
+                    }
+                    myRemainingSecond = oneDaySecond-finishArray[x]-scheduleTimeInterval
+                }
+            }
+            else if finishArray[x]<nowSecond
+            {
+                if nowSecond<startArray[x+1]
+                {
+                    for a in x...last
+                    {
+                       scheduleTimeInterval += finishArray[a+1]-startArray[a+1]
+                    }
+                    myRemainingSecond = oneDaySecond-nowSecond-scheduleTimeInterval
+                }
+            }
+            
             //현재시간<시작[0]
             //timeIntervar=(종료[0]-시작[0])+(종료[0+1]-시작[0+1)....(종료[startArray.count]-시작[startArray.count])
             //->myRemainingTime = 하루-현재-timeInterval
+            
             //for x in 0...startArray.count
             //종료[x]<현재시간<시작[x+1]
             //timeIntervar=(종료[x+1]-시작[x+1])+(종료[x+1+1]-시작[x+1+1)....(종료[startArray.count]-시작[startArray.count])
             //->myRemainingTime = 하루-현재-timeInterval 하고 진행 타이머 실행
+            
             //시작[x]<현재시간<종료[x]
             //timeIntervar=(종료[x+1]-시작[x+1])...(종료[startArray.count]-시작[startArray.count])
-            //->myRemainingTime = 하루-종료[0]-timeInterval 하고 정지타이머 실행
+            //->myRemainingTime = 하루-종료[x]-timeInterval 하고 정지타이머 실행
         }
         
         //일정밖일 때 하루에서 현재시간을 빼준다.
