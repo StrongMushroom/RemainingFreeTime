@@ -25,7 +25,6 @@ class ViewController: UIViewController
     var timer = Timer()
     //현재의 시.분.초를 구해주기 위해서 Calendar를 current 해줬다.
     var calendar = Calendar.current
-    
     var scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
     var scheduleArray : Array<[String:String]> = []
     //시작시간을 추가해줄 어레이
@@ -33,22 +32,18 @@ class ViewController: UIViewController
     //종료시간을 추가해줄 어레이
     var scheduleFinishTimeArray : [Int] = []
     
-    //뷰가 로드될 때 오늘의 요일을 파악해 어레이를 불러오는 코드를 실행해준다.
-    //그 외에도
     
-    //오늘의 요일을 구해서 startArray와 finishArray를 할당해준다.(swich case문을 쓸 수 있다.)
     
     
     //뷰가 보일때 실행해 줄 함수
-    
-    //일정중이면 정지된 타이머를 내보내고 일정밖이면 돌아가는 타이머를 내보내준다.
     override func viewWillAppear(_ animated: Bool)
     {
+        NSLog("뷰어피어 시작")
         //오늘의 날짜를 구해줘야 하기 때문에 Date를 객체화 해준다. (여기서 date를 초기화 해주는 이유는 뷰가 어피어 될 시점의 시간을 구해야 하기 때문이다.(맨 위에다가 놓으면 자꾸 똑같은 시간으로 돌아가서 나옴.))
         let date = Date()
         //오늘의 요일을 파악해주기 위해 요일을 구한다.
         let weekDay = calendar.component(.weekdayOrdinal, from: date)
-        scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
+        //scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults() 왜 한거지.//
         
         switch weekDay {
         case 1:
@@ -93,6 +88,7 @@ class ViewController: UIViewController
                 if Bool(a["friday"]!)! == true
                 {
                     scheduleStartTimeArray.append(Int(a["startTime"]!)!)
+                    NSLog("어레이에 추가됩니다")
                     scheduleFinishTimeArray.append(Int(a["finishTime"]!)!)
                 }
             }
@@ -132,15 +128,16 @@ class ViewController: UIViewController
         
         
         var scheduleTimeInterval = 0
-        var timeInterval = 0
+        var delay = 0
         let last = scheduleStartTimeArray.count
         if last == 0
         {
             myRemainingSecond = oneDaySecond-nowSecond
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
             isRunning = true
+            NSLog("")
         }
-        else if last > 0
+        else if last != 0
         {
             if nowSecond<scheduleStartTimeArray[1]
             {
@@ -173,9 +170,10 @@ class ViewController: UIViewController
                     }
                     myRemainingSecond = oneDaySecond-scheduleFinishTimeArray[x]-scheduleTimeInterval
                     timerIsRunningFalseCounter()
-                    timeInterval = scheduleFinishTimeArray[x]-nowSecond
+                    delay = scheduleFinishTimeArray[x]-nowSecond
                     //현재시간이 속한 일정의 종료시간까지 남은 시간 만큼 시간이 흐르면 timerRunning 함수를 실행해준다
-                    timer = Timer.scheduledTimer(timeInterval: TimeInterval(timeInterval), target: self, selector: #selector(timerIsRunningTrueCounter) , userInfo: nil, repeats: true)
+                    timer.invalidate()
+                    //정지하고 delay=(종료시간-현재시간) 이후에 실행되는 타이머도 추가하기.
                 }
                 else if scheduleFinishTimeArray[x]<nowSecond
                 {
