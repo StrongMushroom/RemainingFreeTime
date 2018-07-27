@@ -27,6 +27,16 @@ class AddingScheduleViewController: UIViewController {
     var startingDatePicker : UIDatePicker?
     var finishingDatePicker : UIDatePicker?
     var btnArray : Array<UIButton> = []
+    var scheduleName = ""
+    var monBtn = UIButton()
+    var tueBtn = UIButton()
+    var wedBtn = UIButton()
+    var thuBtn = UIButton()
+    var friBtn = UIButton()
+    var satBtn = UIButton()
+    var sunBtn = UIButton()
+    var startTime = ""
+    var finishTime = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         startingDatePicker = UIDatePicker()
@@ -54,6 +64,18 @@ class AddingScheduleViewController: UIViewController {
         for btn in btnArray {
             btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        scheduleNameTextField.text = scheduleName
+        scheduleTimeMonBtn = monBtn
+        scheduleTimeTueBtn = tueBtn
+        scheduleTimeWedBtn = wedBtn
+        scheduleTimeThuBtn = thuBtn
+        scheduleTimeFriBtn = friBtn
+        scheduleTimeSatBtn = satBtn
+        scheduleTimeSunBtn = sunBtn
+        startingTimeLabel.text = startTime
+        finishingTimeLabel.text = finishTime
     }
     @IBAction func scheduleTimeMonBtn(_ sender: Any) {
         if scheduleTimeMonBtn.backgroundColor == UIColor.clear{
@@ -134,9 +156,6 @@ class AddingScheduleViewController: UIViewController {
             dateFormatter.dateFormat = "HH:mm a"
             let startDate = dateFormatter.string(from: (startingDatePicker?.date)!)
             let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)!)
-            /*String을 Date로 바꾸기
-            let startTimeDate : Date = dateFormatter.date(from: startDate)!
-            let finishTimeDate : Date = dateFormatter.date(from: finishDate)!*/
             var scheduleNameArray : [String] = []
             var scheduleDic = ["":""]
             scheduleDic["name"] = scheduleNameTextField.text!

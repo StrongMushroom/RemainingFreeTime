@@ -84,7 +84,35 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         scheduleArray.remove(at: itemIndex)
         self.scheduleCollectonView.reloadData()
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //혹시 설치 엑티브된 상태에서도 필요? 나중에 확인
+        let AddingScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "AddingScheduleViewController") as! AddingScheduleViewController
+        AddingScheduleVC.scheduleName = scheduleArray[indexPath.row]["name"]!
+        if Bool(scheduleArray[indexPath.row]["monday"]!)! == true {
+            changeButtonBackgroundColor(button: AddingScheduleVC.monBtn)
+        }
+        if Bool(scheduleArray[indexPath.row]["tuesday"]!)! == true {
+            changeButtonBackgroundColor(button: AddingScheduleVC.tueBtn)
+        }
+        if Bool(scheduleArray[indexPath.row]["wednesday"]!)! == true {
+            changeButtonBackgroundColor(button: AddingScheduleVC.wedBtn)
+        }
+        if Bool(scheduleArray[indexPath.row]["thursday"]!)! == true {
+            changeButtonBackgroundColor(button: AddingScheduleVC.thuBtn)
+        }
+        if Bool(scheduleArray[indexPath.row]["friday"]!)! == true {
+            changeButtonBackgroundColor(button: AddingScheduleVC.friBtn)
+        }
+        if Bool(scheduleArray[indexPath.row]["saturday"]!)! == true {
+            changeButtonBackgroundColor(button: AddingScheduleVC.satBtn)
+        }
+        if Bool(scheduleArray[indexPath.row]["sunday"]!)! == true {
+            changeButtonBackgroundColor(button: AddingScheduleVC.sunBtn)
+        }
+        AddingScheduleVC.startTime = scheduleArray[indexPath.row]["startTime"]!
+        AddingScheduleVC.finishTime = scheduleArray[indexPath.row]["finishTime"]!
+        self.navigationController?.pushViewController(AddingScheduleVC, animated: true)
+    }
     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         scheduleArray.remove(at: indexPath.row)
         scheduleNameArray.remove(at: indexPath.row)
@@ -124,5 +152,8 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
     @IBAction func showingAddingScheduleVC(_ sender: Any) {
         let AddingScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "AddingScheduleViewController")
         self.navigationController?.pushViewController(AddingScheduleVC!, animated: true)
+    }
+    func changeButtonBackgroundColor(button : UIButton){
+        button.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
     }
 }
