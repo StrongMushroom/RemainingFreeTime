@@ -19,10 +19,6 @@ class ViewController: UIViewController
     @IBOutlet weak var timerHourLabel: UILabel!
     @IBOutlet weak var timerMinuteLabel: UILabel!
     @IBOutlet weak var timerSecondLabel: UILabel!
-    //요일을 구해서 그 요일에 해당되는 어레이를 시작어레이에 할당할거임.
-    var startArray:Array<Int> = []
-    //요일을 구해서 그 요일에 해당되는 어레이를 종료어레이에 할당할거임.
-    var finishArray:Array<Int> = []
     //왜 했는지는 모르겠는데 그냥 타이머가 돌아간다는 의미이다.
     var isRunning = true
     //일정 간격마다 함수를 반복해서 실행해주는 코드가 필요해서 Timer을 객채화 시켰다.
@@ -32,7 +28,9 @@ class ViewController: UIViewController
     
     var scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
     var scheduleArray : Array<[String:String]> = []
+    //시작시간을 추가해줄 어레이
     var scheduleStartTimeArray : [Int] = []
+    //종료시간을 추가해줄 어레이
     var scheduleFinishTimeArray : [Int] = []
     
     //뷰가 로드될 때 오늘의 요일을 파악해 어레이를 불러오는 코드를 실행해준다.
@@ -106,6 +104,7 @@ class ViewController: UIViewController
                     scheduleStartTimeArray.append(Int(a["startTime"]!)!)
                     scheduleFinishTimeArray.append(Int(a["finishTime"]!)!)
                 }
+                
             }
         default :
             for a in scheduleArray
@@ -129,36 +128,39 @@ class ViewController: UIViewController
         
         //일정중인지 일정밖인지 파악해서 남은시간을 계산해준다.(for문 돌릴때 for i in Array.count하기(startArray와 finishArray의 수가 같으니까 하나만 구해줘도 됨))
         //현재시간과 어레이 속 시간을 비교해서 구하겠다!
+        
+        
+        
         var scheduleTimeInterval = 0
-        let last = startArray.count
-        if nowSecond<startArray[0]
+        let last = scheduleStartTimeArray.count
+        if nowSecond<scheduleStartTimeArray[0]
         {
             for a in 0...last
             {
-               scheduleTimeInterval += finishArray[a]-startArray[a]
+               scheduleTimeInterval += scheduleFinishTimeArray[a]-scheduleStartTimeArray[a]
             }
             myRemainingSecond = oneDaySecond-nowSecond-scheduleTimeInterval
         }
         for x in 0...last
         {
-            if startArray[x]<nowSecond
+            if scheduleStartTimeArray[x]<nowSecond
             {
-                if nowSecond<finishArray[x]
+                if nowSecond<scheduleFinishTimeArray[x]
                 {
                     for a in x...last
                     {
-                        scheduleTimeInterval += finishArray[a+1]-startArray[a+1]
+                        scheduleTimeInterval += scheduleFinishTimeArray[a+1]-scheduleStartTimeArray[a+1]
                     }
-                    myRemainingSecond = oneDaySecond-finishArray[x]-scheduleTimeInterval
+                    myRemainingSecond = oneDaySecond-scheduleFinishTimeArray[x]-scheduleTimeInterval
                 }
             }
-            else if finishArray[x]<nowSecond
+            else if scheduleFinishTimeArray[x]<nowSecond
             {
-                if nowSecond<startArray[x+1]
+                if nowSecond<scheduleStartTimeArray[x+1]
                 {
                     for a in x...last
                     {
-                       scheduleTimeInterval += finishArray[a+1]-startArray[a+1]
+                       scheduleTimeInterval += scheduleFinishTimeArray[a+1]-scheduleStartTimeArray[a+1]
                     }
                     myRemainingSecond = oneDaySecond-nowSecond-scheduleTimeInterval
                 }
@@ -177,11 +179,6 @@ class ViewController: UIViewController
             //timeIntervar=(종료[x+1]-시작[x+1])...(종료[startArray.count]-시작[startArray.count])
             //->myRemainingTime = 하루-종료[x]-timeInterval 하고 정지타이머 실행
         }
-        
-        //일정밖일 때 하루에서 현재시간을 빼준다.
-        myRemainingSecond = oneDaySecond-nowSecond
-        counter()
-        //일정중일 때 하루에서 종료시간을 빼준다.
         
         //타이머인데요. 1초마나 timerRunningcounter를 실행해요.
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningcounter), userInfo: nil, repeats: true)
