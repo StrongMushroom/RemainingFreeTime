@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F739E49210B5D6D00F77D45 /* ModifyCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */; };
 		6FBD266C20CFF0EF00DB107B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */; };
 		6FBD266E20CFF0EF00DB107B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD266D20CFF0EF00DB107B /* ViewController.swift */; };
 		6FBD267120CFF0EF00DB107B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD266F20CFF0EF00DB107B /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyCellViewController.swift; sourceTree = "<group>"; };
 		6FBD266820CFF0EF00DB107B /* RemainingFreeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemainingFreeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FBD266D20CFF0EF00DB107B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				6FBD266D20CFF0EF00DB107B /* ViewController.swift */,
 				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
 				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
+				6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F739E49210B5D6D00F77D45 /* ModifyCellViewController.swift in Sources */,
 				AD25239520F47BCC003902AE /* ACollectionViewCell.swift in Sources */,
 				6FBD268820D00D2D00DB107B /* ScheduleInfoModel.swift in Sources */,
 				6FBD268C20D01E5200DB107B /* DayInfoObject.swift in Sources */,

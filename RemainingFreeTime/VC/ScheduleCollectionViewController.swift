@@ -86,32 +86,18 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //혹시 설치 엑티브된 상태에서도 필요? 나중에 확인
-        let AddingScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "AddingScheduleViewController") as! AddingScheduleViewController
-        AddingScheduleVC.scheduleName = scheduleArray[indexPath.row]["name"]!
-        if Bool(scheduleArray[indexPath.row]["monday"]!)! == true {
-            changeButtonBackgroundColor(button: AddingScheduleVC.monBtn)
-        }
-        if Bool(scheduleArray[indexPath.row]["tuesday"]!)! == true {
-            changeButtonBackgroundColor(button: AddingScheduleVC.tueBtn)
-        }
-        if Bool(scheduleArray[indexPath.row]["wednesday"]!)! == true {
-            changeButtonBackgroundColor(button: AddingScheduleVC.wedBtn)
-        }
-        if Bool(scheduleArray[indexPath.row]["thursday"]!)! == true {
-            changeButtonBackgroundColor(button: AddingScheduleVC.thuBtn)
-        }
-        if Bool(scheduleArray[indexPath.row]["friday"]!)! == true {
-            changeButtonBackgroundColor(button: AddingScheduleVC.friBtn)
-        }
-        if Bool(scheduleArray[indexPath.row]["saturday"]!)! == true {
-            changeButtonBackgroundColor(button: AddingScheduleVC.satBtn)
-        }
-        if Bool(scheduleArray[indexPath.row]["sunday"]!)! == true {
-            changeButtonBackgroundColor(button: AddingScheduleVC.sunBtn)
-        }
-        AddingScheduleVC.startTime = scheduleArray[indexPath.row]["startTime"]!
-        AddingScheduleVC.finishTime = scheduleArray[indexPath.row]["finishTime"]!
-        self.navigationController?.pushViewController(AddingScheduleVC, animated: true)
+        let modifyCellVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyCellViewController") as! ModifyCellViewController
+        modifyCellVC.scheduleName = scheduleArray[indexPath.row]["name"]!
+        modifyCellVC.startTime = scheduleArray[indexPath.row]["startTime"]!
+        modifyCellVC.finishTime = scheduleArray[indexPath.row]["finishTime"]!
+        modifyCellVC.monBtn = Bool(scheduleArray[indexPath.row]["monday"]!)!
+        modifyCellVC.tueBtn = Bool(scheduleArray[indexPath.row]["tuesday"]!)!
+        modifyCellVC.wedBtn = Bool(scheduleArray[indexPath.row]["wednesday"]!)!
+        modifyCellVC.thuBtn = Bool(scheduleArray[indexPath.row]["thursday"]!)!
+        modifyCellVC.friBtn = Bool(scheduleArray[indexPath.row]["friday"]!)!
+        modifyCellVC.satBtn = Bool(scheduleArray[indexPath.row]["saturday"]!)!
+        modifyCellVC.sunBtn = Bool(scheduleArray[indexPath.row]["sunday"]!)!
+        self.navigationController?.pushViewController(modifyCellVC, animated: true)
     }
     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         scheduleArray.remove(at: indexPath.row)
