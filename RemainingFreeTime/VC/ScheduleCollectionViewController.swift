@@ -96,6 +96,7 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         modifyCellVC.friBtn = Bool(scheduleArray[indexPath.row]["friday"]!)!
         modifyCellVC.satBtn = Bool(scheduleArray[indexPath.row]["saturday"]!)!
         modifyCellVC.sunBtn = Bool(scheduleArray[indexPath.row]["sunday"]!)!
+        modifyCellVC.cellNum = indexPath.row
         self.navigationController?.pushViewController(modifyCellVC, animated: true)
     }
     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {

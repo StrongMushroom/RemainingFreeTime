@@ -47,6 +47,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FB8A390211002A90013C35E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6FBD265F20CFF0EF00DB107B = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */,
+				6FB8A390211002A90013C35E /* View */,
 				6FBD268520D00A8000DB107B /* ValuableObject */,
 				6FBD268620D00CFE00DB107B /* Model */,
 				AD25239320F311F9003902AE /* VC */,

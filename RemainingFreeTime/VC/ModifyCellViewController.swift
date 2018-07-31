@@ -30,6 +30,7 @@ class ModifyCellViewController: UIViewController {
     var scheduleName = ""
     var startTime = ""
     var finishTime = ""
+    var cellNum = 0
     var monBtn = false
     var tueBtn = false
     var wedBtn = false
@@ -37,8 +38,13 @@ class ModifyCellViewController: UIViewController {
     var friBtn = false
     var satBtn = false
     var sunBtn = false
+    var arrayNum = 0
     override func viewDidLoad(){
         super.viewDidLoad()
+        let rightDoneBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ModifyCellViewController.doneTapped))
+        let leftCancelBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(ModifyCellViewController.cancelTapped))
+        self.navigationItem.setRightBarButtonItems([rightDoneBarButtonItem], animated: true)
+        self.navigationItem.setLeftBarButtonItems([leftCancelBarButtonItem], animated: true)
         startingDatePicker = UIDatePicker()
         finishingDatePicker = UIDatePicker()
         startingDatePicker?.datePickerMode = .time
@@ -65,6 +71,8 @@ class ModifyCellViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        scheduleInfoArray = scheduleModel.setScheduleDatafromUserDefaults()
+        arrayNum = scheduleInfoArray.count
         scheduleNameTextField.text = scheduleName
         startTimeTextField.text = startTime
         finishTimeTextField.text = finishTime
@@ -160,10 +168,6 @@ class ModifyCellViewController: UIViewController {
             dayInfo.todayIsMon = false
         }
     }
-    @IBAction func modifyDoneBtn(_ sender: Any) {
-        
-    }
-    
     @objc func startDateChanged(datePicker : UIDatePicker){
         dateFormatter.dateFormat = "HH:mm"
         startTimeTextField.text = dateFormatter.string(from: datePicker.date)
@@ -180,6 +184,116 @@ class ModifyCellViewController: UIViewController {
     }
     func changeButtonBackgroundColor(button : UIButton){
         button.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
+    }
+    @objc func doneTapped(sender:UIButton) {
+        dateFormatter.dateFormat = "HH:mm"
+        let startDate = dateFormatter.string(from: (startingDatePicker?.date)!)
+        let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)!)
+        scheduleInfoArray[cellNum]["name"] = scheduleNameTextField.text!
+        scheduleInfoArray[cellNum]["monday"] = String(dayInfo.todayIsMon)
+        scheduleInfoArray[cellNum]["tuesday"] = String(dayInfo.todayIsTue)
+        scheduleInfoArray[cellNum]["wednesday"] = String(dayInfo.todayIsWed)
+        scheduleInfoArray[cellNum]["thursday"] = String(dayInfo.todayIsThu)
+        scheduleInfoArray[cellNum]["friday"] = String(dayInfo.todayIsFri)
+        scheduleInfoArray[cellNum]["saturday"] = String(dayInfo.todayIsSat)
+        scheduleInfoArray[cellNum]["sunday"] = String(dayInfo.todayIsSun)
+        scheduleInfoArray[cellNum]["startTime"] = startDate
+        scheduleInfoArray[cellNum]["finishTime"] = finishDate
+        scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
+        self.navigationController?.popViewController(animated: true)
+    }
+    @objc func cancelTapped (sender:UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    func sortScheduleTime(weekday : String, scheduleArray : Array<[String:String]>) -> Array<Array<Int>>{
+        var scheduleTimeArray : Array<Array<Int>> = []
+        var scheduleTime : Array<Int> = []
+        if weekday == "monday" {
+            NSLog("월요일 체크해보자")
+            for x in scheduleArray {
+                if Bool(x["monday"]!)! == true{
+                    scheduleTime.removeAll()
+                    scheduleTime.append(Int((x["startTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["startTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTime.append(Int((x["finishTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["finishTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTimeArray.append(scheduleTime)
+                }
+            }
+        }
+        if weekday == "tuesday" {
+            NSLog("화요일 체크해보자")
+            for x in scheduleArray {
+                if Bool(x["tuesday"]!)! == true{
+                    NSLog("스켈쥴인포어레이안에있는거화요일불값이 트루다")
+                    scheduleTime.removeAll()
+                    scheduleTime.append(Int((x["startTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["startTime"]!.components(separatedBy: ":"))[1])!*60)
+                    NSLog("그것의 시작시간을 초로구해서 스케쥴 타임에 넣음")
+                    scheduleTime.append(Int((x["finishTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["finishTime"]!.components(separatedBy: ":"))[1])!*60)
+                    NSLog("그것의 끝시간을 초로구해서 스케쥴 타임에 넣음")
+                    scheduleTimeArray.append(scheduleTime)
+                    NSLog("스케쥴타임을 스케쥴타임어레이에 넣음")
+                }
+                NSLog("일정 화오ㅛ일 아님")
+            }
+        }
+        if weekday == "wednesday" {
+            NSLog("수요일 체크해보자")
+            for x in scheduleArray {
+                if Bool(x["wednesday"]!)! == true{
+                    scheduleTime.removeAll()
+                    scheduleTime.append(Int((x["startTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["startTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTime.append(Int((x["finishTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["finishTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTimeArray.append(scheduleTime)
+                }
+            }
+        }
+        if weekday == "thursday" {
+            NSLog("목요일 체크해보자")
+            for x in scheduleArray {
+                if Bool(x["thursday"]!)! == true{
+                    scheduleTime.removeAll()
+                    scheduleTime.append(Int((x["startTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["startTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTime.append(Int((x["finishTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["finishTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTimeArray.append(scheduleTime)
+                }
+            }
+        }
+        if weekday == "friday" {
+            NSLog("금요일 체크해보자")
+            for x in scheduleArray {
+                if Bool(x["friday"]!)! == true{
+                    scheduleTime.removeAll()
+                    scheduleTime.append(Int((x["startTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["startTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTime.append(Int((x["finishTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["finishTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTimeArray.append(scheduleTime)
+                }
+            }
+        }
+        if weekday == "saturday" {
+            NSLog("토요일 체크해보자")
+            for x in scheduleArray {
+                if Bool(x["saturday"]!)! == true{
+                    scheduleTime.removeAll()
+                    scheduleTime.append(Int((x["startTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["startTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTime.append(Int((x["finishTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["finishTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTimeArray.append(scheduleTime)
+                }
+            }
+        }
+        if weekday == "sunday" {
+            NSLog("일요일 체크해보자")
+            for x in scheduleArray {
+                if Bool(x["sunday"]!)! == true{
+                    scheduleTime.removeAll()
+                    scheduleTime.append(Int((x["startTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["startTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTime.append(Int((x["finishTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["finishTime"]!.components(separatedBy: ":"))[1])!*60)
+                    scheduleTimeArray.append(scheduleTime)
+                }
+            }
+        }
+        NSLog("배열전\(scheduleTimeArray)")
+        scheduleTimeArray.sort(by: {$0[0] < $1[0]})
+        NSLog("배열후\(scheduleTimeArray)")
+        return scheduleTimeArray
     }
     
 }

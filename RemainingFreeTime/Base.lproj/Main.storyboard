@@ -337,7 +337,7 @@
                                 <color key="textColor" red="0.51062817260000004" green="0.50957751870000001" blue="0.4771203383" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- Enter all information correctly." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQa-X6-hY9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQa-X6-hY9">
                                 <rect key="frame" x="60" y="453" width="294" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -363,6 +363,11 @@
                         <viewLayoutGuide key="safeArea" id="ehJ-PJ-rYj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Schedule" id="aYh-wm-the">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="iiF-HZ-ar8">
+                            <connections>
+                                <action selector="touchedCancelBtn:" destination="sGC-yK-xRp" id="Zay-cZ-8RR"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Qbw-Zs-8Tg">
                             <connections>
                                 <action selector="addingScheduleIsDone:" destination="sGC-yK-xRp" id="O1J-M5-Xyh"/>
@@ -534,13 +539,7 @@
                                 <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="Fwt-35-EoU">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="yRl-qR-Png">
-                                            <connections>
-                                                <action selector="modifyDoneBtn:" destination="zbe-3Y-hCG" id="6cV-YM-4Ck"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="Title" id="Fwt-35-EoU"/>
                                 </items>
                             </navigationBar>
                         </subviews>
