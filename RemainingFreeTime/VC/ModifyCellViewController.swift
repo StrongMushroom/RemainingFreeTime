@@ -78,23 +78,23 @@ class ModifyCellViewController: UIViewController {
         if dayInfo.todayIsMon == true {
             changeButtonBackgroundColor(button: mondayBtn)
         }
-        if dayInfo.todayIsMon == true {
-            changeButtonBackgroundColor(button: mondayBtn)
+        if dayInfo.todayIsTue == true {
+            changeButtonBackgroundColor(button: tuesdayBtn)
         }
-        if dayInfo.todayIsMon == true {
-            changeButtonBackgroundColor(button: mondayBtn)
+        if dayInfo.todayIsWed == true {
+            changeButtonBackgroundColor(button: wednesdayBtn)
         }
-        if dayInfo.todayIsMon == true {
-            changeButtonBackgroundColor(button: mondayBtn)
+        if dayInfo.todayIsThu == true {
+            changeButtonBackgroundColor(button: thursdayBtn)
         }
-        if dayInfo.todayIsMon == true {
-            changeButtonBackgroundColor(button: mondayBtn)
+        if dayInfo.todayIsFri == true {
+            changeButtonBackgroundColor(button: fridayBtn)
         }
-        if dayInfo.todayIsMon == true {
-            changeButtonBackgroundColor(button: mondayBtn)
+        if dayInfo.todayIsSat == true {
+            changeButtonBackgroundColor(button: saturdayBtn)
         }
-        if dayInfo.todayIsMon == true {
-            changeButtonBackgroundColor(button: mondayBtn)
+        if dayInfo.todayIsSun == true {
+            changeButtonBackgroundColor(button: sundayBtn)
         }
     }
     @IBAction func monBtn(_ sender: Any) {
@@ -159,6 +159,9 @@ class ModifyCellViewController: UIViewController {
             sundayBtn.backgroundColor = UIColor.clear
             dayInfo.todayIsMon = false
         }
+    }
+    @IBAction func modifyDoneBtn(_ sender: Any) {
+        
     }
     
     @objc func startDateChanged(datePicker : UIDatePicker){

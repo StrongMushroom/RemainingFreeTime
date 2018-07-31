@@ -25,7 +25,6 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         super.viewDidLoad()
         scheduleCollectonView.dataSource = self
         scheduleCollectonView.delegate = self
-        
         scheduleSearchBar.delegate = self
 
     }

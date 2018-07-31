@@ -131,12 +131,9 @@ class AddingScheduleViewController: UIViewController {
         }
         // 일정 시간이 겹칠 때(아직 안함)
         else{
-            dateFormatter.dateFormat = "HH:mm a"
+            dateFormatter.dateFormat = "HH:mm"
             let startDate = dateFormatter.string(from: (startingDatePicker?.date)!)
             let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)!)
-            /*String을 Date로 바꾸기
-            let startTimeDate : Date = dateFormatter.date(from: startDate)!
-            let finishTimeDate : Date = dateFormatter.date(from: finishDate)!*/
             var scheduleNameArray : [String] = []
             var scheduleDic = ["":""]
             scheduleDic["name"] = scheduleNameTextField.text!
