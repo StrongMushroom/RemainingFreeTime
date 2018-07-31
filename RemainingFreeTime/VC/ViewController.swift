@@ -42,69 +42,142 @@ class ViewController: UIViewController
         //오늘의 날짜를 구해줘야 하기 때문에 Date를 객체화 해준다. (여기서 date를 초기화 해주는 이유는 뷰가 어피어 될 시점의 시간을 구해야 하기 때문이다.(맨 위에다가 놓으면 자꾸 똑같은 시간으로 돌아가서 나옴.))
         let date = Date()
         //오늘의 요일을 파악해주기 위해 요일을 구한다.
-        let weekDay = calendar.component(.weekdayOrdinal, from: date)
-        //scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults() 왜 한거지.//
+        let weekDay = calendar.component(.weekday, from: date)
+        scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
         
         switch weekDay {
-        case 1:
+        case 2:
             for a in scheduleArray
             {
                 if Bool(a["monday"]!)! == true
                 {
-                    scheduleStartTimeArray.append(Int(a["startTime"]!)!)
-                    scheduleFinishTimeArray.append(Int(a["finishTime"]!)!)
+                    let startTime = a["startTime"]
+                    let startArray = startTime?.components(separatedBy: ":")
+                    let startHour :Int = Int(startArray![0])!
+                    let startMinute :Int = Int(startArray![1])!
+                    let startSecond = startHour*3600 + startMinute*60
+                    scheduleStartTimeArray.append(startSecond)
+                    scheduleStartTimeArray.sort()
+                    let finishTime = a["finishTime"]
+                    let finishArray = finishTime?.components(separatedBy: ":")
+                    let finishHour :Int = Int(finishArray![0])!
+                    let finishMinute :Int = Int(finishArray![1])!
+                    let finishSecond = finishHour*3600 + finishMinute*60
+                    scheduleFinishTimeArray.append(finishSecond)
+                    scheduleFinishTimeArray.sort()
                     NSLog("월요일 어레이에 추가됩니다.")
-                }
-                
-            }
-        case 2:
-            for a in scheduleArray
-            {
-                if Bool(a["tuesday"]!)! == true
-                {
-                    scheduleStartTimeArray.append(Int(a["startTime"]!)!)
-                    scheduleFinishTimeArray.append(Int(a["finishTime"]!)!)
-                    NSLog("화요일 어레이에 추가됩니다.")
                 }
                 
             }
         case 3:
             for a in scheduleArray
             {
-                if Bool(a["wednesday"]!)! == true
+                if Bool(a["tuesday"]!)! == true
                 {
-                    scheduleStartTimeArray.append(Int(a["startTime"]!)!)
-                    scheduleFinishTimeArray.append(Int(a["finishTime"]!)!)
-                    NSLog("수요일 어레이에 추가됩니다.")
+                    let startTime = a["startTime"]
+                    let startArray = startTime?.components(separatedBy: ":")
+                    let startHour :Int = Int(startArray![0])!
+                    let startMinute :Int = Int(startArray![1])!
+                    let startSecond = startHour*3600 + startMinute*60
+                    scheduleStartTimeArray.append(startSecond)
+                    scheduleStartTimeArray.sort()
+                    let finishTime = a["finishTime"]
+                    let finishArray = finishTime?.components(separatedBy: ":")
+                    let finishHour :Int = Int(finishArray![0])!
+                    let finishMinute :Int = Int(finishArray![1])!
+                    let finishSecond = finishHour*3600 + finishMinute*60
+                    scheduleFinishTimeArray.append(finishSecond)
+                    scheduleFinishTimeArray.sort()
+                    NSLog("화요일 어레이에 추가됩니다.")
+
                 }
+                
             }
         case 4:
             for a in scheduleArray
             {
-                if Bool(a["thursday"]!)! == true
+                if Bool(a["wednesday"]!)! == true
                 {
-                    scheduleStartTimeArray.append(Int(a["startTime"]!)!)
-                    scheduleFinishTimeArray.append(Int(a["finishTime"]!)!)
-                    NSLog("목요일 어레이에 추가됩니다.")
+                    let startTime = a["startTime"]
+                    let startArray = startTime?.components(separatedBy: ":")
+                    let startHour :Int = Int(startArray![0])!
+                    let startMinute :Int = Int(startArray![1])!
+                    let startSecond = startHour*3600 + startMinute*60
+                    scheduleStartTimeArray.append(startSecond)
+                    scheduleStartTimeArray.sort()
+                    let finishTime = a["finishTime"]
+                    let finishArray = finishTime?.components(separatedBy: ":")
+                    let finishHour :Int = Int(finishArray![0])!
+                    let finishMinute :Int = Int(finishArray![1])!
+                    let finishSecond = finishHour*3600 + finishMinute*60
+                    scheduleFinishTimeArray.append(finishSecond)
+                    scheduleFinishTimeArray.sort()
+                    NSLog("수요일 어레이에 추가됩니다.")
                 }
             }
         case 5:
             for a in scheduleArray
             {
-                if Bool(a["friday"]!)! == true
+                if Bool(a["thursday"]!)! == true
                 {
-                    scheduleStartTimeArray.append(Int(a["startTime"]!)!)
-                    scheduleFinishTimeArray.append(Int(a["finishTime"]!)!)
-                    NSLog("금요일 어레이에 추가됩니다")
+                    let startTime = a["startTime"]
+                    let startArray = startTime?.components(separatedBy: ":")
+                    let startHour :Int = Int(startArray![0])!
+                    let startMinute :Int = Int(startArray![1])!
+                    let startSecond = startHour*3600 + startMinute*60
+                    scheduleStartTimeArray.append(startSecond)
+                    scheduleStartTimeArray.sort()
+                    let finishTime = a["finishTime"]
+                    let finishArray = finishTime?.components(separatedBy: ":")
+                    let finishHour :Int = Int(finishArray![0])!
+                    let finishMinute :Int = Int(finishArray![1])!
+                    let finishSecond = finishHour*3600 + finishMinute*60
+                    scheduleFinishTimeArray.append(finishSecond)
+                    scheduleFinishTimeArray.sort()
+                    NSLog("목요일 어레이에 추가됩니다.")
                 }
             }
         case 6:
             for a in scheduleArray
             {
+                if Bool(a["friday"]!)! == true
+                {
+                    let startTime = a["startTime"]
+                    let startArray = startTime?.components(separatedBy: ":")
+                    let startHour :Int = Int(startArray![0])!
+                    let startMinute :Int = Int(startArray![1])!
+                    let startSecond = startHour*3600 + startMinute*60
+                    scheduleStartTimeArray.append(startSecond)
+                    scheduleStartTimeArray.sort()
+                    let finishTime = a["finishTime"]
+                    let finishArray = finishTime?.components(separatedBy: ":")
+                    let finishHour :Int = Int(finishArray![0])!
+                    let finishMinute :Int = Int(finishArray![1])!
+                    let finishSecond = finishHour*3600 + finishMinute*60
+                    scheduleFinishTimeArray.append(finishSecond)
+                    scheduleFinishTimeArray.sort()
+                    NSLog("금요일 어레이에 추가됩니다")
+                }
+            }
+        case 7:
+            for a in scheduleArray
+            {
                 if Bool(a["saturday"]!)! == true
                 {
-                    scheduleStartTimeArray.append(Int(a["startTime"]!)!)
-                    scheduleFinishTimeArray.append(Int(a["finishTime"]!)!)
+                    let startTime = a["startTime"]
+                    let startArray = startTime?.components(separatedBy: ":")
+                    let startHour :Int = Int(startArray![0])!
+                    let startMinute :Int = Int(startArray![1])!
+                    let startSecond = startHour*3600 + startMinute*60
+                    scheduleStartTimeArray.append(startSecond)
+                    scheduleStartTimeArray.sort()
+                    let finishTime = a["finishTime"]
+                    let finishArray = finishTime?.components(separatedBy: ":")
+                    let finishHour :Int = Int(finishArray![0])!
+                    let finishMinute :Int = Int(finishArray![1])!
+                    let finishSecond = finishHour*3600 + finishMinute*60
+                    scheduleFinishTimeArray.append(finishSecond)
+                    scheduleFinishTimeArray.sort()
                     NSLog("토요일 어레이에 추가됩니다")
                 }
                 
@@ -114,8 +187,20 @@ class ViewController: UIViewController
             {
                 if Bool(a["sunday"]!)! == true
                 {
-                    scheduleStartTimeArray.append(Int(a["startTime"]!)!)
-                    scheduleFinishTimeArray.append(Int(a["finishTime"]!)!)
+                    let startTime = a["startTime"]
+                    let startArray = startTime?.components(separatedBy: ":")
+                    let startHour :Int = Int(startArray![0])!
+                    let startMinute :Int = Int(startArray![1])!
+                    let startSecond = startHour*3600 + startMinute*60
+                    scheduleStartTimeArray.append(startSecond)
+                    scheduleStartTimeArray.sort()
+                    let finishTime = a["finishTime"]
+                    let finishArray = finishTime?.components(separatedBy: ":")
+                    let finishHour :Int = Int(finishArray![0])!
+                    let finishMinute :Int = Int(finishArray![1])!
+                    let finishSecond = finishHour*3600 + finishMinute*60
+                    scheduleFinishTimeArray.append(finishSecond)
+                    scheduleFinishTimeArray.sort()
                     NSLog("일요일 어레이에 추가됩니다")
                 }
             }
@@ -135,32 +220,35 @@ class ViewController: UIViewController
         
         
         
+        
+        
         var scheduleTimeInterval = 0
         var delay = 0
-        let last = scheduleStartTimeArray.count
-        if last == 0
+        let arrayCount = scheduleStartTimeArray.count
+        let last = arrayCount-1
+        if arrayCount == 0
         {
             NSLog("일정이 없을 때")
             myRemainingSecond = oneDaySecond-nowSecond
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
             isRunning = true
         }
-        else if last != 0
+        else if arrayCount != 0
         {
             NSLog("일정이 있을 때")
-            if nowSecond<scheduleStartTimeArray[1]
+            if nowSecond<scheduleStartTimeArray[0]
             {
                 NSLog("첫 일정보다 이른 시간일 때")
-                for a in 1...last
+                for a in 0...last
                 {
                     scheduleTimeInterval += scheduleFinishTimeArray[a]-scheduleStartTimeArray[a]
                 }
                 myRemainingSecond = oneDaySecond-nowSecond-scheduleTimeInterval
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
                 isRunning = true
-                NSLog("")
+                NSLog("\(myRemainingSecond)을 나머지 시간으로 타이머 실행")
             }
-            else if nowSecond>scheduleStartTimeArray[last]
+            if nowSecond>scheduleStartTimeArray[last]
             {
                 NSLog("마지막 일정보다 늦은 시간일 때")
                 myRemainingSecond = oneDaySecond-nowSecond
@@ -168,31 +256,37 @@ class ViewController: UIViewController
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
                 isRunning = true
             }
-            for x in 1...last
+            for x in 0...last
             {
-                if scheduleStartTimeArray[x]<nowSecond
+                if scheduleStartTimeArray[x]<=nowSecond && nowSecond<scheduleFinishTimeArray[x]
                 {
-                    if nowSecond<scheduleFinishTimeArray[x]
+                    NSLog("[\(x)]일정 안에 있을 때")
+                    for a in x...last
                     {
-                        NSLog("\(x)일정 안에 있을 때")
-                        for a in x...last
+                        if arrayCount>x+1
                         {
-                            scheduleTimeInterval += scheduleFinishTimeArray[a+1]-scheduleStartTimeArray[a+1]
+                            for a in x...last-1
+                            {
+                                scheduleTimeInterval += scheduleFinishTimeArray[a+1]-scheduleStartTimeArray[a+1]
+                            }
                         }
                     }
                     myRemainingSecond = oneDaySecond-scheduleFinishTimeArray[x]-scheduleTimeInterval
+                    NSLog("\(oneDaySecond).하루-\(scheduleFinishTimeArray).일정종료시간-\(scheduleTimeInterval).남은일정시간")
                     timerIsRunningFalseCounter()
-                    delay = scheduleFinishTimeArray[x]-nowSecond
+                    //delay = scheduleFinishTimeArray[x]-nowSecond
                     //현재시간이 속한 일정의 종료시간까지 남은 시간 만큼 시간이 흐르면 timerRunning 함수를 실행해준다
                     timer.invalidate()
+                    NSLog("타이머 정지")
                     //정지하고 delay=(종료시간-현재시간) 이후에 실행되는 타이머도 추가하기.
                 }
-                else if scheduleFinishTimeArray[x]<nowSecond
+                else if scheduleFinishTimeArray[x]<=nowSecond && nowSecond<scheduleStartTimeArray[x+1]
                 {
-                    if nowSecond<scheduleStartTimeArray[x+1]
+                    NSLog("[\(x)]일정 후 [\(x+1)]일정 전")
+                    
+                    if arrayCount>x+1
                     {
-                        NSLog("\(x)번째 일정 후 \(x+1)번째 일정 전")
-                        for a in x...last
+                        for a in x...last-1
                         {
                             scheduleTimeInterval += scheduleFinishTimeArray[a+1]-scheduleStartTimeArray[a+1]
                         }
@@ -204,19 +298,6 @@ class ViewController: UIViewController
                     
                 }
             }
-            
-            //현재시간<시작[0]
-            //timeIntervar=(종료[0]-시작[0])+(종료[0+1]-시작[0+1)....(종료[startArray.count]-시작[startArray.count])
-            //->myRemainingTime = 하루-현재-timeInterval
-            
-            //for x in 0...startArray.count
-            //종료[x]<현재시간<시작[x+1]
-            //timeIntervar=(종료[x+1]-시작[x+1])+(종료[x+1+1]-시작[x+1+1)....(종료[startArray.count]-시작[startArray.count])
-            //->myRemainingTime = 하루-현재-timeInterval 하고 진행 타이머 실행
-            
-            //시작[x]<현재시간<종료[x]
-            //timeIntervar=(종료[x+1]-시작[x+1])...(종료[startArray.count]-시작[startArray.count])
-            //->myRemainingTime = 하루-종료[x]-timeInterval 하고 정지타이머 실행
         }
     }
     
@@ -225,6 +306,8 @@ class ViewController: UIViewController
         NSLog("뷰가 사라질 때")
         timer.invalidate()
         isRunning = false
+        scheduleStartTimeArray.removeAll()
+        scheduleFinishTimeArray.removeAll()
         NSLog("타이머가 멈춤")
     }
     
@@ -240,7 +323,7 @@ class ViewController: UIViewController
         timerMinuteLabel.text = String(timerMinute)
         timerSecondLabel.text = String(timerSecond)
         myRemainingSecond -= 1
-        NSLog("타이머가 실행")
+        NSLog("타이머가 계산")
     }
     //타이머가 정지해 있을때의 카운터 함수
     @objc func timerIsRunningFalseCounter()
@@ -253,8 +336,10 @@ class ViewController: UIViewController
         timerHourLabel.text = String(timerHour)
         timerMinuteLabel.text = String(timerMinute)
         timerSecondLabel.text = String(timerSecond)
-        NSLog("")
+        NSLog("타이머가 계산")
     }
+    
+    
     
 }
 
