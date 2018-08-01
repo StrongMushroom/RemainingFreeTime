@@ -128,14 +128,13 @@ class AddingScheduleViewController: UIViewController {
     @IBAction func addingScheduleIsDone(_ sender: Any) {
         clearLabelColor()
         //스케쥴 이름이나 시간의 텍스트를 입력받지 않았을 때
-        if scheduleNameTextField.text == "" || startingTimeLabel.text == "" || startingTimeLabel.text == ""{
+        if scheduleNameTextField.text == "" || startingTimeLabel.text == "" || finishingTimeLabel.text == ""{
             warningLabel.textColor = UIColor.red
         }
             //요일 선택을 하나도 하지 않았을 때
         else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
             warningLabel.textColor = UIColor.red
         }
-            // 일정 시간이 겹칠 때(아직 안함)
         else{
             NSLog("1차 통과")
             dateFormatter.dateFormat = "HH:mm"
@@ -237,13 +236,10 @@ class AddingScheduleViewController: UIViewController {
     @objc func viewTapped(gestureRecognizer : UITapGestureRecognizer){
         view.endEditing(true)
     }
-    func clearLabelColor(){
-        warningLabel.textColor = UIColor.clear
-        warningLabel.text = "- Enter all information correctly."
-    }
     func changeButtonBackgroundColor(button : UIButton){
         button.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
     }
+    //시간 비교하는 함수
     func compareTime(array : Array<Array<Int>>) -> Bool{
         var string = ""
         var stringArray : [String] = []
@@ -359,6 +355,9 @@ class AddingScheduleViewController: UIViewController {
         scheduleTimeArray.sort(by: {$0[0] < $1[0]})
         NSLog("배열후\(scheduleTimeArray)")
         return scheduleTimeArray
+    }
+    func clearLabelColor(){
+        warningLabel.textColor = UIColor.clear
     }
 }
 

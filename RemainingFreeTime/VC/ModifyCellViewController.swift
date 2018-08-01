@@ -186,6 +186,13 @@ class ModifyCellViewController: UIViewController {
         button.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
     }
     @objc func doneTapped(sender:UIButton) {
+        clearLabelColor()
+        if scheduleNameTextField.text == "" || startTimeTextField.text == "" || finishTimeTextField.text == ""{
+            warningLabel.textColor = UIColor.red
+        }
+        else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
+            warningLabel.textColor = UIColor.red
+        }
         dateFormatter.dateFormat = "HH:mm"
         let startDate = dateFormatter.string(from: (startingDatePicker?.date)!)
         let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)!)
@@ -199,8 +206,31 @@ class ModifyCellViewController: UIViewController {
         scheduleInfoArray[cellNum]["sunday"] = String(dayInfo.todayIsSun)
         scheduleInfoArray[cellNum]["startTime"] = startDate
         scheduleInfoArray[cellNum]["finishTime"] = finishDate
-        scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
-        self.navigationController?.popViewController(animated: true)
+        if compareTime(array: sortScheduleTime(weekday : "monday", scheduleArray : scheduleInfoArray)) == false{
+            warningLabel.textColor = UIColor.red
+            NSLog("1")
+        }else if compareTime(array: sortScheduleTime(weekday : "tuesday", scheduleArray : scheduleInfoArray)) == false{
+            warningLabel.textColor = UIColor.red
+            NSLog("2")
+        }else if compareTime(array: sortScheduleTime(weekday : "wednesday", scheduleArray : scheduleInfoArray)) == false{
+            warningLabel.textColor = UIColor.red
+            NSLog("3")
+        }else if compareTime(array: sortScheduleTime(weekday : "thursday", scheduleArray : scheduleInfoArray)) == false{
+            warningLabel.textColor = UIColor.red
+            NSLog("4")
+        }else if compareTime(array: sortScheduleTime(weekday : "friday", scheduleArray : scheduleInfoArray)) == false{
+            warningLabel.textColor = UIColor.red
+            NSLog("5")
+        }else if compareTime(array: sortScheduleTime(weekday : "saturday", scheduleArray : scheduleInfoArray)) == false{
+            warningLabel.textColor = UIColor.red
+            NSLog("6")
+        }else if compareTime(array: sortScheduleTime(weekday : "sunday", scheduleArray : scheduleInfoArray)) == false{
+            warningLabel.textColor = UIColor.red
+            NSLog("7")
+        }else{
+            scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     @objc func cancelTapped (sender:UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -295,5 +325,29 @@ class ModifyCellViewController: UIViewController {
         NSLog("배열후\(scheduleTimeArray)")
         return scheduleTimeArray
     }
-    
+    func compareTime(array : Array<Array<Int>>) -> Bool{
+        var string = ""
+        var stringArray : [String] = []
+        var checkBool = true
+        if array.count == 0 || array.count == 1 {
+            NSLog("일정이 0개거나 1개")
+        }else {
+            NSLog("일정이 2개 이상")
+            for x in 0..<array.count-1{
+                if array[x][1] <= array[x+1][0]{
+                    string = "O"
+                    stringArray.append(string)
+                }else{
+                    string = "X"
+                    stringArray.append(string)
+                }
+            }
+            for y in stringArray {
+                if y == "X"{
+                    checkBool = false
+                }
+            }
+        }
+        return checkBool
+    }
 }
