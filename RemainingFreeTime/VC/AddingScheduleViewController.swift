@@ -244,6 +244,7 @@ class AddingScheduleViewController: UIViewController {
         var string = ""
         var stringArray : [String] = []
         var checkBool = true
+        //일정수로!
         if array.count == 0 || array.count == 1 {
             NSLog("일정이 0개거나 1개")
         }else {
@@ -261,6 +262,12 @@ class AddingScheduleViewController: UIViewController {
                 if y == "X"{
                     checkBool = false
                 }
+            }
+        }
+        //각 일정으로!
+        for z in array {
+            if z[0] >= z[1]{
+                checkBool = false
             }
         }
         return checkBool
