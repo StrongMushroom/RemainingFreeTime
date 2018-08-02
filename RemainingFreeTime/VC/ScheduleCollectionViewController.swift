@@ -133,8 +133,6 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         })
         scheduleCollectonView.reloadData()
     }
-    
-    
     @IBAction func showingAddingScheduleVC(_ sender: Any) {
         let AddingScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "AddingScheduleViewController")
         self.navigationController?.pushViewController(AddingScheduleVC!, animated: true)
