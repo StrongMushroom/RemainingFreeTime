@@ -349,7 +349,7 @@ class ModifyCellViewController: UIViewController {
             }
         }
         //각 일정으로!
-        for z in array {
+        for z in array { 
             if z[0] >= z[1]{
                 checkBool = false
             }

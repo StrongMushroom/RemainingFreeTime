@@ -212,7 +212,7 @@ class ViewController: UIViewController
                 }
             }
         }
-      
+        
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
         let second = calendar.component(.second, from: date)
@@ -227,6 +227,9 @@ class ViewController: UIViewController
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
             NSLog("하루에서 현재시간을 빼서 타이머 실행")
             scheduleTrueOrNot.text = "일정이 없습니다."
+            scheduleHourLable.isHidden = true
+            scheduleMinuteLable.isHidden = true
+            scheduleSecondLable.isHidden = true
             H.isHidden = true
             M.isHidden = true
             S.isHidden = true
@@ -246,11 +249,13 @@ class ViewController: UIViewController
                 myRemainingSecond = oneDaySecond-nowSecond-scheduleTimeInterval
                 NSLog("[\(myRemainingSecond).나머지 시간=\(oneDaySecond).하루-\(nowSecond).현재시간-\(scheduleTimeInterval).남은일정시간]")
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
-                NSLog("타이머 실행")
+                NSLog("전체 타이머 실행")
                 scheduleTrueOrNot.text = "[\(scheduleNameArray[0])]까지 남은시간"
+                betweenScheduleRemainingSecond = scheduleStartTimeArray[0] - nowSecond
                 otherTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(betweenScheduleTimerCounter), userInfo: nil, repeats: true)
+                NSLog("일정 밖 타이머 실행")
             }
-            else if nowSecond>scheduleFinishTimeArray[last]
+            else if nowSecond>=scheduleFinishTimeArray[last]
             {
                 NSLog("마지막 일정보다 늦은 시간일 때")
                 myRemainingSecond = oneDaySecond-nowSecond
@@ -258,6 +263,9 @@ class ViewController: UIViewController
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
                 NSLog("타이머 실행")
                 scheduleTrueOrNot.text = "모든 일정이 끝났습니다."
+                scheduleHourLable.isHidden = true
+                scheduleMinuteLable.isHidden = true
+                scheduleSecondLable.isHidden = true
                 H.isHidden = true
                 M.isHidden = true
                 S.isHidden = true
@@ -290,13 +298,13 @@ class ViewController: UIViewController
                         myRemainingSecond = oneDaySecond-scheduleFinishTimeArray[x]-scheduleTimeInterval
                         NSLog("\(oneDaySecond).하루-\(scheduleFinishTimeArray[x]).현재일정종료시간-\(scheduleTimeInterval).남은일정시간")
                         timerIsRunningFalseCounter()
-                        NSLog("타이머 실행")
+                        NSLog("전체 타이머(정지) 실행")
                         timer.invalidate()
-                        NSLog("타이머 정지")
+                        NSLog("전체 타이머 정지")
                         scheduleTrueOrNot.text = "\(scheduleNameArray[x]) 일정 중."
                         inScheduleRemainingSecond = scheduleFinishTimeArray[x]-nowSecond
                         otherTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(inScheduleTimerCounter), userInfo: nil, repeats: true)
-                        NSLog("타이머 실행")
+                        NSLog("일정 안 타이머 실행")
                         //라벨들을 숨긴 상태로 현재시간에서 내가 속한 일정의 종료시간까지 남은 시간을 1초씩 깎는 타이머를 실행한다.
                         //일정사이 남은시간 변수가 0이 되면 라벨들을 보이게 하고 타이머를 실행시킨다.
                     }
@@ -312,10 +320,11 @@ class ViewController: UIViewController
                         myRemainingSecond = oneDaySecond-nowSecond-scheduleTimeInterval
                         NSLog("\(oneDaySecond).하루-\(nowSecond).현재간-\(scheduleTimeInterval).남은일정시간")
                         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
-                        NSLog("\(myRemainingSecond)을 나머지 시간으로 타이머 실행")
+                        NSLog("전체 타이머 실행")
                         scheduleTrueOrNot.text = "\(scheduleNameArray[x+1]) 일정까지 남은 시간."
+                        betweenScheduleRemainingSecond = scheduleStartTimeArray[x+1] - nowSecond
                         otherTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(betweenScheduleTimerCounter), userInfo: nil, repeats: true)
-                        NSLog("타이머 실행")
+                        NSLog("일정 밖 타이머 실행")
                         
                         //다음일정 시작시간까지의 시간을 구해주고 그걸 1초씩 깎는 함수를 만들어준다. 그리고 0이 되면 타이머 정지...
                     }
@@ -335,7 +344,7 @@ class ViewController: UIViewController
         timerMinuteLabel.text = String(timerMinute)
         timerSecondLabel.text = String(timerSecond)
         myRemainingSecond -= 1
-        NSLog("타이머가 계산")
+        NSLog("전체 타이머가 계산")
     }
     //타이머가 정지해 있을때의 카운터 함수
     @objc func timerIsRunningFalseCounter()
@@ -348,11 +357,14 @@ class ViewController: UIViewController
         timerHourLabel.text = String(timerHour)
         timerMinuteLabel.text = String(timerMinute)
         timerSecondLabel.text = String(timerSecond)
-        NSLog("타이머가 계산")
+        NSLog("전체 타이머가 계산(정지)")
     }
     //다음일정까지 남은시간을 계산해준다.
     @objc func betweenScheduleTimerCounter()
     {
+        scheduleHourLable.isHidden = false
+        scheduleMinuteLable.isHidden = false
+        scheduleSecondLable.isHidden = false
         H.isHidden = false
         M.isHidden = false
         S.isHidden = false
@@ -365,15 +377,21 @@ class ViewController: UIViewController
         scheduleMinuteLable.text = String(timerMinute)
         scheduleSecondLable.text = String(timerSecond)
         betweenScheduleRemainingSecond -= 1
+        NSLog("일정밖 타이머가 계산")
         if betweenScheduleRemainingSecond == 0
         {
             otherTimer.invalidate()
+            viewWillAppear(true)
+            NSLog("일정이 시작하면 일정밖 타이머 멈추고 뷰를 다시 시작")
         }
         
     }
     //지금 일정이 끝날때까지 남은 시간을 구해준다.
     @objc func inScheduleTimerCounter()
     {
+        scheduleHourLable.isHidden = false
+        scheduleMinuteLable.isHidden = false
+        scheduleSecondLable.isHidden = false
         H.isHidden = false
         M.isHidden = false
         S.isHidden = false
@@ -386,9 +404,12 @@ class ViewController: UIViewController
         scheduleMinuteLable.text = String(timerMinute)
         scheduleSecondLable.text = String(timerSecond)
         inScheduleRemainingSecond -= 1
+        NSLog("일정 안 타이머가 계산")
         if inScheduleRemainingSecond == 0
         {
             otherTimer.invalidate()
+            viewWillAppear(true)
+            NSLog("일정이 끝나면 일정안 타이머 멈추고 뷰를 다시 시작")
         }
     }
     override func viewWillDisappear(_ animated: Bool)
@@ -398,7 +419,7 @@ class ViewController: UIViewController
         otherTimer.invalidate()
         scheduleStartTimeArray.removeAll()
         scheduleFinishTimeArray.removeAll()
-        NSLog("타이머가 멈춤")
+        NSLog("모든 타이머가 멈춤")
     }
 }
 
