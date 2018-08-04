@@ -17,8 +17,8 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
     @IBOutlet weak var scheduleSearchBar: UISearchBar!
     var scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
     var scheduleArray : Array<[String:String]> = []
-    var scheduleNameArray : [String] = []
-    var filtered:[String] = []
+//    var scheduleNameArray : [String] = []
+    var filtered:Array<[String:String]> = []
     var searchActive : Bool = false
     
     override func viewDidLoad() {
@@ -30,59 +30,98 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
     }
     override func viewWillAppear(_ animated: Bool){
         scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
-        for a in scheduleArray {
-            scheduleNameArray.append(a["name"]!)
-        }
+//        for a in scheduleArray {
+//            scheduleNameArray.append(a["name"]!)
+//        }
         scheduleCollectonView.reloadData()
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let scheduleCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
+        let cellTextColor = UIColor.black
+        let grayColor = UIColor.lightGray
+        
         if searchActive {
-            scheduleCell.scheduleNameLabel.text = filtered[indexPath.row]
+            scheduleCell.scheduleNameLabel.text = filtered[indexPath.row]["name"]
+            scheduleCell.scheduleTimeLabel.text = filtered[indexPath.row]["startTime"]! + "~" + filtered[indexPath.row]["finishTime"]!
+            if Bool(filtered[indexPath.row]["monday"]!)! == true {
+                scheduleCell.mondayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.mondayLabel.textColor = grayColor
+            }
+            if Bool(filtered[indexPath.row]["tuesday"]!)! == true {
+                scheduleCell.tuesdayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.tuesdayLabel.textColor = grayColor
+            }
+            if Bool(filtered[indexPath.row]["wednesday"]!)! == true {
+                scheduleCell.wednesdayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.wednesdayLabel.textColor = grayColor
+            }
+            if Bool(filtered[indexPath.row]["thursday"]!)! == true {
+                scheduleCell.thursdayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.thursdayLabel.textColor = grayColor
+            }
+            if Bool(filtered[indexPath.row]["friday"]!)! == true {
+                scheduleCell.fridayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.fridayLabel.textColor = grayColor
+            }
+            if Bool(filtered[indexPath.row]["saturday"]!)! == true {
+                scheduleCell.saturdayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.saturdayLabel.textColor = grayColor
+            }
+            if Bool(filtered[indexPath.row]["sunday"]!)! == true {
+                scheduleCell.sundayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.sundayLabel.textColor = grayColor
+            }
+            
         }else{
             scheduleCell.scheduleNameLabel.text = scheduleArray[indexPath.row]["name"]
-        }
-        scheduleCell.scheduleTimeLabel.text = scheduleArray[indexPath.row]["startTime"]! + "~" + scheduleArray[indexPath.row]["finishTime"]!
-        /*
-         scheduleCell.mondayLabel.text = filtered[indexPath.row]
-        scheduleCell.tuesdayLabel.text = filtered[indexPath.row]
-        scheduleCell.wednesdayLabel.text = filtered[indexPath.row]
-        scheduleCell.thursdayLabel.text = filtered[indexPath.row]
-        scheduleCell.fridayLabel.text = filtered[indexPath.row]
-        scheduleCell.saturdayLabel.text = filtered[indexPath.row]
-        scheduleCell.sundayLabel.text = filtered[indexPath.row]
-         */
-        
-        let cellTextColor = UIColor.black
-        if Bool(scheduleArray[indexPath.row]["monday"]!)! == true {
-            scheduleCell.mondayLabel.textColor = cellTextColor
-        }
-        if Bool(scheduleArray[indexPath.row]["tuesday"]!)! == true {
-            scheduleCell.tuesdayLabel.textColor = cellTextColor
-        }
-        if Bool(scheduleArray[indexPath.row]["wednesday"]!)! == true {
-            scheduleCell.wednesdayLabel.textColor = cellTextColor
-        }
-        if Bool(scheduleArray[indexPath.row]["thursday"]!)! == true {
-            scheduleCell.thursdayLabel.textColor = cellTextColor
-        }
-        if Bool(scheduleArray[indexPath.row]["friday"]!)! == true {
-            scheduleCell.fridayLabel.textColor = cellTextColor
-        }
-        if Bool(scheduleArray[indexPath.row]["saturday"]!)! == true {
-            scheduleCell.saturdayLabel.textColor = cellTextColor
-        }
-        if Bool(scheduleArray[indexPath.row]["sunday"]!)! == true {
-            scheduleCell.sundayLabel.textColor = cellTextColor
+            scheduleCell.scheduleTimeLabel.text = scheduleArray[indexPath.row]["startTime"]! + "~" + scheduleArray[indexPath.row]["finishTime"]!
+            if Bool(scheduleArray[indexPath.row]["monday"]!)! == true {
+                scheduleCell.mondayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.mondayLabel.textColor = grayColor
+            }
+            if Bool(scheduleArray[indexPath.row]["tuesday"]!)! == true {
+                scheduleCell.tuesdayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.tuesdayLabel.textColor = grayColor
+            }
+            if Bool(scheduleArray[indexPath.row]["wednesday"]!)! == true {
+                scheduleCell.wednesdayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.wednesdayLabel.textColor = grayColor
+            }
+            if Bool(scheduleArray[indexPath.row]["thursday"]!)! == true {
+                scheduleCell.thursdayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.thursdayLabel.textColor = grayColor
+            }
+            if Bool(scheduleArray[indexPath.row]["friday"]!)! == true {
+                scheduleCell.fridayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.fridayLabel.textColor = grayColor
+            }
+            if Bool(scheduleArray[indexPath.row]["saturday"]!)! == true {
+                scheduleCell.saturdayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.saturdayLabel.textColor = grayColor
+            }
+            if Bool(scheduleArray[indexPath.row]["sunday"]!)! == true {
+                scheduleCell.sundayLabel.textColor = cellTextColor
+            } else {
+                scheduleCell.sundayLabel.textColor = grayColor
+            }
         }
         return scheduleCell
     }
-    func someMethod(sender: UISwipeGestureRecognizer) {
-        let cell = sender.view as! UICollectionViewCell
-        let itemIndex = self.scheduleCollectonView.indexPath(for: cell)!.item
-        scheduleArray.remove(at: itemIndex)
-        self.scheduleCollectonView.reloadData()
-    }
+
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //혹시 설치 엑티브된 상태에서도 필요? 나중에 확인
         let modifyCellVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyCellViewController") as! ModifyCellViewController
@@ -99,11 +138,12 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         modifyCellVC.cellNum = indexPath.row
         self.navigationController?.pushViewController(modifyCellVC, animated: true)
     }
+    
     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         scheduleArray.remove(at: indexPath.row)
-        scheduleNameArray.remove(at: indexPath.row)
+//        scheduleNameArray.remove(at: indexPath.row)
         scheduleInfoModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleArray)
-        collectionView.reloadData()
+        scheduleCollectonView.reloadData()
     }
     
     // search 관련 함수
@@ -127,8 +167,8 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let searchString = searchText
-        filtered = scheduleNameArray.filter({ (item) -> Bool in
-            let countryText: NSString = item as NSString
+        filtered = scheduleArray.filter({ (item) -> Bool in
+            let countryText: NSString = item["name"]! as NSString
             return (countryText.range(of: searchString, options: NSString.CompareOptions.caseInsensitive).location) != NSNotFound
         })
         scheduleCollectonView.reloadData()

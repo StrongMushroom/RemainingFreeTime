@@ -7,4 +7,5 @@ target 'RemainingFreeTime' do
 
   # Pods for RemainingFreeTime
   pod 'Gifu'
+
 end

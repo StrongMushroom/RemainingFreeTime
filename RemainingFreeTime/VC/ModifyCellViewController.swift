@@ -194,8 +194,10 @@ class ModifyCellViewController: UIViewController {
             warningLabel.textColor = UIColor.red
         }
         dateFormatter.dateFormat = "HH:mm"
-        let startDate = dateFormatter.string(from: (startingDatePicker?.date)!)
-        let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)!)
+        
+        let startDate = startTimeTextField.text!
+        let finishDate = finishTimeTextField.text!
+        
         scheduleInfoArray[cellNum]["name"] = scheduleNameTextField.text!
         scheduleInfoArray[cellNum]["monday"] = String(dayInfo.todayIsMon)
         scheduleInfoArray[cellNum]["tuesday"] = String(dayInfo.todayIsTue)
