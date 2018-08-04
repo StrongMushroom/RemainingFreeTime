@@ -183,7 +183,7 @@ class ModifyCellViewController: UIViewController {
         warningLabel.textColor = UIColor.clear
     }
     func changeButtonBackgroundColor(button : UIButton){
-        button.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
+        button.backgroundColor = UIColor(red: 233, green: 201, blue: 137, alpha: 0.9)
     }
     @objc func doneTapped(sender:UIButton) {
         clearLabelColor()
