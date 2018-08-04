@@ -96,14 +96,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘하루 남은시간(일정중일땐 정지합니다.)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-RG-pt1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘의 남은 시간( 일정 중일 땐 정지합니다)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-RG-pt1">
                                 <rect key="frame" x="0.0" y="86" width="414" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="다음일정까지 남은 시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmT-hx-piG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="다음 일정까지 남은 시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmT-hx-piG">
                                 <rect key="frame" x="1" y="192" width="413" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -139,7 +139,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="992-2k-u9l">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="fQS-UX-tW8">
-                            <color key="tintColor" red="0.40003585815429688" green="0.41186463832855225" blue="0.40392071008682251" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.75686274509803919" green="0.6588235294117647" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="SLI-SG-AdR" kind="show" id="Txp-gC-VSU"/>
                             </connections>
@@ -327,7 +327,7 @@
                                 </scopeButtonTitles>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97509974241256714" green="0.9743620753288269" blue="0.87057232856750488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="MFe-oz-krg" firstAttribute="width" secondItem="Fek-HI-NKd" secondAttribute="width" id="6Ke-eB-Jrr"/>
                             <constraint firstItem="2om-7n-X3t" firstAttribute="centerX" secondItem="9wr-LD-fCc" secondAttribute="centerX" id="HQA-pl-iTa"/>
@@ -341,7 +341,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Schedule" id="AuE-54-49D">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mJ2-fz-qe6">
-                            <color key="tintColor" red="0.40003585815429688" green="0.41186463832855225" blue="0.40392071008682251" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.75686274509803919" green="0.6588235294117647" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="showingAddingScheduleVC:" destination="SLI-SG-AdR" id="owE-t3-vfA"/>
                             </connections>
@@ -374,7 +374,7 @@
                                 <color key="textColor" red="0.51062817258883242" green="0.50957751869471368" blue="0.47712033832033163" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HBt-9P-oI2">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="일정 제목을 입력하시오." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HBt-9P-oI2">
                                 <rect key="frame" x="37" y="128" width="340" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="340" id="2Qx-WF-rbQ"/>
@@ -523,7 +523,7 @@
                                 <color key="textColor" red="0.3411764705882353" green="0.33725490196078434" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6y-rZ-Pq5">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 시간" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6y-rZ-Pq5">
                                 <rect key="frame" x="157.66666666666666" y="339" width="99.999999999999972" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="l7i-r1-Luj"/>
@@ -532,7 +532,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-Zg-nM9">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="종료 시간" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-Zg-nM9">
                                 <rect key="frame" x="157.66666666666666" y="437" width="99.999999999999972" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2wU-Xf-JLz"/>
@@ -786,6 +786,7 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w3s-O9-tmZ">
                                 <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.75686274509803919" green="0.6588235294117647" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hod-l0-w1S">
                                 <rect key="frame" x="57" y="262" width="30" height="30"/>
@@ -879,4 +880,5 @@
         <image name="cat" width="414" height="736"/>
         <image name="water" width="414" height="736"/>
     </resources>
+    <color key="tintColor" red="0.75686274509803919" green="0.6588235294117647" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
