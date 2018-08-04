@@ -19,9 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="고양이" translatesAutoresizingMaskIntoConstraints="NO" id="bAy-Um-Ajq">
-                                <rect key="frame" x="1" y="0.0" width="414" height="736"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDR-hW-trJ">
                                 <rect key="frame" x="1" y="100" width="105" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -120,32 +117,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="물" translatesAutoresizingMaskIntoConstraints="NO" id="5qB-Ek-5za">
-                                <rect key="frame" x="1" y="0.0" width="414" height="736"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="5dn-M0-aSB"/>
-                                    <constraint firstAttribute="height" constant="736" id="uxN-h2-u7V"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="mbi-94-Xot">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="물고기노랑" translatesAutoresizingMaskIntoConstraints="NO" id="MBr-hn-is4">
-                                <rect key="frame" x="-3" y="-7" width="418" height="743"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="물고기빨강" translatesAutoresizingMaskIntoConstraints="NO" id="Sg1-8c-gJ8">
-                                <rect key="frame" x="-4" y="0.0" width="419" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="물고기파랑" translatesAutoresizingMaskIntoConstraints="NO" id="F8S-Sx-I1w">
-                                <rect key="frame" x="-4" y="-7" width="418" height="743"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="water" translatesAutoresizingMaskIntoConstraints="NO" id="akP-Dl-4Fq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.95531591914830771" blue="0.69090616043095299" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="bAy-Um-Ajq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="1" id="63f-vq-nIF"/>
-                            <constraint firstItem="bAy-Um-Ajq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="bPF-4S-ydB"/>
-                            <constraint firstItem="bAy-Um-Ajq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="sch-fL-0es"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="bAy-Um-Ajq" secondAttribute="top" constant="64" id="veg-0l-iwt"/>
+                            <constraint firstItem="akP-Dl-4Fq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ACr-nw-wmV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="akP-Dl-4Fq" secondAttribute="top" constant="64" id="HWv-aW-Blt"/>
+                            <constraint firstItem="mbi-94-Xot" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Hw5-xS-6za"/>
+                            <constraint firstItem="mbi-94-Xot" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="a5o-Pt-S8Z"/>
+                            <constraint firstItem="akP-Dl-4Fq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="log-OL-23M"/>
+                            <constraint firstItem="akP-Dl-4Fq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rdn-Pu-jPW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="mbi-94-Xot" secondAttribute="top" constant="64" id="sLh-Yx-fdC"/>
+                            <constraint firstItem="mbi-94-Xot" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yME-Dd-aEq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -882,10 +870,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="고양이" width="621" height="1104"/>
-        <image name="물" width="621" height="1104"/>
-        <image name="물고기노랑" width="621" height="1104"/>
-        <image name="물고기빨강" width="1242" height="2208"/>
-        <image name="물고기파랑" width="621" height="1104"/>
+        <image name="cat" width="414" height="736"/>
+        <image name="water" width="414" height="736"/>
     </resources>
 </document>
