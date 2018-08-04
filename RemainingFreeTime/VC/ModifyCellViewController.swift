@@ -183,19 +183,21 @@ class ModifyCellViewController: UIViewController {
         warningLabel.textColor = UIColor.clear
     }
     func changeButtonBackgroundColor(button : UIButton){
-        button.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
+        button.backgroundColor = UIColor(red: 233, green: 201, blue: 137, alpha: 0.9)
     }
     @objc func doneTapped(sender:UIButton) {
         clearLabelColor()
-        if scheduleNameTextField.text == "" || startTimeTextField.text == "" || finishTimeTextField.text == ""{
+        if scheduleNameTextField.text == "" {
             warningLabel.textColor = UIColor.red
         }
         else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
             warningLabel.textColor = UIColor.red
         }
         dateFormatter.dateFormat = "HH:mm"
-        let startDate = dateFormatter.string(from: (startingDatePicker?.date)!)
-        let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)!)
+        
+        let startDate = startTimeTextField.text!
+        let finishDate = finishTimeTextField.text!
+        
         scheduleInfoArray[cellNum]["name"] = scheduleNameTextField.text!
         scheduleInfoArray[cellNum]["monday"] = String(dayInfo.todayIsMon)
         scheduleInfoArray[cellNum]["tuesday"] = String(dayInfo.todayIsTue)
