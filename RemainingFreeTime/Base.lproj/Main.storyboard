@@ -139,6 +139,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="992-2k-u9l">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="fQS-UX-tW8">
+                            <color key="tintColor" red="0.40003585815429688" green="0.41186463832855225" blue="0.40392071008682251" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="SLI-SG-AdR" kind="show" id="Txp-gC-VSU"/>
                             </connections>
@@ -355,7 +356,7 @@
             </objects>
             <point key="canvasLocation" x="1214.4927536231885" y="132.88043478260872"/>
         </scene>
-        <!--Add Schedule-->
+        <!--Adding Schedule View Controller-->
         <scene sceneID="a81-81-eGb">
             <objects>
                 <viewController storyboardIdentifier="AddingScheduleViewController" id="sGC-yK-xRp" customClass="AddingScheduleViewController" customModule="RemainingFreeTime" customModuleProvider="target" sceneMemberID="viewController">
@@ -524,6 +525,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6y-rZ-Pq5">
                                 <rect key="frame" x="157.66666666666666" y="350" width="99.999999999999972" height="30"/>
+                                <color key="backgroundColor" red="0.99813359975814819" green="0.98304873704910278" blue="0.75290220975875854" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="l7i-r1-Luj"/>
                                 </constraints>
@@ -533,6 +535,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-Zg-nM9">
                                 <rect key="frame" x="157.66666666666666" y="461" width="99.999999999999972" height="30"/>
+                                <color key="backgroundColor" red="0.99813359975814819" green="0.98304873704910278" blue="0.75290220975875854" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2wU-Xf-JLz"/>
                                 </constraints>
@@ -576,13 +579,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ehJ-PJ-rYj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Schedule" id="aYh-wm-the">
+                    <navigationItem key="navigationItem" id="aYh-wm-the">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="iiF-HZ-ar8">
+                            <color key="tintColor" red="0.75563651323318481" green="0.65964066982269287" blue="0.59998875856399536" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="touchedCancelBtn:" destination="sGC-yK-xRp" id="Zay-cZ-8RR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Qbw-Zs-8Tg">
+                            <color key="tintColor" red="0.75563651323318481" green="0.65964066982269287" blue="0.59998875856399536" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="addingScheduleIsDone:" destination="sGC-yK-xRp" id="O1J-M5-Xyh"/>
                             </connections>
@@ -783,7 +788,7 @@
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hod-l0-w1S">
                                 <rect key="frame" x="57" y="273" width="30" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.72885948677332779" blue="0.59544722986093168" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.75563651323318481" green="0.65964066982269287" blue="0.59998875856399536" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="7Ma-Og-8Hs"/>
                                     <constraint firstAttribute="height" constant="30" id="Vio-OG-ea8"/>
