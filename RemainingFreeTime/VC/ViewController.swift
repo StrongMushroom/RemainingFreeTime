@@ -227,7 +227,7 @@ class ViewController: UIViewController
             myRemainingSecond = oneDaySecond-nowSecond
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
             NSLog("하루에서 현재시간을 빼서 타이머 실행")
-            scheduleTrueOrNot.text = "일정이 없습니다."
+            scheduleTrueOrNot.text = "오늘의 일정이 없습니다."
             scheduleHourLable.isHidden = true
             scheduleMinuteLable.isHidden = true
             scheduleSecondLable.isHidden = true
