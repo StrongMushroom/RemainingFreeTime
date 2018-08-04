@@ -187,7 +187,7 @@ class ModifyCellViewController: UIViewController {
     }
     @objc func doneTapped(sender:UIButton) {
         clearLabelColor()
-        if scheduleNameTextField.text == "" || startTimeTextField.text == "" || finishTimeTextField.text == ""{
+        if scheduleNameTextField.text == "" {
             warningLabel.textColor = UIColor.red
         }
         else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{

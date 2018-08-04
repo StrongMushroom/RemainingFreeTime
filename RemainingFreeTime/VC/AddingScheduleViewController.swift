@@ -237,7 +237,8 @@ class AddingScheduleViewController: UIViewController {
         view.endEditing(true)
     }
     func changeButtonBackgroundColor(button : UIButton){
-        button.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
+        button.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        
     }
     //시간 비교하는 함수
     func compareTime(array : Array<Array<Int>>) -> Bool{

@@ -137,6 +137,7 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         let AddingScheduleVC = self.storyboard?.instantiateViewController(withIdentifier: "AddingScheduleViewController")
         self.navigationController?.pushViewController(AddingScheduleVC!, animated: true)
     }
+    
     func changeButtonBackgroundColor(button : UIButton){
         button.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.50, alpha: 0.9)
     }
