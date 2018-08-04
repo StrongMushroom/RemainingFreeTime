@@ -120,9 +120,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="물" translatesAutoresizingMaskIntoConstraints="NO" id="5qB-Ek-5za">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="물" translatesAutoresizingMaskIntoConstraints="NO" id="5qB-Ek-5za">
                                 <rect key="frame" x="1" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="5dn-M0-aSB"/>
+                                    <constraint firstAttribute="height" constant="736" id="uxN-h2-u7V"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="물고기노랑" translatesAutoresizingMaskIntoConstraints="NO" id="MBr-hn-is4">
                                 <rect key="frame" x="-3" y="-7" width="418" height="743"/>
@@ -528,7 +531,7 @@
                                     <constraint firstAttribute="height" constant="21" id="fkV-Bv-YGh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.3411764705882353" green="0.33725490196078434" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6y-rZ-Pq5">

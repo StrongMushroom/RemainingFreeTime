@@ -17,10 +17,13 @@
 		6FBD268820D00D2D00DB107B /* ScheduleInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD268720D00D2D00DB107B /* ScheduleInfoModel.swift */; };
 		6FBD268C20D01E5200DB107B /* DayInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD268B20D01E5200DB107B /* DayInfoObject.swift */; };
 		6FBD26A220EF4A5B00DB107B /* ScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */; };
+		96BF61415033929939CF8D5D /* Pods_RemainingFreeTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F52695D01820D4C733C76D /* Pods_RemainingFreeTime.framework */; };
 		AD25239520F47BCC003902AE /* ACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25239420F47BCC003902AE /* ACollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43834701B5E7282164001EEF /* Pods-RemainingFreeTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemainingFreeTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RemainingFreeTime/Pods-RemainingFreeTime.debug.xcconfig"; sourceTree = "<group>"; };
+		46F52695D01820D4C733C76D /* Pods_RemainingFreeTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RemainingFreeTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyCellViewController.swift; sourceTree = "<group>"; };
 		6FBD266820CFF0EF00DB107B /* RemainingFreeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemainingFreeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +36,7 @@
 		6FBD268720D00D2D00DB107B /* ScheduleInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInfoModel.swift; sourceTree = "<group>"; };
 		6FBD268B20D01E5200DB107B /* DayInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInfoObject.swift; sourceTree = "<group>"; };
 		6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewController.swift; sourceTree = "<group>"; };
+		975151DEC27B50FB8C5C42AC /* Pods-RemainingFreeTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemainingFreeTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-RemainingFreeTime/Pods-RemainingFreeTime.release.xcconfig"; sourceTree = "<group>"; };
 		AD25239420F47BCC003902AE /* ACollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96BF61415033929939CF8D5D /* Pods_RemainingFreeTime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34B084585E08F70FF0600AA2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43834701B5E7282164001EEF /* Pods-RemainingFreeTime.debug.xcconfig */,
+				975151DEC27B50FB8C5C42AC /* Pods-RemainingFreeTime.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		42FB34FAE6118FEEA36ED8AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				46F52695D01820D4C733C76D /* Pods_RemainingFreeTime.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6FBD265F20CFF0EF00DB107B = {
 			isa = PBXGroup;
 			children = (
 				6FBD266A20CFF0EF00DB107B /* RemainingFreeTime */,
 				6FBD266920CFF0EF00DB107B /* Products */,
+				34B084585E08F70FF0600AA2 /* Pods */,
+				42FB34FAE6118FEEA36ED8AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FBD267A20CFF0EF00DB107B /* Build configuration list for PBXNativeTarget "RemainingFreeTime" */;
 			buildPhases = (
+				0D621A6D8FA16D9258BC6E40 /* [CP] Check Pods Manifest.lock */,
 				6FBD266420CFF0EF00DB107B /* Sources */,
 				6FBD266520CFF0EF00DB107B /* Frameworks */,
 				6FBD266620CFF0EF00DB107B /* Resources */,
+				15EE1F0CB86621FFF022BCB3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,6 +198,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D621A6D8FA16D9258BC6E40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RemainingFreeTime-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15EE1F0CB86621FFF022BCB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RemainingFreeTime/Pods-RemainingFreeTime-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Gifu/Gifu.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gifu.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RemainingFreeTime/Pods-RemainingFreeTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6FBD266420CFF0EF00DB107B /* Sources */ = {
@@ -320,6 +385,7 @@
 		};
 		6FBD267B20CFF0EF00DB107B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43834701B5E7282164001EEF /* Pods-RemainingFreeTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -335,6 +401,7 @@
 		};
 		6FBD267C20CFF0EF00DB107B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 975151DEC27B50FB8C5C42AC /* Pods-RemainingFreeTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
