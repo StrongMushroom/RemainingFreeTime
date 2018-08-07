@@ -185,6 +185,7 @@ class ModifyCellViewController: UIViewController {
     func changeButtonBackgroundColor(button : UIButton){
         button.backgroundColor = UIColor(red: 0.91, green: 0.78, blue: 0.54, alpha: 0.9)
     }
+    //완료버튼
     @objc func doneTapped(sender:UIButton) {
         clearLabelColor()
         if scheduleNameTextField.text == ""{
