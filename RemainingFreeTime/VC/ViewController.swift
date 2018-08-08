@@ -64,7 +64,8 @@ class ViewController: UIViewController
                     scheduleFinishTimeArray.append(finishSecond)
                     scheduleFinishTimeArray.sort()
                     scheduleNameArray.append(a["name"]!)
-                    scheduleNameArray.sort()
+                    //scheduleNameArray.sort()
+                    NSLog("\(scheduleNameArray)")
                     NSLog("월요일 어레이에 추가됩니다.")
                 }
             }
@@ -252,6 +253,8 @@ class ViewController: UIViewController
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
                 NSLog("전체 타이머 실행")
                 scheduleTrueOrNot.text = "[\(scheduleNameArray[0])]까지 남은시간"
+                NSLog("\(scheduleNameArray)")
+                NSLog("\(scheduleNameArray[0])까지 남은시간")
                 betweenScheduleRemainingSecond = scheduleStartTimeArray[0] - nowSecond
                 otherTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(betweenScheduleTimerCounter), userInfo: nil, repeats: true)
                 NSLog("일정 밖 타이머 실행")
@@ -280,22 +283,21 @@ class ViewController: UIViewController
                     if scheduleStartTimeArray[x]<=nowSecond && nowSecond<scheduleFinishTimeArray[x]
                     {
                         NSLog("[\(x)]일정 안에 있을 때")
-                        for a in x...last
-                        {
+                        
                             if arrayCount>x+1
                             {
                                 NSLog("나의 일정이 \(x)보다 많다면")
                                 for a in x+1...last
                                 {
                                     scheduleTimeInterval += scheduleFinishTimeArray[a]-scheduleStartTimeArray[a]
-                                    NSLog("[\(x)]~[\(last)]일정들의 시간을 남은일정시간 변수에 넣어주고")
+                                    NSLog("[\(a)]일정들의 시간을 남은일정시간 변수에 넣어주고")
                                 }
                             }
                             else
                             {
                                 NSLog("나의 일정이 \(x)보다 많지 않다면 남은일정시간 변수를 0으로")
                             }
-                        }
+                        
                         myRemainingSecond = oneDaySecond-scheduleFinishTimeArray[x]-scheduleTimeInterval
                         NSLog("\(oneDaySecond).하루-\(scheduleFinishTimeArray[x]).현재일정종료시간-\(scheduleTimeInterval).남은일정시간")
                         timerIsRunningFalseCounter()
@@ -315,7 +317,7 @@ class ViewController: UIViewController
                             for a in x...last-1
                             {
                                 scheduleTimeInterval += scheduleFinishTimeArray[a+1]-scheduleStartTimeArray[a+1]
-                                NSLog("[\(x)]~[\(last)]일정들의 시간을 남은일정시간 변수에 넣어주고")
+                                NSLog("[\(x)]일정의 소요시간을 남은일정시간 변수에 넣어주고")
                             }
                        
                         myRemainingSecond = oneDaySecond-nowSecond-scheduleTimeInterval
@@ -326,8 +328,6 @@ class ViewController: UIViewController
                         betweenScheduleRemainingSecond = scheduleStartTimeArray[x+1] - nowSecond
                         otherTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(betweenScheduleTimerCounter), userInfo: nil, repeats: true)
                         NSLog("일정 밖 타이머 실행")
-                        
-                        //다음일정 시작시간까지의 시간을 구해주고 그걸 1초씩 깎는 함수를 만들어준다. 그리고 0이 되면 타이머 정지...
                     }
                 }
             }
@@ -381,9 +381,12 @@ class ViewController: UIViewController
         NSLog("일정밖 타이머가 계산")
         if betweenScheduleRemainingSecond == 0
         {
+            timer.invalidate()
             otherTimer.invalidate()
+            scheduleStartTimeArray.removeAll()
+            scheduleFinishTimeArray.removeAll()
             viewWillAppear(true)
-            NSLog("일정이 시작하면 일정밖 타이머 멈추고 뷰를 다시 시작")
+            NSLog("일정이 시작하면 모든 타이머 멈추고 뷰를 다시 시작")
         }
         
     }
@@ -408,9 +411,12 @@ class ViewController: UIViewController
         NSLog("일정 안 타이머가 계산")
         if inScheduleRemainingSecond == 0
         {
+            timer.invalidate()
             otherTimer.invalidate()
+            scheduleStartTimeArray.removeAll()
+            scheduleFinishTimeArray.removeAll()
             viewWillAppear(true)
-            NSLog("일정이 끝나면 일정안 타이머 멈추고 뷰를 다시 시작")
+            NSLog("일정이 끝나면 모든 타이머 멈추고 뷰를 다시 시작")
         }
     }
     override func viewWillDisappear(_ animated: Bool)
