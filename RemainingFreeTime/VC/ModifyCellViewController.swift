@@ -117,55 +117,55 @@ class ModifyCellViewController: UIViewController {
     @IBAction func tueBtn(_ sender: Any) {
         if tuesdayBtn.backgroundColor == UIColor.clear{
             changeButtonBackgroundColor(button: tuesdayBtn)
-            dayInfo.todayIsMon = true
+            dayInfo.todayIsTue = true
         }else{
             tuesdayBtn.backgroundColor = UIColor.clear
-            dayInfo.todayIsMon = false
+            dayInfo.todayIsTue = false
         }
     }
     @IBAction func wedBtn(_ sender: Any) {
         if wednesdayBtn.backgroundColor == UIColor.clear{
             changeButtonBackgroundColor(button: wednesdayBtn)
-            dayInfo.todayIsMon = true
+            dayInfo.todayIsWed = true
         }else{
             wednesdayBtn.backgroundColor = UIColor.clear
-            dayInfo.todayIsMon = false
+            dayInfo.todayIsWed = false
         }
     }
     @IBAction func thuBtn(_ sender: Any) {
         if thursdayBtn.backgroundColor == UIColor.clear{
             changeButtonBackgroundColor(button: thursdayBtn)
-            dayInfo.todayIsMon = true
+            dayInfo.todayIsThu = true
         }else{
             thursdayBtn.backgroundColor = UIColor.clear
-            dayInfo.todayIsMon = false
+            dayInfo.todayIsThu = false
         }
     }
     @IBAction func friBtn(_ sender: Any) {
         if fridayBtn.backgroundColor == UIColor.clear{
             changeButtonBackgroundColor(button: fridayBtn)
-            dayInfo.todayIsMon = true
+            dayInfo.todayIsFri = true
         }else{
             fridayBtn.backgroundColor = UIColor.clear
-            dayInfo.todayIsMon = false
+            dayInfo.todayIsFri = false
         }
     }
     @IBAction func satBTn(_ sender: Any) {
         if saturdayBtn.backgroundColor == UIColor.clear{
             changeButtonBackgroundColor(button: saturdayBtn)
-            dayInfo.todayIsMon = true
+            dayInfo.todayIsSat = true
         }else{
             saturdayBtn.backgroundColor = UIColor.clear
-            dayInfo.todayIsMon = false
+            dayInfo.todayIsSat = false
         }
     }
     @IBAction func sunBtn(_ sender: Any) {
         if sundayBtn.backgroundColor == UIColor.clear{
             changeButtonBackgroundColor(button: sundayBtn)
-            dayInfo.todayIsMon = true
+            dayInfo.todayIsSun = true
         }else{
             sundayBtn.backgroundColor = UIColor.clear
-            dayInfo.todayIsMon = false
+            dayInfo.todayIsSun = false
         }
     }
     @objc func startDateChanged(datePicker : UIDatePicker){
@@ -185,14 +185,18 @@ class ModifyCellViewController: UIViewController {
     func changeButtonBackgroundColor(button : UIButton){
         button.backgroundColor = UIColor(red: 0.91, green: 0.78, blue: 0.54, alpha: 0.9)
     }
+    //완료버튼
     @objc func doneTapped(sender:UIButton) {
         clearLabelColor()
-        if scheduleNameTextField.text == "" {
+        if scheduleNameTextField.text == ""{
+            NSLog("\(String(describing: scheduleNameTextField.text))")
+            NSLog("일정 이름 입력을 안했어")
             warningLabel.textColor = UIColor.red
         }
         else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
+             NSLog("요일체크안함")
             warningLabel.textColor = UIColor.red
-        }
+        }else{
         dateFormatter.dateFormat = "HH:mm"
         
         let startDate = startTimeTextField.text!
@@ -232,7 +236,9 @@ class ModifyCellViewController: UIViewController {
         }else{
             scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
             self.navigationController?.popViewController(animated: true)
+            }
         }
+        
     }
     @objc func cancelTapped (sender:UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -276,6 +282,7 @@ class ModifyCellViewController: UIViewController {
                     scheduleTime.append(Int((x["finishTime"]!.components(separatedBy: ":"))[0])!*3600 + Int((x["finishTime"]!.components(separatedBy: ":"))[1])!*60)
                     scheduleTimeArray.append(scheduleTime)
                 }
+                NSLog("일정 수요일 아님!!!!!")
             }
         }
         if weekday == "thursday" {
