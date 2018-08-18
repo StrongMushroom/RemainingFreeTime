@@ -33,8 +33,7 @@ class ViewController: UIViewController
     var scheduleArray : Array<[String:String]> = []
     var scheduleStartTimeArray : [Int] = []
     var scheduleFinishTimeArray : [Int] = []
-    var scheduleNameArray : [String] = []
-    
+    var scheduleNameDictonary = Dictionary<String,Int>()
     
     override func viewWillAppear(_ animated: Bool)
     {
@@ -63,9 +62,8 @@ class ViewController: UIViewController
                     let finishSecond = finishHour*3600 + finishMinute*60
                     scheduleFinishTimeArray.append(finishSecond)
                     scheduleFinishTimeArray.sort()
-                    scheduleNameArray.append(a["name"]!)
-                    //scheduleNameArray.sort()
-                    NSLog("\(scheduleNameArray)")
+                    scheduleNameDictonary.updateValue(startSecond, forKey:a["name"]!)
+                    scheduleNameDictonary.values.sorted(by: <)
                     NSLog("월요일 어레이에 추가됩니다.")
                 }
             }
@@ -88,8 +86,8 @@ class ViewController: UIViewController
                     let finishSecond = finishHour*3600 + finishMinute*60
                     scheduleFinishTimeArray.append(finishSecond)
                     scheduleFinishTimeArray.sort()
-                    scheduleNameArray.append(a["name"]!)
-                    scheduleNameArray.sort()
+                    scheduleNameDictonary.updateValue(startSecond, forKey:a["name"]!)
+                    scheduleNameDictonary.values.sorted(by: <)
                     NSLog("화요일 어레이에 추가됩니다.")
                 }
             }
@@ -112,8 +110,8 @@ class ViewController: UIViewController
                     let finishSecond = finishHour*3600 + finishMinute*60
                     scheduleFinishTimeArray.append(finishSecond)
                     scheduleFinishTimeArray.sort()
-                    scheduleNameArray.append(a["name"]!)
-                    scheduleNameArray.sort()
+                    scheduleNameDictonary.updateValue(startSecond, forKey:a["name"]!)
+                    scheduleNameDictonary.values.sorted(by: <)
                     NSLog("수요일 어레이에 추가됩니다.")
                 }
             }
@@ -136,8 +134,8 @@ class ViewController: UIViewController
                     let finishSecond = finishHour*3600 + finishMinute*60
                     scheduleFinishTimeArray.append(finishSecond)
                     scheduleFinishTimeArray.sort()
-                    scheduleNameArray.append(a["name"]!)
-                    scheduleNameArray.sort()
+                    scheduleNameDictonary.updateValue(startSecond, forKey:a["name"]!)
+                    scheduleNameDictonary.values.sorted(by: <)
                     NSLog("목요일 어레이에 추가됩니다.")
                 }
             }
@@ -160,8 +158,8 @@ class ViewController: UIViewController
                     let finishSecond = finishHour*3600 + finishMinute*60
                     scheduleFinishTimeArray.append(finishSecond)
                     scheduleFinishTimeArray.sort()
-                    scheduleNameArray.append(a["name"]!)
-                    scheduleNameArray.sort()
+                    scheduleNameDictonary.updateValue(startSecond, forKey:a["name"]!)
+                    scheduleNameDictonary.values.sorted(by: <)
                     NSLog("금요일 어레이에 추가됩니다")
                 }
             }
@@ -184,8 +182,8 @@ class ViewController: UIViewController
                     let finishSecond = finishHour*3600 + finishMinute*60
                     scheduleFinishTimeArray.append(finishSecond)
                     scheduleFinishTimeArray.sort()
-                    scheduleNameArray.append(a["name"]!)
-                    scheduleNameArray.sort()
+                    scheduleNameDictonary.updateValue(startSecond, forKey:a["name"]!)
+                    scheduleNameDictonary.values.sorted(by: <)
                     NSLog("토요일 어레이에 추가됩니다")
                 }
             }
@@ -208,8 +206,8 @@ class ViewController: UIViewController
                     let finishSecond = finishHour*3600 + finishMinute*60
                     scheduleFinishTimeArray.append(finishSecond)
                     scheduleFinishTimeArray.sort()
-                    scheduleNameArray.append(a["name"]!)
-                    scheduleNameArray.sort()
+                    scheduleNameDictonary.updateValue(startSecond, forKey:a["name"]!)
+                    scheduleNameDictonary.values.sorted(by: <)
                     NSLog("일요일 어레이에 추가됩니다")
                 }
             }
@@ -252,9 +250,9 @@ class ViewController: UIViewController
                 NSLog("[\(myRemainingSecond).나머지 시간=\(oneDaySecond).하루-\(nowSecond).현재시간-\(scheduleTimeInterval).남은일정시간]")
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
                 NSLog("전체 타이머 실행")
-                scheduleTrueOrNot.text = "[\(scheduleNameArray[0])]까지 남은시간"
-                NSLog("\(scheduleNameArray)")
-                NSLog("\(scheduleNameArray[0])까지 남은시간")
+                scheduleTrueOrNot.text = "[\(Array(scheduleNameDictonary)[0].key)]까지 남은시간"
+                NSLog("\(scheduleNameDictonary.values)")
+                NSLog("\(Array(scheduleNameDictonary)[0].key)까지 남은시간")
                 betweenScheduleRemainingSecond = scheduleStartTimeArray[0] - nowSecond
                 otherTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(betweenScheduleTimerCounter), userInfo: nil, repeats: true)
                 NSLog("일정 밖 타이머 실행")
@@ -304,12 +302,10 @@ class ViewController: UIViewController
                         NSLog("전체 타이머(정지) 실행")
                         timer.invalidate()
                         NSLog("전체 타이머 정지")
-                        scheduleTrueOrNot.text = "\(scheduleNameArray[x]) 일정 중."
+                        scheduleTrueOrNot.text = "\(Array(scheduleNameDictonary)[x].key) 일정 중."
                         inScheduleRemainingSecond = scheduleFinishTimeArray[x]-nowSecond
                         otherTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(inScheduleTimerCounter), userInfo: nil, repeats: true)
                         NSLog("일정 안 타이머 실행")
-                        //라벨들을 숨긴 상태로 현재시간에서 내가 속한 일정의 종료시간까지 남은 시간을 1초씩 깎는 타이머를 실행한다.
-                        //일정사이 남은시간 변수가 0이 되면 라벨들을 보이게 하고 타이머를 실행시킨다.
                     }
                     else if scheduleFinishTimeArray[x]<=nowSecond && nowSecond<scheduleStartTimeArray[x+1]
                     {
@@ -324,7 +320,7 @@ class ViewController: UIViewController
                         NSLog("\(oneDaySecond).하루-\(nowSecond).현재간-\(scheduleTimeInterval).남은일정시간")
                         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerIsRunningTrueCounter), userInfo: nil, repeats: true)
                         NSLog("전체 타이머 실행")
-                        scheduleTrueOrNot.text = "\(scheduleNameArray[x+1]) 일정까지 남은 시간."
+                        scheduleTrueOrNot.text = "\(Array(scheduleNameDictonary)[x+1].key) 일정까지 남은 시간."
                         betweenScheduleRemainingSecond = scheduleStartTimeArray[x+1] - nowSecond
                         otherTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(betweenScheduleTimerCounter), userInfo: nil, repeats: true)
                         NSLog("일정 밖 타이머 실행")
