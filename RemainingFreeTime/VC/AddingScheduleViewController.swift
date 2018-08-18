@@ -129,11 +129,11 @@ class AddingScheduleViewController: UIViewController {
         clearLabelColor()
         //스케쥴 이름이나 시간의 텍스트를 입력받지 않았을 때
         if scheduleNameTextField.text == "" || startingTimeLabel.text == "" || finishingTimeLabel.text == ""{
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
         }
             //요일 선택을 하나도 하지 않았을 때
         else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
         }
         else{
             NSLog("1차 통과")
@@ -238,7 +238,6 @@ class AddingScheduleViewController: UIViewController {
     }
     func changeButtonBackgroundColor(button : UIButton){
         button.backgroundColor = UIColor(red: 0.91, green: 0.78, blue: 0.54, alpha: 0.9)
-        
     }
     //시간 비교하는 함수
     func compareTime(array : Array<Array<Int>>) -> Bool{
@@ -366,6 +365,9 @@ class AddingScheduleViewController: UIViewController {
     }
     func clearLabelColor(){
         warningLabel.textColor = UIColor.clear
+    }
+    func changeLabelColor(){
+        warningLabel.textColor = UIColor(red: 0.34, green: 0.33, blue: 0.12, alpha: 0.9)
     }
 }
 
