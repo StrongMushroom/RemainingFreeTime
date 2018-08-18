@@ -181,7 +181,7 @@ class AddingScheduleViewController: UIViewController {
                     self.navigationController?.popViewController(animated: true)
                 }
             }else{
-                NSLog("한번 실수햇으면 여기로 와")
+                NSLog("한번 실수했으면 여기로 와")
                 scheduleInfoArray[scheduleInfoArray.count-1]["name"] = scheduleNameTextField.text!
                 scheduleInfoArray[scheduleInfoArray.count-1]["monday"] = String(dayInfo.todayIsMon)
                 scheduleInfoArray[scheduleInfoArray.count-1]["tuesday"] = String(dayInfo.todayIsTue)

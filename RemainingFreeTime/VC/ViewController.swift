@@ -346,6 +346,12 @@ class ViewController: UIViewController
         timerSecondLabel.text = String(timerSecond)
         myRemainingSecond -= 1
         NSLog("전체 타이머가 계산")
+        if myRemainingSecond == 0
+        {
+            timer.invalidate()
+            viewWillAppear(true)
+            NSLog("하루가 끝나면 타이머 멈추고 뷰를 다시 시작")
+        }
     }
     //타이머가 정지해 있을때의 카운터 함수
     @objc func timerIsRunningFalseCounter()

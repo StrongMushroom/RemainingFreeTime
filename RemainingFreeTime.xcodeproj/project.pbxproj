@@ -94,6 +94,7 @@
 				6FBD268520D00A8000DB107B /* ValuableObject */,
 				6FBD268620D00CFE00DB107B /* Model */,
 				AD25239320F311F9003902AE /* VC */,
+				6FBD266F20CFF0EF00DB107B /* Main.storyboard */,
 				6FBD267220CFF0EF00DB107B /* Assets.xcassets */,
 				6FBD267420CFF0EF00DB107B /* LaunchScreen.storyboard */,
 				6FBD267720CFF0EF00DB107B /* Info.plist */,
@@ -124,7 +125,6 @@
 				6FBD266D20CFF0EF00DB107B /* ViewController.swift */,
 				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
 				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
-				6FBD266F20CFF0EF00DB107B /* Main.storyboard */,
 				6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */,
 			);
 			path = VC;
