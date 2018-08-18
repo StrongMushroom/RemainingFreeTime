@@ -124,8 +124,8 @@
 				6FBD266D20CFF0EF00DB107B /* ViewController.swift */,
 				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
 				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
-				6FBD266F20CFF0EF00DB107B /* Main.storyboard */,
 				6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */,
+				6FBD266F20CFF0EF00DB107B /* Main.storyboard */,
 			);
 			path = VC;
 			sourceTree = "<group>";
