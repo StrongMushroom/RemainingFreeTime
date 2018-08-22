@@ -191,10 +191,12 @@ class ModifyCellViewController: UIViewController {
         if scheduleNameTextField.text == ""{
             NSLog("\(String(describing: scheduleNameTextField.text))")
             NSLog("일정 이름 입력을 안했어")
+            warningLabel.text = "일정 이름을 입력해주세요"
             changeLabelColor()
         }
         else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
              NSLog("요일체크안함")
+            warningLabel.text = "요일을 선택해주세요"
             changeLabelColor()
         }else{
         dateFormatter.dateFormat = "HH:mm"
@@ -214,24 +216,31 @@ class ModifyCellViewController: UIViewController {
         scheduleInfoArray[cellNum]["finishTime"] = finishDate
         if compareTime(array: sortScheduleTime(weekday : "monday", scheduleArray : scheduleInfoArray)) == false{
             changeLabelColor()
+            warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
             NSLog("1")
         }else if compareTime(array: sortScheduleTime(weekday : "tuesday", scheduleArray : scheduleInfoArray)) == false{
             changeLabelColor()
+            warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
             NSLog("2")
         }else if compareTime(array: sortScheduleTime(weekday : "wednesday", scheduleArray : scheduleInfoArray)) == false{
             changeLabelColor()
+            warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
             NSLog("3")
         }else if compareTime(array: sortScheduleTime(weekday : "thursday", scheduleArray : scheduleInfoArray)) == false{
             changeLabelColor()
+            warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
             NSLog("4")
         }else if compareTime(array: sortScheduleTime(weekday : "friday", scheduleArray : scheduleInfoArray)) == false{
             changeLabelColor()
+            warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
             NSLog("5")
         }else if compareTime(array: sortScheduleTime(weekday : "saturday", scheduleArray : scheduleInfoArray)) == false{
             changeLabelColor()
+            warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
             NSLog("6")
         }else if compareTime(array: sortScheduleTime(weekday : "sunday", scheduleArray : scheduleInfoArray)) == false{
             changeLabelColor()
+            warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
             NSLog("7")
         }else{
             scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)

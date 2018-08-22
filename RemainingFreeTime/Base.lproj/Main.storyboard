@@ -514,9 +514,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Enter all information correctly." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQa-X6-hY9">
-                                <rect key="frame" x="60" y="659" width="294" height="21"/>
+                                <rect key="frame" x="0.0" y="659" width="414" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="294" id="BH8-Zo-XGO"/>
                                     <constraint firstAttribute="height" constant="21" id="fkV-Bv-YGh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -572,6 +571,7 @@
                             <constraint firstItem="ehJ-PJ-rYj" firstAttribute="bottom" secondItem="nQa-X6-hY9" secondAttribute="bottom" constant="56" id="uS2-Mf-qOp"/>
                             <constraint firstItem="903-sa-MjX" firstAttribute="top" secondItem="SMg-nO-RQ4" secondAttribute="bottom" constant="10" id="uhj-dt-7jd"/>
                             <constraint firstItem="cdy-Uo-9Pt" firstAttribute="leading" secondItem="ehJ-PJ-rYj" secondAttribute="leading" constant="35" id="vSC-Zv-dr9"/>
+                            <constraint firstItem="nQa-X6-hY9" firstAttribute="width" secondItem="4yq-sX-neR" secondAttribute="width" id="ypD-dg-sdR"/>
                             <constraint firstItem="qeE-FG-3rL" firstAttribute="top" secondItem="SMg-nO-RQ4" secondAttribute="bottom" constant="10" id="zwx-rr-Vl8"/>
                             <constraint firstItem="7pU-QA-KYz" firstAttribute="leading" secondItem="ehJ-PJ-rYj" secondAttribute="leading" constant="35" id="zzA-d5-OkL"/>
                         </constraints>
@@ -754,10 +754,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Enter all information correctly." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAm-2C-mnv">
-                                <rect key="frame" x="60" y="659" width="294" height="21"/>
+                                <rect key="frame" x="0.0" y="659" width="414" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="nGm-fa-dLO"/>
-                                    <constraint firstAttribute="width" constant="294" id="xpK-20-yN1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="1" green="0.33671222514333399" blue="0.12561399487856062" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -803,6 +802,11 @@
                                     <action selector="monBtn:" destination="zbe-3Y-hCG" eventType="touchUpInside" id="ZLc-R1-L0e"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KYe-cV-4an">
+                                <rect key="frame" x="28" y="189" width="372" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99386733770370483" green="0.95592457056045532" blue="0.69014829397201538" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -829,6 +833,7 @@
                             <constraint firstItem="uCs-Na-kbw" firstAttribute="centerX" secondItem="yif-Tk-egN" secondAttribute="centerX" id="e37-8C-FOR"/>
                             <constraint firstItem="uCs-Na-kbw" firstAttribute="top" secondItem="UNp-Fl-yUU" secondAttribute="bottom" constant="10" id="gIJ-55-MYs"/>
                             <constraint firstItem="FAm-2C-mnv" firstAttribute="centerX" secondItem="yif-Tk-egN" secondAttribute="centerX" id="gN3-KL-fxy"/>
+                            <constraint firstItem="FAm-2C-mnv" firstAttribute="width" secondItem="cbk-S4-IiX" secondAttribute="width" id="gxq-kA-pAn"/>
                             <constraint firstItem="JPc-pR-Kko" firstAttribute="top" secondItem="yif-Tk-egN" secondAttribute="top" multiplier="1:4" constant="126" id="h7u-O7-Obl"/>
                             <constraint firstItem="NNu-2t-qED" firstAttribute="centerX" secondItem="yif-Tk-egN" secondAttribute="centerX" id="iHD-GX-oP7"/>
                             <constraint firstItem="QmA-uy-qQ0" firstAttribute="leading" secondItem="NNu-2t-qED" secondAttribute="trailing" constant="15" id="kjG-O8-Oah"/>
