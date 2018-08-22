@@ -185,17 +185,17 @@ class ModifyCellViewController: UIViewController {
     func changeButtonBackgroundColor(button : UIButton){
         button.backgroundColor = UIColor(red: 0.91, green: 0.78, blue: 0.54, alpha: 0.9)
     }
-    //완료버
     @objc func doneTapped(sender:UIButton) {
+        view.endEditing(true)
         clearLabelColor()
         if scheduleNameTextField.text == ""{
             NSLog("\(String(describing: scheduleNameTextField.text))")
             NSLog("일정 이름 입력을 안했어")
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
         }
         else if dayInfo.todayIsMon == false && dayInfo.todayIsTue == false && dayInfo.todayIsWed == false && dayInfo.todayIsThu == false && dayInfo.todayIsFri == false && dayInfo.todayIsSat == false && dayInfo.todayIsSun == false{
              NSLog("요일체크안함")
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
         }else{
         dateFormatter.dateFormat = "HH:mm"
         
@@ -213,25 +213,25 @@ class ModifyCellViewController: UIViewController {
         scheduleInfoArray[cellNum]["startTime"] = startDate
         scheduleInfoArray[cellNum]["finishTime"] = finishDate
         if compareTime(array: sortScheduleTime(weekday : "monday", scheduleArray : scheduleInfoArray)) == false{
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
             NSLog("1")
         }else if compareTime(array: sortScheduleTime(weekday : "tuesday", scheduleArray : scheduleInfoArray)) == false{
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
             NSLog("2")
         }else if compareTime(array: sortScheduleTime(weekday : "wednesday", scheduleArray : scheduleInfoArray)) == false{
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
             NSLog("3")
         }else if compareTime(array: sortScheduleTime(weekday : "thursday", scheduleArray : scheduleInfoArray)) == false{
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
             NSLog("4")
         }else if compareTime(array: sortScheduleTime(weekday : "friday", scheduleArray : scheduleInfoArray)) == false{
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
             NSLog("5")
         }else if compareTime(array: sortScheduleTime(weekday : "saturday", scheduleArray : scheduleInfoArray)) == false{
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
             NSLog("6")
         }else if compareTime(array: sortScheduleTime(weekday : "sunday", scheduleArray : scheduleInfoArray)) == false{
-            warningLabel.textColor = UIColor.red
+            changeLabelColor()
             NSLog("7")
         }else{
             scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
@@ -364,5 +364,8 @@ class ModifyCellViewController: UIViewController {
             }
         }
         return checkBool
+    }
+    func changeLabelColor(){
+        warningLabel.textColor = UIColor(red: 0.34, green: 0.337, blue: 0.125, alpha: 0.9)
     }
 }

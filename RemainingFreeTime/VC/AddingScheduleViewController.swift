@@ -126,6 +126,7 @@ class AddingScheduleViewController: UIViewController {
     }
     //조건에 맞게 동시에 실행될 수 있는 코드는 없을까?
     @IBAction func addingScheduleIsDone(_ sender: Any) {
+        view.endEditing(true)
         clearLabelColor()
         //스케쥴 이름이나 시간의 텍스트를 입력받지 않았을 때
         if scheduleNameTextField.text == "" || startingTimeLabel.text == "" || finishingTimeLabel.text == ""{
@@ -367,7 +368,7 @@ class AddingScheduleViewController: UIViewController {
         warningLabel.textColor = UIColor.clear
     }
     func changeLabelColor(){
-        warningLabel.textColor = UIColor(red: 0.34, green: 0.33, blue: 0.12, alpha: 0.9)
+        warningLabel.textColor = UIColor(red: 0.34, green: 0.337, blue: 0.125, alpha: 0.9)
     }
 }
 
