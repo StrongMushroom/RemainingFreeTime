@@ -126,6 +126,7 @@ class AddingScheduleViewController: UIViewController {
     }
     //조건에 맞게 동시에 실행될 수 있는 코드는 없을까?
     @IBAction func addingScheduleIsDone(_ sender: Any) {
+        view.endEditing(true)
         clearLabelColor()
         //스케쥴 이름이나 시간의 텍스트를 입력받지 않았을 때
         if scheduleNameTextField.text == "" || startingTimeLabel.text == "" || finishingTimeLabel.text == ""{
@@ -158,23 +159,30 @@ class AddingScheduleViewController: UIViewController {
                 if compareTime(array: sortScheduleTime(weekday : "monday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("1")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "tuesday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("2")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "wednesday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("3")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "thursday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("4")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "friday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("5")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "saturday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("6")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "sunday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                     NSLog("7")
                 }else{
                     scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
@@ -197,24 +205,31 @@ class AddingScheduleViewController: UIViewController {
                     NSLog("월요일시간비교했더니 잘못입력했대")
                     warningLabel.textColor = UIColor.red
                     NSLog("8")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "tuesday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("9")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "wednesday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("10")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "thursday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("11")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "friday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("12")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "saturday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("13")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else if compareTime(array: sortScheduleTime(weekday : "sunday", scheduleArray : scheduleInfoArray)) == false{
                     warningLabel.textColor = UIColor.red
                     NSLog("14")
+                    warningLabel.text = "시간 정보가 올바르지 않거나 입력한 시간과 겹치는 일정이 있을 수 있습니다."
                 }else{
                     scheduleModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleInfoArray)
                     self.navigationController?.popViewController(animated: true)
@@ -367,7 +382,7 @@ class AddingScheduleViewController: UIViewController {
         warningLabel.textColor = UIColor.clear
     }
     func changeLabelColor(){
-        warningLabel.textColor = UIColor(red: 0.34, green: 0.33, blue: 0.12, alpha: 0.9)
+        warningLabel.textColor = UIColor(red: 0.34, green: 0.337, blue: 0.125, alpha: 0.9)
     }
 }
 
