@@ -19,6 +19,13 @@
 		6FBD26A220EF4A5B00DB107B /* ScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */; };
 		96BF61415033929939CF8D5D /* Pods_RemainingFreeTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F52695D01820D4C733C76D /* Pods_RemainingFreeTime.framework */; };
 		AD25239520F47BCC003902AE /* ACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25239420F47BCC003902AE /* ACollectionViewCell.swift */; };
+		F9E9C3FF213052760054A127 /* WATER.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C3FE213052760054A127 /* WATER.gif */; };
+		F9E9C4012130531F0054A127 /* catHandUp.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C4002130531F0054A127 /* catHandUp.gif */; };
+		F9E9C4032130532E0054A127 /* catHandDown.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C4022130532E0054A127 /* catHandDown.gif */; };
+		F9E9C405213053350054A127 /* WATEROUTTTTTTTTTTT.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C404213053340054A127 /* WATEROUTTTTTTTTTTT.gif */; };
+		F9E9C4072130533F0054A127 /* WATEROUT.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C4062130533F0054A127 /* WATEROUT.gif */; };
+		F9E9C409213053610054A127 /* WATERDOWN.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C408213053600054A127 /* WATERDOWN.gif */; };
+		F9E9C40B213053690054A127 /* YELLOWFISH.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C40A213053680054A127 /* YELLOWFISH.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +45,13 @@
 		6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewController.swift; sourceTree = "<group>"; };
 		975151DEC27B50FB8C5C42AC /* Pods-RemainingFreeTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemainingFreeTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-RemainingFreeTime/Pods-RemainingFreeTime.release.xcconfig"; sourceTree = "<group>"; };
 		AD25239420F47BCC003902AE /* ACollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACollectionViewCell.swift; sourceTree = "<group>"; };
+		F9E9C3FE213052760054A127 /* WATER.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WATER.gif; sourceTree = "<group>"; };
+		F9E9C4002130531F0054A127 /* catHandUp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catHandUp.gif; sourceTree = "<group>"; };
+		F9E9C4022130532E0054A127 /* catHandDown.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catHandDown.gif; sourceTree = "<group>"; };
+		F9E9C404213053340054A127 /* WATEROUTTTTTTTTTTT.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WATEROUTTTTTTTTTTT.gif; sourceTree = "<group>"; };
+		F9E9C4062130533F0054A127 /* WATEROUT.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WATEROUT.gif; sourceTree = "<group>"; };
+		F9E9C408213053600054A127 /* WATERDOWN.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WATERDOWN.gif; sourceTree = "<group>"; };
+		F9E9C40A213053680054A127 /* YELLOWFISH.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = YELLOWFISH.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +104,13 @@
 		6FBD266A20CFF0EF00DB107B /* RemainingFreeTime */ = {
 			isa = PBXGroup;
 			children = (
+				F9E9C4062130533F0054A127 /* WATEROUT.gif */,
+				F9E9C4002130531F0054A127 /* catHandUp.gif */,
+				F9E9C404213053340054A127 /* WATEROUTTTTTTTTTTT.gif */,
+				F9E9C40A213053680054A127 /* YELLOWFISH.gif */,
+				F9E9C408213053600054A127 /* WATERDOWN.gif */,
+				F9E9C4022130532E0054A127 /* catHandDown.gif */,
+				F9E9C3FE213052760054A127 /* WATER.gif */,
 				6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */,
 				6FBD268520D00A8000DB107B /* ValuableObject */,
 				6FBD268620D00CFE00DB107B /* Model */,
@@ -126,7 +147,6 @@
 				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
 				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
 				6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */,
-				6FBD266F20CFF0EF00DB107B /* Main.storyboard */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -192,8 +212,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E9C4012130531F0054A127 /* catHandUp.gif in Resources */,
+				F9E9C409213053610054A127 /* WATERDOWN.gif in Resources */,
+				F9E9C40B213053690054A127 /* YELLOWFISH.gif in Resources */,
+				F9E9C3FF213052760054A127 /* WATER.gif in Resources */,
+				F9E9C405213053350054A127 /* WATEROUTTTTTTTTTTT.gif in Resources */,
+				F9E9C4072130533F0054A127 /* WATEROUT.gif in Resources */,
 				6FBD267620CFF0EF00DB107B /* LaunchScreen.storyboard in Resources */,
 				6FBD267320CFF0EF00DB107B /* Assets.xcassets in Resources */,
+				F9E9C4032130532E0054A127 /* catHandDown.gif in Resources */,
 				6FBD267120CFF0EF00DB107B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

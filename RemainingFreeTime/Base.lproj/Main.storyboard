@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vKj-Jy-ctT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vKj-Jy-ctT">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -156,6 +156,7 @@
                         <outlet property="timerHourLabel" destination="lDR-hW-trJ" id="Z7D-jq-d5I"/>
                         <outlet property="timerMinuteLabel" destination="nVg-Uu-1YU" id="GCy-c2-EdS"/>
                         <outlet property="timerSecondLabel" destination="8kU-Z7-XgD" id="UAW-z4-ZL6"/>
+                        <outlet property="water" destination="akP-Dl-4Fq" id="BBK-c7-1y0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -524,7 +525,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 시간" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6y-rZ-Pq5">
-                                <rect key="frame" x="157.66666666666666" y="339" width="99.999999999999972" height="17"/>
+                                <rect key="frame" x="157" y="339" width="100" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="l7i-r1-Luj"/>
                                 </constraints>
@@ -533,7 +534,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="종료 시간" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-Zg-nM9">
-                                <rect key="frame" x="157.66666666666666" y="437" width="99.999999999999972" height="17"/>
+                                <rect key="frame" x="157" y="437" width="100" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2wU-Xf-JLz"/>
                                 </constraints>
@@ -618,7 +619,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPc-pR-Kko">
-                                <rect key="frame" x="35.333333333333343" y="131" width="117" height="21"/>
+                                <rect key="frame" x="35" y="131" width="117" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="490-zL-MJQ"/>
                                     <constraint firstAttribute="height" constant="21" id="mnI-wu-bn1"/>
@@ -638,7 +639,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akl-Hj-dJ0">
-                                <rect key="frame" x="35.333333333333343" y="231" width="117" height="21"/>
+                                <rect key="frame" x="35" y="231" width="117" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="mCl-pL-f51"/>
                                     <constraint firstAttribute="width" constant="117" id="oEZ-jl-Jck"/>
@@ -648,7 +649,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-Fl-yUU">
-                                <rect key="frame" x="35.333333333333343" y="342" width="117" height="21"/>
+                                <rect key="frame" x="35" y="342" width="117" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="2Ro-M8-Svf"/>
                                     <constraint firstAttribute="height" constant="21" id="eeX-iP-ZXt"/>
@@ -774,7 +775,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UC7-jD-lVT">
-                                <rect key="frame" x="157.33333333333334" y="471" width="100.00000000000003" height="17"/>
+                                <rect key="frame" x="157" y="471" width="100" height="17"/>
                                 <color key="backgroundColor" red="0.99263232946395874" green="0.95313006639480591" blue="0.69014638662338257" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="UBF-pu-YnR"/>
