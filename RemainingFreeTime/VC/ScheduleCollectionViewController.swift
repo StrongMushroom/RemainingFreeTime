@@ -31,7 +31,6 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         let scheduleCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
         let cellTextColor = UIColor.black
         let grayColor = UIColor.lightGray
-        
         if searchActive {
             scheduleCell.scheduleNameLabel.text = scheduleFilteredArray[indexPath.row]["name"]
             scheduleCell.scheduleTimeLabel.text = scheduleFilteredArray[indexPath.row]["startTime"]! + "~" + scheduleFilteredArray[indexPath.row]["finishTime"]!
@@ -112,7 +111,7 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         }
         return scheduleCell
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let modifyCellVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyCellViewController") as! ModifyCellViewController
@@ -144,10 +143,24 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         self.navigationController?.pushViewController(modifyCellVC, animated: true)
     }
     
+    // 검색한 상태에서 삭제하기
     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-        scheduleArray.remove(at: indexPath.row)
-//        scheduleNameArray.remove(at: indexPath.row)
+        if searchActive {
+            let targetScheduleName:String = scheduleFilteredArray[indexPath.row]["name"]!
+            for i in 0..<scheduleArray.count {
+                if scheduleArray[i]["name"] == targetScheduleName {
+                    scheduleArray.remove(at: i)
+                    break
+                }
+            }
+            scheduleFilteredArray.remove(at: indexPath.row)
+        }else {
+            scheduleArray.remove(at: indexPath.row)
+        }
+        
         scheduleInfoModel.setScheduleDataIntoUserDefaults(scheduleArray: scheduleArray)
+        NSLog("\(scheduleFilteredArray)")
+        NSLog("\(scheduleArray)")
         scheduleCollectonView.reloadData()
     }
     
