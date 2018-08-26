@@ -37,6 +37,7 @@ class ACollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate{
         self.backgroundColor = UIColor.white
         //아니 라벨 스토리보드에 추가해서 하면 왜 안되는거지
         cellLabel = UILabel()
+        cellLabel.backgroundColor = UIColor(red: 0.34, green: 0.337, blue: 0.125, alpha: 0.9)
         cellLabel.textColor = UIColor.white
         cellLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(cellLabel)

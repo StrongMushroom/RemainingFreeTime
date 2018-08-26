@@ -31,7 +31,6 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         let scheduleCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
         let cellTextColor = UIColor.black
         let grayColor = UIColor.lightGray
-        
         if searchActive {
             scheduleCell.scheduleNameLabel.text = scheduleFilteredArray[indexPath.row]["name"]
             scheduleCell.scheduleTimeLabel.text = scheduleFilteredArray[indexPath.row]["startTime"]! + "~" + scheduleFilteredArray[indexPath.row]["finishTime"]!
