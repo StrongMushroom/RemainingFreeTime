@@ -511,13 +511,8 @@
                                 <color key="textColor" red="0.3411764705882353" green="0.33725490196078434" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 시간" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6y-rZ-Pq5">
-                                <rect key="frame" x="157" y="339" width="100" height="17"/>
-=======
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 시간" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6y-rZ-Pq5">
                                 <rect key="frame" x="157.66666666666666" y="338" width="99.999999999999972" height="17"/>
->>>>>>> ef3683471baf0b6a1c835cea8b90531bb324e482
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="l7i-r1-Luj"/>
                                 </constraints>
@@ -525,13 +520,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-<<<<<<< HEAD
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="종료 시간" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-Zg-nM9">
-                                <rect key="frame" x="157" y="437" width="100" height="17"/>
-=======
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="종료 시간" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-Zg-nM9">
                                 <rect key="frame" x="157.66666666666666" y="436" width="99.999999999999972" height="17"/>
->>>>>>> ef3683471baf0b6a1c835cea8b90531bb324e482
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2wU-Xf-JLz"/>
                                 </constraints>
@@ -782,13 +772,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-<<<<<<< HEAD
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UC7-jD-lVT">
-                                <rect key="frame" x="157" y="471" width="100" height="17"/>
-=======
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UC7-jD-lVT">
                                 <rect key="frame" x="157.33333333333334" y="471" width="100.00000000000003" height="17"/>
->>>>>>> ef3683471baf0b6a1c835cea8b90531bb324e482
                                 <color key="backgroundColor" red="0.99263232946395874" green="0.95313006639480591" blue="0.69014638662338257" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="UBF-pu-YnR"/>
