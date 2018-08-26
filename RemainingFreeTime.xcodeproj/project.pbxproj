@@ -19,6 +19,7 @@
 		6FBD26A220EF4A5B00DB107B /* ScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */; };
 		96BF61415033929939CF8D5D /* Pods_RemainingFreeTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F52695D01820D4C733C76D /* Pods_RemainingFreeTime.framework */; };
 		AD25239520F47BCC003902AE /* ACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25239420F47BCC003902AE /* ACollectionViewCell.swift */; };
+		AD2523CC2133097F003902AE /* A펜글씨[1].ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD2523CB2133097E003902AE /* A펜글씨[1].ttf */; };
 		F9E9C3FF213052760054A127 /* WATER.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C3FE213052760054A127 /* WATER.gif */; };
 		F9E9C4012130531F0054A127 /* catHandUp.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C4002130531F0054A127 /* catHandUp.gif */; };
 		F9E9C4032130532E0054A127 /* catHandDown.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9E9C4022130532E0054A127 /* catHandDown.gif */; };
@@ -45,6 +46,7 @@
 		6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewController.swift; sourceTree = "<group>"; };
 		975151DEC27B50FB8C5C42AC /* Pods-RemainingFreeTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemainingFreeTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-RemainingFreeTime/Pods-RemainingFreeTime.release.xcconfig"; sourceTree = "<group>"; };
 		AD25239420F47BCC003902AE /* ACollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACollectionViewCell.swift; sourceTree = "<group>"; };
+		AD2523CB2133097E003902AE /* A펜글씨[1].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A펜글씨[1].ttf"; sourceTree = "<group>"; };
 		F9E9C3FE213052760054A127 /* WATER.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WATER.gif; sourceTree = "<group>"; };
 		F9E9C4002130531F0054A127 /* catHandUp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catHandUp.gif; sourceTree = "<group>"; };
 		F9E9C4022130532E0054A127 /* catHandDown.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catHandDown.gif; sourceTree = "<group>"; };
@@ -104,17 +106,12 @@
 		6FBD266A20CFF0EF00DB107B /* RemainingFreeTime */ = {
 			isa = PBXGroup;
 			children = (
-				F9E9C4062130533F0054A127 /* WATEROUT.gif */,
-				F9E9C4002130531F0054A127 /* catHandUp.gif */,
-				F9E9C404213053340054A127 /* WATEROUTTTTTTTTTTT.gif */,
-				F9E9C40A213053680054A127 /* YELLOWFISH.gif */,
-				F9E9C408213053600054A127 /* WATERDOWN.gif */,
-				F9E9C4022130532E0054A127 /* catHandDown.gif */,
-				F9E9C3FE213052760054A127 /* WATER.gif */,
 				6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */,
 				6FBD268520D00A8000DB107B /* ValuableObject */,
 				6FBD268620D00CFE00DB107B /* Model */,
 				AD25239320F311F9003902AE /* VC */,
+				AD2523CA2133092E003902AE /* GIF */,
+				AD2523CD213309EB003902AE /* Fonts */,
 				6FBD266F20CFF0EF00DB107B /* Main.storyboard */,
 				6FBD267220CFF0EF00DB107B /* Assets.xcassets */,
 				6FBD267420CFF0EF00DB107B /* LaunchScreen.storyboard */,
@@ -149,6 +146,28 @@
 				6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		AD2523CA2133092E003902AE /* GIF */ = {
+			isa = PBXGroup;
+			children = (
+				F9E9C4062130533F0054A127 /* WATEROUT.gif */,
+				F9E9C4002130531F0054A127 /* catHandUp.gif */,
+				F9E9C404213053340054A127 /* WATEROUTTTTTTTTTTT.gif */,
+				F9E9C40A213053680054A127 /* YELLOWFISH.gif */,
+				F9E9C408213053600054A127 /* WATERDOWN.gif */,
+				F9E9C4022130532E0054A127 /* catHandDown.gif */,
+				F9E9C3FE213052760054A127 /* WATER.gif */,
+			);
+			path = GIF;
+			sourceTree = "<group>";
+		};
+		AD2523CD213309EB003902AE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AD2523CB2133097E003902AE /* A펜글씨[1].ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +236,7 @@
 				F9E9C40B213053690054A127 /* YELLOWFISH.gif in Resources */,
 				F9E9C3FF213052760054A127 /* WATER.gif in Resources */,
 				F9E9C405213053350054A127 /* WATEROUTTTTTTTTTTT.gif in Resources */,
+				AD2523CC2133097F003902AE /* A펜글씨[1].ttf in Resources */,
 				F9E9C4072130533F0054A127 /* WATEROUT.gif in Resources */,
 				6FBD267620CFF0EF00DB107B /* LaunchScreen.storyboard in Resources */,
 				6FBD267320CFF0EF00DB107B /* Assets.xcassets in Resources */,
