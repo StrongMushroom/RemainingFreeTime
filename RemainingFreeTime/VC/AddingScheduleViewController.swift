@@ -129,9 +129,11 @@ class AddingScheduleViewController: UIViewController {
         view.endEditing(true)
         clearLabelColor()
         //스케쥴 이름이나 시간의 텍스트를 입력받지 않았을 때
-        if scheduleNameTextField.text == "" || startingTimeLabel.text == "" || finishingTimeLabel.text == ""{
+        NSLog("시작 시간 라벨 : \(startingTimeLabel.text)")
+        if scheduleNameTextField.text == ""{
             changeLabelColor()
             warningLabel.text = "일정 이름을 입력해주세요"
+            NSLog("\(scheduleNameTextField.text)")
             NSLog("일정이름없음")
         }
             //요일 선택을 하나도 하지 않았을 때
@@ -139,8 +141,11 @@ class AddingScheduleViewController: UIViewController {
             changeLabelColor()
             warningLabel.text = "요일을 선택해주세요"
             NSLog("일정요일선택안함")
-        }
-        else{
+        }else if startingTimeLabel.text == "" || finishingTimeLabel.text == ""{
+            changeLabelColor()
+            warningLabel.text = "시간을 선택해주세요"
+            NSLog("시간선택안함")
+        }else{
             dateFormatter.dateFormat = "HH:mm"
             let startDate = dateFormatter.string(from: (startingDatePicker?.date)!)
             let finishDate = dateFormatter.string(from: (finishingDatePicker?.date)!)

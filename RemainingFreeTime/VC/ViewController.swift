@@ -8,7 +8,6 @@
 
 import Gifu
 import UIKit
-import Foundation
 
 
 extension UIImageView: GIFAnimatable {
@@ -54,6 +53,7 @@ class ViewController: UIViewController
     @IBOutlet weak var H: UILabel!
     @IBOutlet weak var M: UILabel!
     @IBOutlet weak var S: UILabel!
+    @IBOutlet weak var waterGif: GIFImageView!
     var timer = Timer()
     var otherTimer = Timer()
     var calendar = Calendar.current
@@ -69,14 +69,10 @@ class ViewController: UIViewController
     override func viewWillAppear(_ animated: Bool)
     {
         NSLog("뷰 어피어 시작")
-        let imageView = GIFImageView(frame: CGRect(x: 0, y: 0, width: 414, height: 736))
-        imageView.animate(withGIFNamed: "WATER") {
-            print("It's animating!")
-        }
+        waterGif.animate(withGIFNamed: "WATER")
         let date = Date()
         let weekDay = calendar.component(.weekday, from: date)
         scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
-        
         switch weekDay {
         case 2:
             for a in scheduleArray
