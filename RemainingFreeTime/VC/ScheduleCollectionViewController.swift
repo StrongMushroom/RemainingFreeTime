@@ -27,10 +27,12 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
         scheduleCollectonView.reloadData()
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let scheduleCell = scheduleCollectonView.dequeueReusableCell(withReuseIdentifier: "aCell", for: indexPath) as! ACollectionViewCell
         let cellTextColor = UIColor.black
         let grayColor = UIColor.lightGray
+        
         if searchActive {
             scheduleCell.scheduleNameLabel.text = scheduleFilteredArray[indexPath.row]["name"]
             scheduleCell.scheduleTimeLabel.text = scheduleFilteredArray[indexPath.row]["startTime"]! + "~" + scheduleFilteredArray[indexPath.row]["finishTime"]!
@@ -112,7 +114,6 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         return scheduleCell
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let modifyCellVC = self.storyboard?.instantiateViewController(withIdentifier: "ModifyCellViewController") as! ModifyCellViewController
         if searchActive {
@@ -147,9 +148,9 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         if searchActive {
             let targetScheduleName:String = scheduleFilteredArray[indexPath.row]["name"]!
-            for i in 0..<scheduleArray.count {
-                if scheduleArray[i]["name"] == targetScheduleName {
-                    scheduleArray.remove(at: i)
+            for order in 0..<scheduleArray.count {
+                if scheduleArray[order]["name"] == targetScheduleName {
+                    scheduleArray.remove(at: order)
                     break
                 }
             }
