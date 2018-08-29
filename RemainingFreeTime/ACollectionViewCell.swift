@@ -37,7 +37,7 @@ class ACollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate{
         self.backgroundColor = UIColor.white
         //아니 라벨 스토리보드에 추가해서 하면 왜 안되는거지
         cellLabel = UILabel()
-        cellLabel.backgroundColor = UIColor(red: 0.34, green: 0.337, blue: 0.125, alpha: 0.9)
+        //cellLabel.backgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 0.9)
         cellLabel.textColor = UIColor.white
         cellLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(cellLabel)
@@ -78,14 +78,22 @@ class ACollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate{
         if pan.state == UIGestureRecognizerState.began{
         }else if pan.state == UIGestureRecognizerState.changed{
             //이해안감 반대로 해야 되는게 정상아닌가
-            if p.x > -width*0.15{
-                NSLog("이 안으로 들어오나요?")
+            if  p.x > -width*0.15 && p.x < 0{
+                NSLog("0.15보다 많이 움직임!")
                 self.setNeedsLayout()
+            }else if p.x > 0{
+                if self.contentView.frame == CGRect(x: 0,y: 0, width: width, height: height){
+                    self.contentView.frame = CGRect(x: 0,y: 0, width: width, height: height)
+                }else{
+                    self.setNeedsLayout()
+                }
+                NSLog("min전!!")
             }else{
-                print("여기여기여깅!!!!!!!!")
+                print("고정")
                 self.contentView.frame = CGRect(x: -width*0.15,y: 0, width: width, height: height)
             }
         }else{
+            print("ㅎㅎㅎㅎㅎ")
             if p.x > -width*0.15{
                 UIView.animate(withDuration: 0.2, animations: {
                     self.setNeedsLayout()

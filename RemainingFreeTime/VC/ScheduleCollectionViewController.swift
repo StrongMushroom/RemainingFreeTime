@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Gifu
 
 class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate{
     @IBOutlet weak var scheduleCollectonView: UICollectionView!
@@ -21,11 +22,17 @@ class ScheduleCollectionViewController: UIViewController, UICollectionViewDataSo
         scheduleCollectonView.dataSource = self
         scheduleCollectonView.delegate = self
         scheduleSearchBar.delegate = self
-
+        scheduleCollectonView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1)
     }
     override func viewWillAppear(_ animated: Bool){
         scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
         scheduleCollectonView.reloadData()
+        
+        let imageView = GIFImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        self.view.addSubview(imageView)
+        imageView.animate(withGIFNamed: "waterGif") {
+            print("It's animating!")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
