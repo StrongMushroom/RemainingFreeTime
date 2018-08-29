@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F739E49210B5D6D00F77D45 /* ModifyCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */; };
+		6FA63A6F21367E8100A66B0E /* waterGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6FA63A6E21367E8100A66B0E /* waterGif.gif */; };
 		6FBD266C20CFF0EF00DB107B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */; };
 		6FBD266E20CFF0EF00DB107B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD266D20CFF0EF00DB107B /* ViewController.swift */; };
 		6FBD267120CFF0EF00DB107B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD266F20CFF0EF00DB107B /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		43834701B5E7282164001EEF /* Pods-RemainingFreeTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemainingFreeTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RemainingFreeTime/Pods-RemainingFreeTime.debug.xcconfig"; sourceTree = "<group>"; };
 		46F52695D01820D4C733C76D /* Pods_RemainingFreeTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RemainingFreeTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyCellViewController.swift; sourceTree = "<group>"; };
+		6FA63A6E21367E8100A66B0E /* waterGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = waterGif.gif; sourceTree = "<group>"; };
 		6FBD266820CFF0EF00DB107B /* RemainingFreeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemainingFreeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FBD266D20CFF0EF00DB107B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,9 @@
 		AD25239320F311F9003902AE /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				F9E9C3FE213052760054A127 /* WATER.gif */,
+				6FA63A6E21367E8100A66B0E /* waterGif.gif */,
+				F9E9C4002130531F0054A127 /* catHandUp.gif */,
 				6FBD266D20CFF0EF00DB107B /* ViewController.swift */,
 				6FBD26A120EF4A5B00DB107B /* ScheduleCollectionViewController.swift */,
 				6FBD268120D0092400DB107B /* AddingScheduleViewController.swift */,
@@ -152,12 +157,10 @@
 			isa = PBXGroup;
 			children = (
 				F9E9C4062130533F0054A127 /* WATEROUT.gif */,
-				F9E9C4002130531F0054A127 /* catHandUp.gif */,
 				F9E9C404213053340054A127 /* WATEROUTTTTTTTTTTT.gif */,
 				F9E9C40A213053680054A127 /* YELLOWFISH.gif */,
 				F9E9C408213053600054A127 /* WATERDOWN.gif */,
 				F9E9C4022130532E0054A127 /* catHandDown.gif */,
-				F9E9C3FE213052760054A127 /* WATER.gif */,
 			);
 			path = GIF;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				F9E9C4072130533F0054A127 /* WATEROUT.gif in Resources */,
 				6FBD267620CFF0EF00DB107B /* LaunchScreen.storyboard in Resources */,
 				6FBD267320CFF0EF00DB107B /* Assets.xcassets in Resources */,
+				6FA63A6F21367E8100A66B0E /* waterGif.gif in Resources */,
 				F9E9C4032130532E0054A127 /* catHandDown.gif in Resources */,
 				6FBD267120CFF0EF00DB107B /* Main.storyboard in Resources */,
 			);
@@ -437,7 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NN8H35Y5SU;
+				DEVELOPMENT_TEAM = M3EB59KQH2;
 				INFOPLIST_FILE = RemainingFreeTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.victory.RemainingFreeTime;
@@ -453,7 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NN8H35Y5SU;
+				DEVELOPMENT_TEAM = M3EB59KQH2;
 				INFOPLIST_FILE = RemainingFreeTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.victory.RemainingFreeTime;
