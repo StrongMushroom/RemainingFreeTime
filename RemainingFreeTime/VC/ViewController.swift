@@ -6,36 +6,8 @@
 //  Copyright © 2018년 victory. All rights reserved.
 //
 
-import Gifu
 import UIKit
-
-
-extension UIImageView: GIFAnimatable {
-    private struct AssociatedKeys {
-        static var AnimatorKey = "gifu.animator.key"
-    }
-    
-    override open func display(_ layer: CALayer) {
-        updateImageIfNeeded()
-    }
-    
-    public var animator: Animator? {
-        get {
-            guard let animator = objc_getAssociatedObject(self, &AssociatedKeys.AnimatorKey) as? Animator else {
-                let animator = Animator(withDelegate: self)
-                self.animator = animator
-                return animator
-            }
-            
-            return animator
-        }
-        
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.AnimatorKey, newValue as Animator?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-}
-
+import Gifu
 
 class ViewController: UIViewController
 {
@@ -53,7 +25,8 @@ class ViewController: UIViewController
     @IBOutlet weak var H: UILabel!
     @IBOutlet weak var M: UILabel!
     @IBOutlet weak var S: UILabel!
-    @IBOutlet weak var waterGif: GIFImageView!
+    var gifImageView = GIFImageView()
+    
     var timer = Timer()
     var otherTimer = Timer()
     var calendar = Calendar.current
@@ -62,14 +35,17 @@ class ViewController: UIViewController
     var scheduleStartTimeArray : [Int] = []
     var scheduleFinishTimeArray : [Int] = []
     var scheduleNameDictonary = Dictionary<Int,String>()
-    @IBOutlet weak var water: UIImageView!
-    
-
     
     override func viewWillAppear(_ animated: Bool)
     {
         NSLog("뷰 어피어 시작")
-        waterGif.animate(withGIFNamed: "WATER")
+        
+        let imageView = GIFImageView(frame: self.view.frame)
+        imageView.animate(withGIFNamed: "waterGif") {
+            print("It's animating!")
+        }
+        self.view.addSubview(imageView)
+        
         let date = Date()
         let weekDay = calendar.component(.weekday, from: date)
         scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
