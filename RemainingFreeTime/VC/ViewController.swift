@@ -25,7 +25,6 @@ class ViewController: UIViewController
     @IBOutlet weak var H: UILabel!
     @IBOutlet weak var M: UILabel!
     @IBOutlet weak var S: UILabel!
-    var gifImageView = GIFImageView()
     
     var timer = Timer()
     var otherTimer = Timer()
@@ -35,18 +34,32 @@ class ViewController: UIViewController
     var scheduleStartTimeArray : [Int] = []
     var scheduleFinishTimeArray : [Int] = []
     var scheduleNameDictonary = Dictionary<Int,String>()
-    
+    let date = Date()
+    override func viewDidLoad() {
+        let frame = self.view.frame
+        let catImageView = GIFImageView(frame: frame)
+        catImageView.animate(withGIFNamed: "catHandUp")
+        self.view.addSubview(catImageView)
+        let waterImageView = GIFImageView(frame: frame)
+        waterImageView.alpha = 0.7
+        waterImageView.animate(withGIFNamed: "waterGif")
+        self.view.addSubview(waterImageView)
+        let yellowFishImageView = GIFImageView(frame: frame)
+        yellowFishImageView.alpha = 0.8
+        yellowFishImageView.animate(withGIFNamed: "yellowFish")
+        self.view.addSubview(yellowFishImageView)
+        let pinkFishImageView = GIFImageView(frame: CGRect(x: -20, y: -80, width: self.view.frame.width, height: self.view.frame.height))
+        pinkFishImageView.alpha = 0.8
+        pinkFishImageView.animate(withGIFNamed: "pinkFish")
+        self.view.addSubview(pinkFishImageView)
+        let blueFishImageView = GIFImageView(frame: CGRect(x: 20, y: -40, width: self.view.frame.width, height: self.view.frame.height))
+        blueFishImageView.alpha = 0.8
+        blueFishImageView.animate(withGIFNamed: "blueFish")
+        self.view.addSubview(blueFishImageView)
+    }
     override func viewWillAppear(_ animated: Bool)
     {
         NSLog("뷰 어피어 시작")
-        
-        let imageView = GIFImageView(frame: self.view.frame)
-        imageView.animate(withGIFNamed: "waterGif") {
-            print("It's animating!")
-        }
-        self.view.addSubview(imageView)
-        
-        let date = Date()
         let weekDay = calendar.component(.weekday, from: date)
         scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
         switch weekDay {
