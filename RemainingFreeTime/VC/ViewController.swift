@@ -28,6 +28,7 @@ class ViewController: UIViewController
     
     var timer = Timer()
     var otherTimer = Timer()
+    @objc var gifTimer = Timer()
     var calendar = Calendar.current
     var scheduleInfoModel : ScheduleInfoModel = ScheduleInfoModel()
     var scheduleArray : Array<[String:String]> = []
@@ -35,22 +36,27 @@ class ViewController: UIViewController
     var scheduleFinishTimeArray : [Int] = []
     var scheduleNameDictonary = Dictionary<Int,String>()
     let date = Date()
+    var catImageView = GIFImageView()
+    var waterImageView = GIFImageView()
+    var pinkFishImageView = GIFImageView()
     override func viewDidLoad() {
         let frame = self.view.frame
-        let catImageView = GIFImageView(frame: frame)
+        catImageView = GIFImageView(frame: frame)
         catImageView.animate(withGIFNamed: "catHandUp")
         self.view.addSubview(catImageView)
-        let waterImageView = GIFImageView(frame: frame)
+        waterImageView = GIFImageView(frame: frame)
         waterImageView.alpha = 0.7
         waterImageView.animate(withGIFNamed: "WATER")
         self.view.addSubview(waterImageView)
-        let pinkFishImageView = GIFImageView(frame: frame)
+        pinkFishImageView = GIFImageView(frame: frame)
         pinkFishImageView.alpha = 0.8
         pinkFishImageView.animate(withGIFNamed: "pinkFish")
         self.view.addSubview(pinkFishImageView)
     }
     override func viewWillAppear(_ animated: Bool)
     {
+        gifTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getter: gifTimer), userInfo: nil, repeats: false)
+        
         NSLog("뷰 어피어 시작")
         let weekDay = calendar.component(.weekday, from: date)
         scheduleArray = scheduleInfoModel.setScheduleDatafromUserDefaults()
@@ -434,6 +440,12 @@ class ViewController: UIViewController
             viewWillAppear(true)
             NSLog("일정이 끝나면 모든 타이머 멈추고 뷰를 다시 시작")
         }
+    }
+    @objc func gifStop()
+    {
+        catImageView.stopAnimating()
+        pinkFishImageView.stopAnimating()
+        pinkFishImageView.isHidden = true
     }
     override func viewWillDisappear(_ animated: Bool)
     {
