@@ -44,18 +44,10 @@ class ViewController: UIViewController
         waterImageView.alpha = 0.7
         waterImageView.animate(withGIFNamed: "WATER")
         self.view.addSubview(waterImageView)
-        let yellowFishImageView = GIFImageView(frame: frame)
-        yellowFishImageView.alpha = 0.8
-        yellowFishImageView.animate(withGIFNamed: "yellowFish")
-        self.view.addSubview(yellowFishImageView)
-        let pinkFishImageView = GIFImageView(frame: CGRect(x: -20, y: -80, width: self.view.frame.width, height: self.view.frame.height))
+        let pinkFishImageView = GIFImageView(frame: frame)
         pinkFishImageView.alpha = 0.8
         pinkFishImageView.animate(withGIFNamed: "pinkFish")
         self.view.addSubview(pinkFishImageView)
-        let blueFishImageView = GIFImageView(frame: CGRect(x: 20, y: -40, width: self.view.frame.width, height: self.view.frame.height))
-        blueFishImageView.alpha = 0.8
-        blueFishImageView.animate(withGIFNamed: "blueFish")
-        self.view.addSubview(blueFishImageView)
     }
     override func viewWillAppear(_ animated: Bool)
     {
