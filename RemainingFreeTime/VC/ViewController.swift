@@ -42,7 +42,7 @@ class ViewController: UIViewController
         self.view.addSubview(catImageView)
         let waterImageView = GIFImageView(frame: frame)
         waterImageView.alpha = 0.7
-        waterImageView.animate(withGIFNamed: "waterGif")
+        waterImageView.animate(withGIFNamed: "WATER")
         self.view.addSubview(waterImageView)
         let yellowFishImageView = GIFImageView(frame: frame)
         yellowFishImageView.alpha = 0.8

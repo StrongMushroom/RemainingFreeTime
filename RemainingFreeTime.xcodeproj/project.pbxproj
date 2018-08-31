@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6F739E49210B5D6D00F77D45 /* ModifyCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */; };
-		6FB6BA9021368D2D00C41F07 /* waterGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6FB6BA8F21368D2D00C41F07 /* waterGif.gif */; };
 		6FB6BA922136995F00C41F07 /* pinkFish.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6FB6BA912136995F00C41F07 /* pinkFish.gif */; };
 		6FB6BA942136996900C41F07 /* blueFish.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6FB6BA932136996900C41F07 /* blueFish.gif */; };
 		6FBD266C20CFF0EF00DB107B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD266B20CFF0EF00DB107B /* AppDelegate.swift */; };
@@ -36,7 +35,6 @@
 		43834701B5E7282164001EEF /* Pods-RemainingFreeTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemainingFreeTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RemainingFreeTime/Pods-RemainingFreeTime.debug.xcconfig"; sourceTree = "<group>"; };
 		46F52695D01820D4C733C76D /* Pods_RemainingFreeTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RemainingFreeTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F739E48210B5D6D00F77D45 /* ModifyCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyCellViewController.swift; sourceTree = "<group>"; };
-		6FB6BA8F21368D2D00C41F07 /* waterGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = waterGif.gif; path = ../../../../../Desktop/waterGif.gif; sourceTree = "<group>"; };
 		6FB6BA912136995F00C41F07 /* pinkFish.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = pinkFish.gif; path = ../../../../../Desktop/pinkFish.gif; sourceTree = "<group>"; };
 		6FB6BA932136996900C41F07 /* blueFish.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = blueFish.gif; path = ../../../../../Desktop/blueFish.gif; sourceTree = "<group>"; };
 		6FBD266820CFF0EF00DB107B /* RemainingFreeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemainingFreeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +51,8 @@
 		975151DEC27B50FB8C5C42AC /* Pods-RemainingFreeTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemainingFreeTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-RemainingFreeTime/Pods-RemainingFreeTime.release.xcconfig"; sourceTree = "<group>"; };
 		AD25239420F47BCC003902AE /* ACollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACollectionViewCell.swift; sourceTree = "<group>"; };
 		AD2523CB2133097E003902AE /* A펜글씨[1].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A펜글씨[1].ttf"; sourceTree = "<group>"; };
+		AD2523D121392A43003902AE /* blueFish.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = blueFish.gif; sourceTree = "<group>"; };
+		AD2523D221392A4A003902AE /* pinkFish.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pinkFish.gif; sourceTree = "<group>"; };
 		F9E9C3FE213052760054A127 /* WATER.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WATER.gif; sourceTree = "<group>"; };
 		F9E9C4002130531F0054A127 /* catHandUp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catHandUp.gif; sourceTree = "<group>"; };
 		F9E9C4022130532E0054A127 /* catHandDown.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catHandDown.gif; sourceTree = "<group>"; };
@@ -146,9 +146,6 @@
 		AD25239320F311F9003902AE /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				F9E9C3FE213052760054A127 /* WATER.gif */,
-				6FB6BA8F21368D2D00C41F07 /* waterGif.gif */,
-				F9E9C40A213053680054A127 /* yellowFish.gif */,
 				6FB6BA932136996900C41F07 /* blueFish.gif */,
 				6FB6BA912136995F00C41F07 /* pinkFish.gif */,
 				F9E9C4002130531F0054A127 /* catHandUp.gif */,
@@ -167,6 +164,10 @@
 				F9E9C404213053340054A127 /* WATEROUTTTTTTTTTTT.gif */,
 				F9E9C408213053600054A127 /* WATERDOWN.gif */,
 				F9E9C4022130532E0054A127 /* catHandDown.gif */,
+				F9E9C3FE213052760054A127 /* WATER.gif */,
+				F9E9C40A213053680054A127 /* yellowFish.gif */,
+				AD2523D121392A43003902AE /* blueFish.gif */,
+				AD2523D221392A4A003902AE /* pinkFish.gif */,
 			);
 			path = GIF;
 			sourceTree = "<group>";
@@ -251,7 +252,6 @@
 				6FB6BA942136996900C41F07 /* blueFish.gif in Resources */,
 				6FB6BA922136995F00C41F07 /* pinkFish.gif in Resources */,
 				6FBD267320CFF0EF00DB107B /* Assets.xcassets in Resources */,
-				6FB6BA9021368D2D00C41F07 /* waterGif.gif in Resources */,
 				F9E9C4032130532E0054A127 /* catHandDown.gif in Resources */,
 				6FBD267120CFF0EF00DB107B /* Main.storyboard in Resources */,
 			);

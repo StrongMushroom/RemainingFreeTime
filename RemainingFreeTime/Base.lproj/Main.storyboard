@@ -603,11 +603,7 @@
                                     <fragment content="이름">
                                         <attributes>
                                             <color key="NSColor" red="0.76969784498214722" green="0.39410823583602905" blue="0.23916161060333252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-<<<<<<< HEAD
                                             <font key="NSFont" size="16" name="KoreanPGS-B"/>
-=======
-                                            <font key="NSFont" size="15" name="JCHEadA"/>
->>>>>>> 56caa874926de09fb59aea01cfeef22ddb0c1d30
                                         </attributes>
                                     </fragment>
                                 </attributedString>
